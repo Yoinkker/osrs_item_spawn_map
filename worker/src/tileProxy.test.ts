@@ -36,8 +36,14 @@ describe("resolveUpstreamUrl", () => {
     expect(resolveUpstreamUrl("tiles/0_evilversion/1/0_24_26.png")).toBeNull();
   });
 
+  it("supports instance map ids in the 10000 range", () => {
+    expect(resolveUpstreamUrl("tiles/10001_2026-05-01_a/3/0_87_143.png")).toBe(
+      "https://maps.runescape.wiki/osrs/versions/2026-05-01_a/tiles/rendered/10001/3/0_87_143.png",
+    );
+  });
+
   it("rejects mapIds outside the allowed range", () => {
-    expect(resolveUpstreamUrl("tiles/9999_2026-05-01_a/1/0_24_26.png")).toBeNull();
+    expect(resolveUpstreamUrl("tiles/20001_2026-05-01_a/1/0_24_26.png")).toBeNull();
     expect(resolveUpstreamUrl("tiles/-2_2026-05-01_a/1/0_24_26.png")).toBeNull();
   });
 

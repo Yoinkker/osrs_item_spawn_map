@@ -24,7 +24,7 @@ export function generateVersionCandidates(now: Date = new Date()): string[] {
 
 export const TILE_VERSION_RE = /^\d{4}-\d{2}-\d{2}_[a-z]$/;
 export const TILE_MAP_ID_MIN = -1;
-export const TILE_MAP_ID_MAX = 99;
+export const TILE_MAP_ID_MAX = 20000;
 
 export function isValidTileVersion(version: string): boolean {
   return TILE_VERSION_RE.test(version);
