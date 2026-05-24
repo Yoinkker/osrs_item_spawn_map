@@ -12786,17 +12786,11 @@
     "image_url": "/icons/Grey_toy_horsey.png",
     "spawns": [
       {
-        "location": "Kebos Lowlands - Mary and Gordon's house (level 1)",
-        "members": "Yes",
+        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "members": "?",
         "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 1243,
-            "y": 3678,
-            "qty": 1
-          }
-        ]
+        "plane": 0,
+        "coords": []
       }
     ]
   },
@@ -19218,7 +19212,7 @@
           },
           {
             "x": 3173,
-            "y": 3540,
+            "y": 2540,
             "qty": 1
           },
           {
