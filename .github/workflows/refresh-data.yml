@@ -1,0 +1,32 @@
+name: Refresh spawn data
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: uv python install 3.11
+      - run: uv sync
+      - name: Run scraper
+        run: |
+          uv run python -m osrs_spawn_scraper \
+            --output data/spawn_items.json \
+            --cache data/cache.json
+      - name: Open PR if data changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: 'chore(data): refresh spawn data'
+          title: 'chore(data): refresh spawn data'
+          body: 'Automated weekly refresh of `data/spawn_items.json`.'
+          branch: refresh-data
+          add-paths: |
+            data/spawn_items.json

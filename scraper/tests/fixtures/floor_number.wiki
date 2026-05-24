@@ -1,0 +1,1 @@
+{{ItemSpawnLine|location=Varrock Castle {{FloorNumber|uk=2}}|members=No|mapID=0|plane=2|3210,3490}}

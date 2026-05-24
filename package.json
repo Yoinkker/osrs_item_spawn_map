@@ -1,0 +1,24 @@
+{
+  "name": "osrs-spawn-map",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --names worker,frontend -c cyan,green \"pnpm --filter osrs-spawn-map-worker dev\" \"pnpm --filter osrs-spawn-map-frontend dev\"",
+    "build": "pnpm --filter osrs-spawn-map-worker typecheck && pnpm --filter osrs-spawn-map-frontend build",
+    "bundle:icons": "uv run python -m osrs_spawn_scraper --bundle-icons-only --output data/spawn_items.json",
+    "check": "uv sync && pnpm -r format:check && pnpm -r lint:check && pnpm -r test && pnpm build && pnpm check:scraper",
+    "check:scraper": "uv sync && uv run ruff check scraper && uv run ruff format --check scraper && uv run ty check && uv run pytest -q",
+    "check:spawn-data": "uv run python -m osrs_spawn_scraper.check_spawns data/spawn_items.json",
+    "test": "pnpm -r test",
+    "test:scraper": "uv sync && uv run pytest -q",
+    "typecheck": "pnpm -r typecheck",
+    "lint:check": "pnpm -r lint:check",
+    "lint:write": "pnpm -r lint:write",
+    "format:check": "pnpm -r format:check",
+    "format:write": "pnpm -r format:write"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "oxlint": "^0.15.15"
+  }
+}

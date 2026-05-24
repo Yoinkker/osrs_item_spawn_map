@@ -1,0 +1,51 @@
+[project]
+name = "osrs-spawn-scraper"
+version = "0.1.0"
+description = "Scrapes OSRS wiki for item spawn locations."
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema>=4.23",
+    "requests>=2.32",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "ty>=0.0.1a6",
+]
+
+[project.scripts]
+osrs-spawn-scraper = "osrs_spawn_scraper.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/osrs_spawn_scraper"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["E501", "D100", "D101", "D102", "D103", "D104", "ANN001", "ANN201", "T201", "D203", "D213", "COM812"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "PLR2004", "INP001"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ty.environment]
+python-version = "3.11"
+
+[tool.ty.rules]
+all = "error"
+
+[dependency-groups]
+dev = [
+    "ty>=0.0.39",
+]

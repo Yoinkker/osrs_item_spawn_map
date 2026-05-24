@@ -1,0 +1,7 @@
+{
+  "indentWidth": 2,
+  "lineWidth": 100,
+  "quoteStyle": "double",
+  "trailingCommas": "all",
+  "semicolons": "always"
+}

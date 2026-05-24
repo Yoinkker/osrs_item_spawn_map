@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spawn_items.schema.json",
+  "title": "SpawnItems",
+  "description": "Ground-spawn item data written by the scraper and consumed by the frontend.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["item", "quest", "image_file", "image_url", "spawns"],
+    "properties": {
+      "item": { "type": "string", "minLength": 1 },
+      "quest": { "type": ["string", "null"] },
+      "image_file": { "type": ["string", "null"] },
+      "image_url": {
+        "type": ["string", "null"],
+        "pattern": "^/icons/[^/?#]+\\.(png|gif|jpe?g)$"
+      },
+      "spawns": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["location", "members", "map_id", "plane", "coords"],
+          "properties": {
+            "location": { "type": "string" },
+            "members": { "enum": ["Yes", "No", "?"] },
+            "map_id": { "type": "integer" },
+            "plane": { "type": "integer", "minimum": 0 },
+            "coords": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["x", "y", "qty"],
+                "properties": {
+                  "x": { "type": "integer" },
+                  "y": { "type": "integer" },
+                  "qty": { "type": "integer", "minimum": 1 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+Some intro prose.
+
+{{ItemSpawnLine|location=East of [[Draynor Village]] jail|members=No|mapID=0|plane=0|3150,3247}}
+
+{{ItemSpawnLine
+|location=Musa Point
+|members=No
+|mapID=0
+|plane=0
+|2938,3158,qty:3
+|2939,3158
+}}
+
+Trailing prose.

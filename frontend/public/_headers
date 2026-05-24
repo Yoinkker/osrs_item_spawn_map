@@ -1,0 +1,4 @@
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://oldschool.runescape.wiki https://*.runescape.wiki https://*.workers.dev https://*.osrs-item-spawn-map.app; connect-src 'self' https://*.workers.dev https://*.osrs-item-spawn-map.app; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

@@ -1,0 +1,59 @@
+import { FALLBACK_TILE_VERSION } from "../../shared/tileVersion.ts";
+
+const REPO_URL = "https://github.com/Yoinkker/osrs_item_spawn_map";
+
+export const UPSTREAM_HEADERS: HeadersInit = {
+  "User-Agent": `osrs-item-spawn-map-worker (+${REPO_URL})`,
+  Accept: "image/png,image/*,*/*;q=0.8",
+};
+
+const VERSION_LOOKBACK_WEEKS = 16;
+
+export function generateVersionCandidates(now: Date = new Date()): string[] {
+  const candidates = new Set<string>([FALLBACK_TILE_VERSION]);
+  const millisPerWeek = 7 * 24 * 60 * 60 * 1000;
+  for (let week = 0; week < VERSION_LOOKBACK_WEEKS; week++) {
+    const d = new Date(now.getTime() - week * millisPerWeek);
+    const y = d.getUTCFullYear();
+    const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(d.getUTCDate()).padStart(2, "0");
+    candidates.add(`${y}-${m}-${day}_a`);
+  }
+  return [...candidates];
+}
+
+export const TILE_VERSION_RE = /^\d{4}-\d{2}-\d{2}_[a-z]$/;
+export const TILE_MAP_ID_MIN = -1;
+export const TILE_MAP_ID_MAX = 99;
+
+export function isValidTileVersion(version: string): boolean {
+  return TILE_VERSION_RE.test(version);
+}
+
+export function isValidTileMapId(mapId: number): boolean {
+  return Number.isInteger(mapId) && mapId >= TILE_MAP_ID_MIN && mapId <= TILE_MAP_ID_MAX;
+}
+
+export function upstreamTileUrl(
+  version: string,
+  z: number | string,
+  plane: number | string,
+  tx: number | string,
+  ty: number | string,
+  mapId: number | string = 0,
+): string {
+  return (
+    `https://maps.runescape.wiki/osrs/versions/${version}` +
+    `/tiles/rendered/${mapId}/${z}/${plane}_${tx}_${ty}.png`
+  );
+}
+
+export const TILE_VERSION_KV_KEY = "current";
+export const TILE_VERSION_TTL_SECONDS = 6 * 60 * 60;
+export const TILE_CACHE_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
+export const TILE_404_CACHE_MAX_AGE_SECONDS = 60 * 60;
+
+export interface Env {
+  TILE_VERSION_KV: KVNamespace;
+  ALLOWED_ORIGINS?: string;
+}

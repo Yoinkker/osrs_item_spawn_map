@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSRS Item Spawn Map</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="header">
+        <button id="sidebar-show-btn" type="button" title="Show sidebar" aria-label="Show sidebar">
+          Items »
+        </button>
+        <h1>⚔ OSRS Item Spawn Map</h1>
+        <div id="plane-control">
+          <label>Plane</label>
+          <button class="plane-btn active" data-plane="0" type="button">0</button>
+          <button class="plane-btn" data-plane="1" type="button">1</button>
+          <button class="plane-btn" data-plane="2" type="button">2</button>
+          <button class="plane-btn" data-plane="3" type="button">3</button>
+        </div>
+        <button id="underground-btn" type="button">Reset view</button>
+        <div id="header-right">
+          <div id="header-actions">
+            <button id="export-btn" type="button" title="Export collected items">Export</button>
+            <button id="import-btn" type="button" title="Import collected items">Import</button>
+            <input id="import-file" type="file" accept=".json,application/json" hidden />
+          </div>
+          <div id="stats">
+            <span class="num" id="stat-collected">0</span>
+            <span class="total">/ <span id="stat-items">0</span> items collected</span>
+          </div>
+        </div>
+      </div>
+      <div id="main">
+        <div id="sidebar">
+          <div id="sidebar-header">
+            Items
+            <div id="sidebar-header-actions">
+              <button id="toggle-all-btn" type="button">Mark All</button>
+              <button
+                id="sidebar-hide-btn"
+                type="button"
+                title="Hide sidebar"
+                aria-label="Hide sidebar"
+              >
+                «
+              </button>
+            </div>
+          </div>
+          <div id="search-wrap">
+            <input id="search" type="text" placeholder="Search items…" autocomplete="off" />
+            <button id="search-clear" type="button">✕</button>
+          </div>
+          <div id="item-list">
+            <div id="no-results">No items match</div>
+          </div>
+        </div>
+        <button
+          id="sidebar-backdrop"
+          type="button"
+          hidden
+          aria-label="Close sidebar"
+          tabindex="-1"
+        ></button>
+        <div id="map-wrap">
+          <div id="loading">
+            <div class="spinner"></div>
+            <h2>Loading Map</h2>
+            <p>Initialising…</p>
+          </div>
+          <div id="map-toast"></div>
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+    <footer id="site-footer">
+      <p>
+        Spawn data derived from
+        <a
+          href="https://oldschool.runescape.wiki/w/Item_spawn"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Item_spawn</a
+        >
+        on the
+        <a href="https://oldschool.runescape.wiki/" target="_blank" rel="noopener noreferrer"
+          >OSRS Wiki</a
+        >
+        (<a
+          href="https://creativecommons.org/licenses/by-nc-sa/3.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >CC BY-NC-SA 3.0</a
+        >). Item icons are bundled from the wiki under the same terms. Map tiles ©
+        <a href="https://maps.runescape.wiki/" target="_blank" rel="noopener noreferrer"
+          >RuneScape Wiki Maps</a
+        >. Non-commercial fan project.
+      </p>
+      <p>
+        Created using intellectual property belonging to Jagex Limited under the terms of
+        <a
+          href="https://legal.jagex.com/docs/policies/fan-content-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Jagex's Fan Content Policy</a
+        >. Not endorsed by or affiliated with Jagex or Weird Gloop.
+      </p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

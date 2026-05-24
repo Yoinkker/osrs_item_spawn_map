@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+
+# Node
+node_modules/
+.pnpm-store/
+**/dist/
+.wrangler/
+
+# Scraper cache (local only - speeds up re-runs, not shipped to the app)
+data/cache.json
+
+# Editors / OS
+.DS_Store
+**/.DS_Store
+**.tile_cache
