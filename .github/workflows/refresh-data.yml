@@ -1,9 +1,15 @@
 name: Refresh spawn data
 
+# OSRS game updates: Wednesdays ~11:30 UK. Run Fridays so the wiki has time to settle.
 on:
   schedule:
-    - cron: '0 3 * * 0'
+    - cron: '0 3 * * 5'
   workflow_dispatch:
+    inputs:
+      note:
+        description: Optional note to include in the PR body
+        required: false
+        type: string
 
 jobs:
   refresh:
@@ -26,7 +32,11 @@ jobs:
         with:
           commit-message: 'chore(data): refresh spawn data'
           title: 'chore(data): refresh spawn data'
-          body: 'Automated weekly refresh of `data/spawn_items.json`.'
+          body: |
+            ${{ github.event_name == 'workflow_dispatch' && format('Manual refresh triggered by @{0}.', github.actor) || 'Scheduled Friday refresh (after Wednesday game updates).' }}
+
+            Updates `data/spawn_items.json`.
+            ${{ inputs.note && format('Note: {0}', inputs.note) || '' }}
           branch: refresh-data
           add-paths: |
             data/spawn_items.json
