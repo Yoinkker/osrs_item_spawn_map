@@ -49,6 +49,14 @@ def normalize_members(raw: str | None) -> str:
     return "?"
 
 
+def normalize_spawn(spawn: dict) -> dict:
+    members = spawn.get("members")
+    normalized = normalize_members(members if isinstance(members, str) else None)
+    if spawn.get("members") == normalized:
+        return spawn
+    return {**spawn, "members": normalized}
+
+
 def clean_location(raw: str) -> str:
     def floor(m: re.Match) -> str:
         uk = re.search(r"uk=(\d+)", m.group(0))

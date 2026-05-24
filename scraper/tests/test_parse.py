@@ -5,6 +5,7 @@ import pytest
 from osrs_spawn_scraper.parse import (
     CoordParseError,
     clean_location,
+    normalize_spawn,
     parse_coord,
     parse_spawn_lines,
     spawn_name_matches,
@@ -99,6 +100,13 @@ def test_parse_spawn_lines_normalizes_lowercase_members():
     wikitext = "{{ItemSpawnLine|location=Test|members=yes|mapID=0|plane=0|3150,3247}}"
     spawns = parse_spawn_lines(wikitext)
     assert spawns[0]["members"] == "Yes"
+
+
+def test_normalize_spawn_repairs_cached_lowercase_members():
+    cached = {"location": "Test", "members": "yes", "map_id": 0, "plane": 0, "coords": []}
+    assert normalize_spawn(cached)["members"] == "Yes"
+    already_ok = {"location": "Test", "members": "Yes", "map_id": 0, "plane": 0, "coords": []}
+    assert normalize_spawn(already_ok) is already_ok
 
 
 def test_spawn_name_matches_allows_variants_and_missing_name():

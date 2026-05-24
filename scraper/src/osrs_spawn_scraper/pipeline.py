@@ -3,7 +3,7 @@ from pathlib import Path
 
 from .cache import atomic_write_json, load_cache, save_cache
 from .icons import bundle_spawn_icons, ensure_icon
-from .parse import get_spawn_coords
+from .parse import get_spawn_coords, normalize_spawn
 from .schema import validate_spawn_items
 from .wiki import get_image_url, get_item_info, get_spawn_items
 
@@ -23,8 +23,16 @@ def _cache_entry(
         "quest": quest,
         "image_file": image_file,
         "image_url": image_url,
-        "spawns": spawns,
+        "spawns": [normalize_spawn(s) for s in spawns],
     }
+
+
+def _normalize_entry(entry: dict) -> dict:
+    spawns = entry.get("spawns", [])
+    normalized = [normalize_spawn(s) for s in spawns]
+    if normalized == spawns:
+        return entry
+    return {**entry, "spawns": normalized}
 
 
 def _fetch_item(item: str, icons_dir: Path) -> dict:
@@ -70,7 +78,8 @@ def run(output_path: str, cache_path: str, icons_dir: str = "data/icons") -> Non
             prefix = f"  [{i + 1}/{len(spawn_items)}]"
 
             if item in cache:
-                entry = cache[item]
+                entry = _normalize_entry(cache[item])
+                cache[item] = entry
                 quest = entry["quest"]
                 spawn_count = len(entry.get("spawns", []))
                 print(f"{prefix} {item}: (cached) quest={quest}, spawns={spawn_count}")
