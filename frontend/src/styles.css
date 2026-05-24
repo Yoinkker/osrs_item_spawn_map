@@ -417,6 +417,19 @@ body {
   background: var(--green-bg);
   box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
 }
+.spawn-marker.adjacent-plane .marker-bg.uncollected {
+  background: rgba(192, 57, 43, 0.35);
+}
+.spawn-marker.adjacent-plane .marker-bg.collected {
+  background: rgba(76, 175, 80, 0.35);
+  box-shadow: none;
+}
+.spawn-marker.adjacent-plane .marker-icon {
+  opacity: 0.45;
+}
+.leaflet-marker-icon:has(.adjacent-plane) {
+  cursor: pointer;
+}
 .marker-icon {
   position: relative;
   z-index: 1;

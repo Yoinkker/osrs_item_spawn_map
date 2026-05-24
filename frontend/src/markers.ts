@@ -11,6 +11,25 @@ import { wikiItemLink } from "./wikiUrl.ts";
 const MARKER_ICON_SIZE: [number, number] = [30, 36];
 const MARKER_ICON_ANCHOR: [number, number] = [15, 36];
 const POPUP_MAX_WIDTH = 240;
+const ADJACENT_PLANE_CLASS = "adjacent-plane";
+
+interface MarkerPlaneState {
+  adjacentPlane?: boolean;
+}
+
+function getSpawnMarkerEl(marker: L.Marker): HTMLElement | null {
+  return marker.getElement()?.querySelector<HTMLElement>(".spawn-marker") ?? null;
+}
+
+function setMarkerAdjacentPlane(marker: L.Marker, adjacent: boolean): void {
+  (marker as L.Marker & MarkerPlaneState).adjacentPlane = adjacent;
+  getSpawnMarkerEl(marker)?.classList.toggle(ADJACENT_PLANE_CLASS, adjacent);
+}
+
+function reapplyMarkerAdjacentPlane(marker: L.Marker): void {
+  const adjacent = !!(marker as L.Marker & MarkerPlaneState).adjacentPlane;
+  getSpawnMarkerEl(marker)?.classList.toggle(ADJACENT_PLANE_CLASS, adjacent);
+}
 
 function attachMarkerIconErrorHandler(marker: L.Marker): void {
   const img = marker.getElement()?.querySelector<HTMLImageElement>("img.marker-icon");
@@ -33,6 +52,7 @@ export function bindMarkerIconImageErrors(marker: L.Marker): void {
 export function setMarkerIcon(marker: L.Marker, item: SpawnItem, done: boolean): void {
   marker.setIcon(makeIcon(item, done));
   attachMarkerIconErrorHandler(marker);
+  reapplyMarkerAdjacentPlane(marker);
 }
 
 export function countMapMarkers(item: SpawnItem): number {
@@ -168,6 +188,7 @@ export function buildMarkers(
   collected: CollectedMap,
   onToggle: (name: string) => void,
   isCollected: (name: string) => boolean = (name) => !!collected[name],
+  onPlaneClick?: (plane: Plane, mapId: number, marker: L.Marker) => void,
 ): MarkerIndex {
   const all: MarkerRef[] = [];
   const byItem: { [key: string]: L.Marker[] } = {};
@@ -184,6 +205,7 @@ export function buildMarkers(
         icon: makeIcon(item, done),
       });
       bindMarkerIconImageErrors(m);
+      m.on("add", () => reapplyMarkerAdjacentPlane(m));
       m.bindTooltip(buildMarkerTooltip(item), {
         direction: "top",
         offset: [0, -4],
@@ -222,6 +244,11 @@ export function buildMarkers(
         if (ev.ctrlKey || ev.metaKey) {
           L.DomEvent.stop(e);
           onToggle(item.item);
+          return;
+        }
+        if ((m as L.Marker & MarkerPlaneState).adjacentPlane && onPlaneClick) {
+          L.DomEvent.stop(e);
+          onPlaneClick(plane, mapId, m);
         }
       });
       m.on("popupopen", (e) => {
@@ -248,7 +275,16 @@ export function applyPlaneFilter(
   currentMapId: number,
 ): void {
   for (const { marker, plane, mapId } of all) {
-    if (plane === currentPlane && mapId === currentMapId) group.addLayer(marker);
-    else group.removeLayer(marker);
+    if (mapId !== currentMapId) {
+      group.removeLayer(marker);
+      setMarkerAdjacentPlane(marker, false);
+      marker.setZIndexOffset(0);
+      continue;
+    }
+    group.addLayer(marker);
+    const planeDelta = Math.abs(plane - currentPlane);
+    const onCurrentPlane = planeDelta === 0;
+    setMarkerAdjacentPlane(marker, !onCurrentPlane);
+    marker.setZIndexOffset(onCurrentPlane ? 1000 : Math.max(0, 1000 - planeDelta * 100));
   }
 }

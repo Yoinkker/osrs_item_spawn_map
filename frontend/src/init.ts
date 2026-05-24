@@ -7,6 +7,7 @@ import {
   bindPlaneControls,
   bindSearch,
   createItemClickHandler,
+  createPlaneClickHandler,
   createToggleHandler,
 } from "./bindControls.ts";
 import { updateStats } from "./collected.ts";
@@ -69,11 +70,13 @@ export async function initApp(ctx: AppContext): Promise<void> {
 
   setStatus("Building markers…");
   const onToggle = createToggleHandler(ctx);
+  const onPlaneClick = createPlaneClickHandler(ctx, handles);
   ctx.markers = buildMarkers(
     ctx.spawnData,
     ctx.collected,
     onToggle,
     (name) => !!ctx.collected[name],
+    onPlaneClick,
   );
   applyPlaneFilter(handles.markersGroup, ctx.markers.all, ctx.currentPlane, ctx.currentMapId);
 

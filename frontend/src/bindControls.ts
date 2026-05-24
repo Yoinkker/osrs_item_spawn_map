@@ -7,6 +7,7 @@ import {
 } from "./collected.ts";
 import { focusOnItem, navigateToMapId, setPlane } from "./focus.ts";
 import type { MapHandles } from "./map.ts";
+import type { Marker } from "leaflet";
 import { applyFilter, updateRowFocus } from "./sidebar.ts";
 import { saveCollected } from "./state.ts";
 import { showToast } from "./toast.ts";
@@ -92,4 +93,14 @@ export function createItemClickHandler(
   handles: MapHandles,
 ): (item: SpawnItem) => void {
   return (item) => focusOnItem(ctx, item, handles);
+}
+
+export function createPlaneClickHandler(
+  ctx: AppContext,
+  handles: MapHandles,
+): (plane: Plane, mapId: number, marker: Marker) => void {
+  return (plane, mapId, marker) => {
+    setPlane(ctx, plane, mapId, handles.markersGroup, handles.setPlane);
+    marker.openPopup();
+  };
 }
