@@ -233,9 +233,14 @@ export function buildMarkers(
       container.append(locDiv);
 
       const btn = document.createElement("button");
+      btn.type = "button";
       btn.className = "popup-btn" + (done ? " collected" : "");
       btn.dataset.item = item.item;
       btn.textContent = done ? "✓ Collected" : "Mark as Collected";
+      btn.addEventListener("click", (e) => {
+        L.DomEvent.stopPropagation(e);
+        onToggle(item.item);
+      });
       container.append(btn);
 
       m.bindPopup(container, { maxWidth: POPUP_MAX_WIDTH });
@@ -251,15 +256,9 @@ export function buildMarkers(
           onPlaneClick(plane, mapId, m);
         }
       });
-      m.on("popupopen", (e) => {
+      m.on("popupopen", () => {
         m.closeTooltip();
-        const popup = e.popup;
-        const node = popup.getElement();
-        const btn = node?.querySelector<HTMLButtonElement>(".popup-btn");
-        if (btn) {
-          syncPopupBtn(btn, isCollected(item.item));
-          btn.addEventListener("click", () => onToggle(item.item), { once: true });
-        }
+        syncPopupBtn(btn, isCollected(item.item));
       });
       byItem[item.item]!.push(m);
       all.push({ marker: m, plane, mapId, itemName: item.item });
