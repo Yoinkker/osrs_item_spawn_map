@@ -1,8 +1,8 @@
 # OSRS Item Spawn Map
 
-Interactive map of OSRS item spawns, generated from the [OSRS Wiki / Item_spawn](https://oldschool.runescape.wiki/w/Item_spawn).
+Interactive map of OSRS (Old School RuneScape) item spawns, generated from the [OSRS Wiki / Item_spawn](https://oldschool.runescape.wiki/w/Item_spawn).
 
-**Live app:** [osrs-item-spawn-map.app](https://osrs-item-spawn-map.app)
+- https://osrs-item-spawn-map.app
 
 ![Screenshot of the OSRS Item Spawn Map](screenshot.png)
 
@@ -17,23 +17,21 @@ Tracks collected items (saved in `localStorage`). Export/Import support.
 
 ## Architecture
 
-Three packages share one repo. The scraper is an offline data pipeline. The frontend and worker serve the live map.
-
 Scraper: Python CLI that crawls the wiki item spawn list, resolves coordinates and item metadata, downloads item icons into `data/icons/`, and writes `data/spawn_items.json`. A local request cache at `data/cache.json` speeds up re-runs.
 
 Frontend: TypeScript SPA (Vite + Leaflet). Loads spawn data and bundled icons, renders markers by plane/map, and persists collected items in `localStorage`. In dev, Vite serves spawn JSON and icons from `data/` and proxies worker routes to `:8787`.
 
-Worker: Cloudflare Worker that proxies wiki map tiles (CORS + rate limiting) and exposes `/api/tile-version` so the frontend can pick the correct tile set. Tile versions are cached in KV. The worker identifies itself with an honest User-Agent (no Referer spoofing).
+Worker: Cloudflare Worker that proxies wiki map tiles (CORS + rate limiting) and exposes `/api/tile-version` so the frontend can pick the correct tile set. Tile versions are cached in KV.
 
 In production, Cloudflare Pages hosts the static frontend (with spawn JSON and icons embedded in `dist/`) and the Worker runs at `VITE_WORKER_URL`.
 
-## Prerequisites
+## Development
+
+### Prerequisites
 
 - Node.js 22
 - pnpm 10
 - uv (Python 3.11)
-
-## Development
 
 ```bash
 pnpm install
@@ -47,7 +45,8 @@ Refresh spawn data if needed:
 uv sync
 uv run python -m osrs_spawn_scraper --output data/spawn_items.json --cache data/cache.json
 ```
-## Testing
+
+### Testing
 
 Run everything from the repo root (matches CI):
 
