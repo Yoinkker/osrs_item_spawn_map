@@ -12,6 +12,7 @@ import { applyFilter, updateRowFocus } from "./sidebar.ts";
 import { saveCollected } from "./state.ts";
 import { showToast } from "./toast.ts";
 import type { Plane, SpawnItem } from "./types.ts";
+import { clearViewUrl, suppressViewUrlSync } from "./urlState.ts";
 import { MAX_IMPORT_FILE_BYTES } from "./validate.ts";
 
 export function bindPlaneControls(ctx: AppContext, handles: MapHandles): void {
@@ -25,7 +26,9 @@ export function bindPlaneControls(ctx: AppContext, handles: MapHandles): void {
   const undergroundBtn = document.querySelector<HTMLButtonElement>("#underground-btn");
   if (undergroundBtn) {
     undergroundBtn.addEventListener("click", () => {
+      suppressViewUrlSync();
       navigateToMapId(ctx, 0, 0, handles);
+      clearViewUrl();
       ctx.lastFocusedItem = null;
       updateRowFocus(null, 0, 0);
     });

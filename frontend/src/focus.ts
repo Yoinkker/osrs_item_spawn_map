@@ -16,6 +16,7 @@ import {
 import { updateRowFocus } from "./sidebar.ts";
 import { showToast } from "./toast.ts";
 import type { Plane, SpawnItem } from "./types.ts";
+import { syncUrlNow } from "./urlState.ts";
 
 export function setPlane(
   ctx: AppContext,
@@ -28,6 +29,7 @@ export function setPlane(
   ctx.currentMapId = mapId;
   updateMap(p);
   applyPlaneFilter(group, ctx.markers.all, ctx.currentPlane, ctx.currentMapId);
+  if (ctx.mapHandles) syncUrlNow(ctx, ctx.mapHandles);
 }
 
 function applyMapBounds(ctx: AppContext, mapId: number, handles: MapHandles): void {
@@ -75,9 +77,9 @@ function nearestMarkerIndex(map: L.Map, refs: MarkerRef[]): number {
   return nearestIdx;
 }
 
-function focusMapView(handles: MapHandles, target: L.LatLng): void {
+function focusMapView(handles: MapHandles, target: L.LatLng, zoom?: number): void {
   handles.map.invalidateSize();
-  handles.map.setView(target, handles.map.getMaxZoom());
+  handles.map.setView(target, zoom ?? handles.map.getMaxZoom());
   handles.tileLayer.redraw();
 }
 
@@ -89,6 +91,7 @@ function focusOnMarkerRef(ctx: AppContext, handles: MapHandles, ref: MarkerRef):
     applyMapBounds(ctx, ctx.currentMapId, handles);
     applyPlaneFilter(handles.markersGroup, ctx.markers.all, ctx.currentPlane, ctx.currentMapId);
     focusMapView(handles, latlng);
+    syncUrlNow(ctx, handles);
   }
   ref.marker.openPopup();
 }
@@ -120,6 +123,7 @@ export function navigateToMapId(
   plane: Plane,
   handles: MapHandles,
   focusLatLng?: L.LatLng,
+  zoom?: number,
 ): void {
   setPlane(ctx, plane, mapId, handles.markersGroup, handles.setPlane);
   const undergroundBtn = document.querySelector<HTMLButtonElement>("#underground-btn");
@@ -130,7 +134,8 @@ export function navigateToMapId(
 
   if (focusLatLng) {
     applyMapBounds(ctx, mapId, handles);
-    focusMapView(handles, focusLatLng);
+    focusMapView(handles, focusLatLng, zoom);
+    syncUrlNow(ctx, handles);
     return;
   }
 
@@ -148,4 +153,5 @@ export function navigateToMapId(
       handles.setMapRegion(UNDERGROUND_FALLBACK_BOUNDS, [9600, 3200], 1);
     }
   }
+  syncUrlNow(ctx, handles);
 }

@@ -12,11 +12,13 @@ import {
 } from "./bindControls.ts";
 import { updateStats } from "./collected.ts";
 import { demoData } from "./demoData.ts";
-import { createMap } from "./map.ts";
+import { navigateToMapId } from "./focus.ts";
+import { createMap, toLL } from "./map.ts";
 import { applyPlaneFilter, buildMarkers } from "./markers.ts";
 import { applyFilter, buildSidebar } from "./sidebar.ts";
 import { restoreSidebarVisibility } from "./sidebarLayout.ts";
 import { loadCollected } from "./state.ts";
+import { bindViewUrlSync, parseViewFromUrl, syncUrlNow, type MapViewParams } from "./urlState.ts";
 
 function hideLoadingOverlay(loading: HTMLElement): void {
   const FALLBACK_MS = 1000;
@@ -92,6 +94,24 @@ export async function initApp(ctx: AppContext): Promise<void> {
   restoreSidebarVisibility(ctx);
   bindCollectedControls(ctx);
   bindImportExport(ctx);
+
+  const applyViewFromUrl = (params: MapViewParams): void => {
+    navigateToMapId(
+      ctx,
+      params.mapId,
+      params.plane,
+      handles,
+      toLL(params.x, params.y),
+      params.zoom,
+    );
+  };
+
+  const urlView = parseViewFromUrl();
+  if (urlView) {
+    applyViewFromUrl(urlView);
+    syncUrlNow(ctx, handles);
+  }
+  bindViewUrlSync(ctx, handles, applyViewFromUrl);
 
   if (loading) hideLoadingOverlay(loading);
 }
