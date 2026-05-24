@@ -51,7 +51,7 @@ export function upstreamTileUrl(
 export const TILE_VERSION_KV_KEY = "current";
 export const TILE_VERSION_TTL_SECONDS = 6 * 60 * 60;
 export const TILE_CACHE_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
-export const TILE_404_CACHE_MAX_AGE_SECONDS = 60 * 60;
+export const TILE_404_CACHE_MAX_AGE_SECONDS = TILE_CACHE_MAX_AGE_SECONDS;
 
 export interface Env {
   TILE_VERSION_KV: KVNamespace;
