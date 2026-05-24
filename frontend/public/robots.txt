@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://osrs-item-spawn-map.app/sitemap.xml

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="OSRS Item Spawn Map">
+  <rect width="32" height="32" rx="6" fill="#c8a84b"/>
+  <text
+    x="16"
+    y="16"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-size="18"
+  >⚔</text>
+</svg>

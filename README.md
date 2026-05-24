@@ -1,6 +1,10 @@
 # OSRS Item Spawn Map
 
-Interactive map of OSRS items spawns, generated from the [OSRS Wiki / Item_spawn](https://oldschool.runescape.wiki/w/Item_spawn).
+Interactive map of OSRS item spawns, generated from the [OSRS Wiki / Item_spawn](https://oldschool.runescape.wiki/w/Item_spawn).
+
+**Live app:** [osrs-item-spawn-map.app](https://osrs-item-spawn-map.app)
+
+![Screenshot of the OSRS Item Spawn Map](screenshot.png)
 
 Tracks collected items (saved in `localStorage`). Export/Import support.
 
