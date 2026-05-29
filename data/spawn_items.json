@@ -129,7 +129,7 @@
     "image_url": "/icons/Ashes.png",
     "spawns": [
       {
-        "location": "Bandit (Varlamore)",
+        "location": "Bandits' camp north-east of Ralos' Rise",
         "members": "Yes",
         "map_id": -1,
         "plane": 0,
@@ -1405,7 +1405,7 @@
         ]
       },
       {
-        "location": "Myths' Guild basementRequires completion of Dragon Slayer II",
+        "location": "Myths' Guild basement",
         "members": "Yes",
         "map_id": 31,
         "plane": 0,
@@ -1616,7 +1616,7 @@
         ]
       },
       {
-        "location": "Wilderness - south of the Chaos Temple (Wilderness)",
+        "location": "Wilderness - south of the Chaos Temple",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -1963,7 +1963,7 @@
         ]
       },
       {
-        "location": "Wilderness - Chaos Temple (Wilderness)",
+        "location": "Wilderness - Chaos Temple",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -2097,7 +2097,7 @@
         ]
       },
       {
-        "location": "Wilderness - Ruins (east)",
+        "location": "Wilderness - eastern Ruins",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -2138,7 +2138,7 @@
         ]
       },
       {
-        "location": "Wilderness - Ruins (west)",
+        "location": "Wilderness - western Ruins",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -2659,7 +2659,7 @@
         ]
       },
       {
-        "location": "Kandarin - south of Tree Gnome Village (location)",
+        "location": "Kandarin - south of Tree Gnome Village",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -3902,7 +3902,7 @@
         ]
       },
       {
-        "location": "Temple of Ikov (dungeon)",
+        "location": "Temple of Ikov",
         "members": "Yes",
         "map_id": 10147,
         "plane": 0,
@@ -4644,37 +4644,6 @@
     "image_url": "/icons/Bowl_of_water.png",
     "spawns": [
       {
-        "location": "Hallowed Sepulchre - floor 2 (unobtainable)",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 2,
-        "coords": [
-          {
-            "x": 2556,
-            "y": 5952,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Hallowed Sepulchre - floor 4",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 2,
-        "coords": [
-          {
-            "x": 2518,
-            "y": 5862,
-            "qty": 1
-          },
-          {
-            "x": 2510,
-            "y": 5862,
-            "qty": 1
-          }
-        ]
-      },
-      {
         "location": "Hosidius - Watson's house",
         "members": "Yes",
         "map_id": 0,
@@ -4904,7 +4873,7 @@
         ]
       },
       {
-        "location": "Gwenith - inside Preswylwyr Dall",
+        "location": "Gwenith - inside Preswylwyr Dall's home",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -5216,7 +5185,7 @@
         ]
       },
       {
-        "location": "Temple of Ikov (dungeon)",
+        "location": "Temple of Ikov",
         "members": "Yes",
         "map_id": 10147,
         "plane": 0,
@@ -6956,7 +6925,7 @@
         ]
       },
       {
-        "location": "Death Plateau (location)",
+        "location": "Death Plateau",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -7070,7 +7039,7 @@
         ]
       },
       {
-        "location": "Temple of Ikov (dungeon)",
+        "location": "Temple of Ikov",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -7385,7 +7354,7 @@
         ]
       },
       {
-        "location": "Gwenith - inside Preswylwyr Dall",
+        "location": "Gwenith - inside Preswylwyr Dall's home",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -8154,7 +8123,7 @@
         ]
       },
       {
-        "location": "Cave south of Fortis Colosseum",
+        "location": "Cave south of Colosseum (inaccessible)",
         "members": "Yes",
         "map_id": -1,
         "plane": 0,
@@ -8475,7 +8444,7 @@
     "image_url": "/icons/Cake_tin.png",
     "spawns": [
       {
-        "location": "Wilderness - Ruins (west)",
+        "location": "Wilderness - western Ruins",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -8675,7 +8644,7 @@
         ]
       },
       {
-        "location": "Watchtower (building)",
+        "location": "Yanille Watchtower",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -8890,7 +8859,7 @@
         ]
       },
       {
-        "location": "Wilderness - Bandit Camp (Wilderness)",
+        "location": "Wilderness - Bandit Camp",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -10629,7 +10598,7 @@
         ]
       },
       {
-        "location": "Wilderness - south of the Chaos Temple (Wilderness)",
+        "location": "Wilderness - south of the Chaos Temple",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -10642,7 +10611,7 @@
         ]
       },
       {
-        "location": "Wilderness - Ruins (west)",
+        "location": "Wilderness - western Ruins",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -11072,7 +11041,7 @@
     "image_url": "/icons/Dark_fishing_bait.png",
     "spawns": [
       {
-        "location": "Wilderness - Ruins (west)",
+        "location": "Wilderness - western Ruins",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -11612,7 +11581,7 @@
         ]
       },
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's farm",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -11809,7 +11778,7 @@
     "image_url": "/icons/Feather.png",
     "spawns": [
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's farm",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -12786,11 +12755,17 @@
     "image_url": "/icons/Grey_toy_horsey.png",
     "spawns": [
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
-        "members": "?",
+        "location": "Kebos Lowlands - Mary and Gordon's house (level 1)",
+        "members": "Yes",
         "map_id": 0,
-        "plane": 0,
-        "coords": []
+        "plane": 1,
+        "coords": [
+          {
+            "x": 1243,
+            "y": 3678,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -13009,7 +12984,7 @@
         ]
       },
       {
-        "location": "Karamja - Shipyard (Karamja)",
+        "location": "Karamja - Shipyard",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -13037,7 +13012,7 @@
         ]
       },
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's farm",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -14278,7 +14253,7 @@
     "image_url": "/icons/Iron_sword.png",
     "spawns": [
       {
-        "location": "Bandit (Varlamore)",
+        "location": "Bandits' camp north-east of Ralos' Rise",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -14637,19 +14612,6 @@
           {
             "x": 3302,
             "y": 3170,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Civitas illa Fortis - Barracks",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1648,
-            "y": 9577,
             "qty": 1
           }
         ]
@@ -15178,7 +15140,7 @@
         ]
       },
       {
-        "location": "Ruins of Camdozaal - near the Altar (Camdozaal)",
+        "location": "Ruins of Camdozaal - near the Offering Altar",
         "members": "No",
         "map_id": 39,
         "plane": 0,
@@ -15248,7 +15210,7 @@
         ]
       },
       {
-        "location": "Temple of Ikov (dungeon)",
+        "location": "Temple of Ikov basement",
         "members": "Yes",
         "map_id": 10023,
         "plane": 0,
@@ -16505,7 +16467,7 @@
         ]
       },
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's house (level 1)",
         "members": "Yes",
         "map_id": 0,
         "plane": 1,
@@ -17121,7 +17083,7 @@
     "image_url": "/icons/Pineapple.png",
     "spawns": [
       {
-        "location": "Prifddinas - west on a table in Tatie",
+        "location": "Prifddinas - west on a table in Tatie's home",
         "members": "Yes",
         "map_id": 29,
         "plane": 0,
@@ -17357,7 +17319,7 @@
         ]
       },
       {
-        "location": "Underground Pass (dungeon)",
+        "location": "Underground Pass - first level",
         "members": "Yes",
         "map_id": 10163,
         "plane": 0,
@@ -17615,7 +17577,7 @@
         ]
       },
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's house (level 0)",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -17628,7 +17590,7 @@
         ]
       },
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's house (level 1)",
         "members": "Yes",
         "map_id": 0,
         "plane": 1,
@@ -18005,7 +17967,7 @@
     "image_url": "/icons/Purple_dye.png",
     "spawns": [
       {
-        "location": "East Ardougne - north of the Clock Tower (building)",
+        "location": "East Ardougne - north of the Clock Tower",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -18473,7 +18435,7 @@
     "image_url": "/icons/Rock_(elemental).png",
     "spawns": [
       {
-        "location": "Underground Pass (dungeon)",
+        "location": "Underground Pass - first level fail area",
         "members": "Yes",
         "map_id": 10167,
         "plane": 0,
@@ -19071,7 +19033,7 @@
     "image_url": "/icons/Saw.png",
     "spawns": [
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's farm",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -19079,6 +19041,19 @@
           {
             "x": 1239,
             "y": 3696,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Last Light - on a crate in the lighthouse",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2865,
+            "y": 2327,
             "qty": 1
           }
         ]
@@ -19092,6 +19067,19 @@
           {
             "x": 3062,
             "y": 2979,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Red Rock - on a crate",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2790,
+            "y": 2517,
             "qty": 1
           }
         ]
@@ -20911,7 +20899,7 @@
         ]
       },
       {
-        "location": "Ruins of Camdozaal - near Fishing Spot (Camdozaal)",
+        "location": "Ruins of Camdozaal - near fishing spot",
         "members": "No",
         "map_id": -1,
         "plane": 0,
@@ -20924,7 +20912,7 @@
         ]
       },
       {
-        "location": "Wilderness - Ruins (west)",
+        "location": "Wilderness - western Ruins",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -21898,7 +21886,7 @@
     "image_url": "/icons/Steel_platelegs.png",
     "spawns": [
       {
-        "location": "Wilderness - Ruins (east)",
+        "location": "Wilderness - eastern Ruins",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -21961,7 +21949,7 @@
     "image_url": "/icons/Steel_sword.png",
     "spawns": [
       {
-        "location": "Wilderness - north-east of the Chaos Temple (Wilderness)",
+        "location": "Wilderness - north-east of the Chaos Temple",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -22035,21 +22023,7 @@
     "quest": "No",
     "image_file": "Sun-shine.png",
     "image_url": "/icons/Sun-shine.png",
-    "spawns": [
-      {
-        "location": "Salvager Overlook - East Tower (level 2)",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 2,
-        "coords": [
-          {
-            "x": 1646,
-            "y": 3283,
-            "qty": 1
-          }
-        ]
-      }
-    ]
+    "spawns": []
   },
   {
     "item": "Sunbeam ale",
@@ -22890,11 +22864,17 @@
         ]
       },
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
-        "members": "?",
+        "location": "Kebos Lowlands - Mary and Gordon's house (level 1)",
+        "members": "Yes",
         "map_id": 0,
-        "plane": 0,
-        "coords": []
+        "plane": 1,
+        "coords": [
+          {
+            "x": 1244,
+            "y": 3684,
+            "qty": 1
+          }
+        ]
       },
       {
         "location": "Prifddinas - west inside Lliann's Wares",
@@ -23034,7 +23014,7 @@
         ]
       },
       {
-        "location": "Wilderness - Ruins (west)",
+        "location": "Wilderness - Western ruins",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -23245,7 +23225,7 @@
         ]
       },
       {
-        "location": "Kebos Lowlands - Mary (Getting Ahead)",
+        "location": "Kebos Lowlands - Mary and Gordon's farm",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -23284,7 +23264,7 @@
         ]
       },
       {
-        "location": "Underground Pass (dungeon)",
+        "location": "Underground Pass dwarf camp",
         "members": "Yes",
         "map_id": 10161,
         "plane": 0,
@@ -23430,7 +23410,7 @@
         ]
       },
       {
-        "location": "Wilderness - Bandit Camp (Wilderness)",
+        "location": "Wilderness - Bandit Camp",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -23922,7 +23902,7 @@
     "image_url": "/icons/Wine_of_zamorak.png",
     "spawns": [
       {
-        "location": "Asgarnia - Chaos Temple (Asgarnia)",
+        "location": "Asgarnia - Chaos Temple",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -23935,14 +23915,20 @@
         ]
       },
       {
-        "location": "Asgarnia - Chaos Temple (Asgarnia)",
-        "members": "?",
+        "location": "Asgarnia - Chaos Temple (level 1)",
+        "members": "No",
         "map_id": 0,
-        "plane": 0,
-        "coords": []
+        "plane": 1,
+        "coords": [
+          {
+            "x": 2938,
+            "y": 3517,
+            "qty": 1
+          }
+        ]
       },
       {
-        "location": "Wilderness - Chaos Temple (hut)",
+        "location": "Wilderness - Chaos Temple",
         "members": "No",
         "map_id": 0,
         "plane": 0,
