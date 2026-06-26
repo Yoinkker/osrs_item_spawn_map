@@ -2,6 +2,7 @@ import { isCollectedMap, sanitizeImportItems } from "./validate.ts";
 
 const STORAGE_KEY = "osrs_c";
 const SIDEBAR_KEY = "osrs_sidebar";
+const SHOW_QUEST_KEY = "osrs_show_quest";
 
 export type CollectedMap = { [key: string]: boolean };
 
@@ -100,6 +101,22 @@ export function loadSidebarVisible(): boolean {
 export function saveSidebarVisible(visible: boolean): void {
   try {
     localStorage.setItem(SIDEBAR_KEY, visible ? "1" : "0");
+  } catch {
+    // ignore
+  }
+}
+
+export function loadShowQuest(): boolean {
+  try {
+    return localStorage.getItem(SHOW_QUEST_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+export function saveShowQuest(show: boolean): void {
+  try {
+    localStorage.setItem(SHOW_QUEST_KEY, show ? "1" : "0");
   } catch {
     // ignore
   }

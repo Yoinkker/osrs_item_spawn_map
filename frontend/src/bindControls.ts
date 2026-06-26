@@ -4,12 +4,14 @@ import {
   importCollectedFromText,
   syncCollectedUI,
   toggleItem,
+  visibleItems,
 } from "./collected.ts";
 import { focusOnItem, navigateToMapId, setPlane } from "./focus.ts";
+import { applyPlaneFilter } from "./markers.ts";
 import type { MapHandles } from "./map.ts";
 import type { Marker } from "leaflet";
 import { applyFilter, updateRowFocus } from "./sidebar.ts";
-import { saveCollected } from "./state.ts";
+import { saveCollected, saveShowQuest } from "./state.ts";
 import { showToast } from "./toast.ts";
 import type { Plane, SpawnItem } from "./types.ts";
 import { clearViewUrl, suppressViewUrlSync } from "./urlState.ts";
@@ -43,20 +45,20 @@ export function bindSearch(ctx: AppContext): void {
   searchEl.addEventListener("input", () => {
     ctx.filterText = searchEl.value.toLowerCase();
     clearBtn.style.display = ctx.filterText ? "block" : "none";
-    applyFilter(ctx.filterText);
+    applyFilter(ctx.filterText, ctx.showQuest);
   });
   clearBtn.addEventListener("click", () => {
     searchEl.value = "";
     ctx.filterText = "";
     clearBtn.style.display = "none";
-    applyFilter(ctx.filterText);
+    applyFilter(ctx.filterText, ctx.showQuest);
   });
 }
 
 export function bindCollectedControls(ctx: AppContext): void {
   document.querySelector<HTMLButtonElement>("#toggle-all-btn")?.addEventListener("click", () => {
     ctx.allCollected = !ctx.allCollected;
-    for (const i of ctx.spawnData) ctx.collected[i.item] = ctx.allCollected;
+    for (const i of visibleItems(ctx)) ctx.collected[i.item] = ctx.allCollected;
     saveCollected(ctx.collected);
     syncCollectedUI(ctx);
   });
@@ -64,6 +66,25 @@ export function bindCollectedControls(ctx: AppContext): void {
   document
     .querySelector<HTMLButtonElement>("#export-btn")
     ?.addEventListener("click", () => exportCollected(ctx));
+}
+
+export function bindQuestToggle(ctx: AppContext, handles: MapHandles): void {
+  const toggle = document.querySelector<HTMLInputElement>("#quest-toggle");
+  if (!toggle) return;
+  toggle.checked = ctx.showQuest;
+  toggle.addEventListener("change", () => {
+    ctx.showQuest = toggle.checked;
+    saveShowQuest(ctx.showQuest);
+    applyPlaneFilter(
+      handles.markersGroup,
+      ctx.markers.all,
+      ctx.currentPlane,
+      ctx.currentMapId,
+      ctx.showQuest,
+    );
+    applyFilter(ctx.filterText, ctx.showQuest);
+    syncCollectedUI(ctx);
+  });
 }
 
 export function bindImportExport(ctx: AppContext): void {

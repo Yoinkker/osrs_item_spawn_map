@@ -28,7 +28,7 @@ export function setPlane(
   ctx.currentPlane = p;
   ctx.currentMapId = mapId;
   updateMap(p);
-  applyPlaneFilter(group, ctx.markers.all, ctx.currentPlane, ctx.currentMapId);
+  applyPlaneFilter(group, ctx.markers.all, ctx.currentPlane, ctx.currentMapId, ctx.showQuest);
   if (ctx.mapHandles) syncUrlNow(ctx, ctx.mapHandles);
 }
 
@@ -89,7 +89,13 @@ function focusOnMarkerRef(ctx: AppContext, handles: MapHandles, ref: MarkerRef):
     navigateToMapId(ctx, ref.mapId, ref.plane, handles, latlng);
   } else {
     applyMapBounds(ctx, ctx.currentMapId, handles);
-    applyPlaneFilter(handles.markersGroup, ctx.markers.all, ctx.currentPlane, ctx.currentMapId);
+    applyPlaneFilter(
+      handles.markersGroup,
+      ctx.markers.all,
+      ctx.currentPlane,
+      ctx.currentMapId,
+      ctx.showQuest,
+    );
     focusMapView(handles, latlng);
     syncUrlNow(ctx, handles);
   }

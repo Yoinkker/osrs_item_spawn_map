@@ -1,14 +1,20 @@
 import type { AppContext } from "./appState.ts";
-import { setMarkerIcon, syncPopupBtn } from "./markers.ts";
+import { isQuestItem, setMarkerIcon, syncPopupBtn } from "./markers.ts";
 import { updateRowCollected } from "./sidebar.ts";
+import type { SpawnItem } from "./types.ts";
 import { parseCollectedImport, saveCollected, serializeCollectedExport } from "./state.ts";
 import { showToast } from "./toast.ts";
 
+export function visibleItems(ctx: AppContext): SpawnItem[] {
+  return ctx.showQuest ? ctx.spawnData : ctx.spawnData.filter((item) => !isQuestItem(item));
+}
+
 export function updateStats(ctx: AppContext): void {
-  const collectedCount = Object.values(ctx.collected).filter(Boolean).length;
+  const visible = visibleItems(ctx);
+  const collectedCount = visible.filter((item) => ctx.collected[item.item]).length;
   const statItems = document.querySelector("#stat-items");
   const statCollected = document.querySelector("#stat-collected");
-  if (statItems) statItems.textContent = String(ctx.spawnData.length);
+  if (statItems) statItems.textContent = String(visible.length);
   if (statCollected) statCollected.textContent = String(collectedCount);
 }
 
@@ -23,8 +29,8 @@ export function syncCollectedUI(ctx: AppContext): void {
       syncPopupBtn(b, done);
     }
   }
-  ctx.allCollected =
-    ctx.spawnData.length > 0 && ctx.spawnData.every((item) => ctx.collected[item.item]);
+  const visible = visibleItems(ctx);
+  ctx.allCollected = visible.length > 0 && visible.every((item) => ctx.collected[item.item]);
   const toggleAllBtn = document.querySelector("#toggle-all-btn") as HTMLButtonElement | null;
   if (toggleAllBtn) toggleAllBtn.textContent = ctx.allCollected ? "Clear All" : "Mark All";
   updateStats(ctx);

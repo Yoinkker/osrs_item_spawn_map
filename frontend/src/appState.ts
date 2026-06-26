@@ -11,6 +11,7 @@ export interface AppContext {
   markers: MarkerIndex;
   filterText: string;
   allCollected: boolean;
+  showQuest: boolean;
   lastFocusedItem: string | null;
   focusedSpawnIndex: number;
   mapHandles: MapHandles | null;
@@ -24,6 +25,7 @@ export const app: AppContext = {
   markers: { all: [], byItem: {} },
   filterText: "",
   allCollected: false,
+  showQuest: false,
   lastFocusedItem: null,
   focusedSpawnIndex: 0,
   mapHandles: null,

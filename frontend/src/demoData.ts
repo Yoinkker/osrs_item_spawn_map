@@ -39,5 +39,20 @@ export function demoData(): SpawnItem[] {
         },
       ],
     },
+    {
+      item: "Dwellberries",
+      quest: "[[Plague City]]",
+      image_file: "Dwellberries.png",
+      image_url: "/icons/Dwellberries.png",
+      spawns: [
+        {
+          location: "McGrubor's Wood",
+          members: "Yes",
+          plane: 0,
+          map_id: 0,
+          coords: [{ x: 2638, y: 3479, qty: 1 }],
+        },
+      ],
+    },
   ];
 }

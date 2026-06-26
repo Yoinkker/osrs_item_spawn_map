@@ -5,6 +5,7 @@ import {
   bindCollectedControls,
   bindImportExport,
   bindPlaneControls,
+  bindQuestToggle,
   bindSearch,
   createItemClickHandler,
   createPlaneClickHandler,
@@ -17,7 +18,7 @@ import { createMap, toLL } from "./map.ts";
 import { applyPlaneFilter, buildMarkers } from "./markers.ts";
 import { applyFilter, buildSidebar } from "./sidebar.ts";
 import { restoreSidebarVisibility } from "./sidebarLayout.ts";
-import { loadCollected } from "./state.ts";
+import { loadCollected, loadShowQuest } from "./state.ts";
 import { bindViewUrlSync, parseViewFromUrl, syncUrlNow, type MapViewParams } from "./urlState.ts";
 
 function hideLoadingOverlay(loading: HTMLElement): void {
@@ -35,6 +36,7 @@ function hideLoadingOverlay(loading: HTMLElement): void {
 
 export async function initApp(ctx: AppContext): Promise<void> {
   ctx.collected = loadCollected();
+  ctx.showQuest = loadShowQuest();
   const loading = document.querySelector<HTMLElement>("#loading");
   const loadingP = loading?.querySelector<HTMLElement>("p");
   const setStatus = (msg: string): void => {
@@ -80,19 +82,26 @@ export async function initApp(ctx: AppContext): Promise<void> {
     (name) => !!ctx.collected[name],
     onPlaneClick,
   );
-  applyPlaneFilter(handles.markersGroup, ctx.markers.all, ctx.currentPlane, ctx.currentMapId);
+  applyPlaneFilter(
+    handles.markersGroup,
+    ctx.markers.all,
+    ctx.currentPlane,
+    ctx.currentMapId,
+    ctx.showQuest,
+  );
 
   buildSidebar(ctx.spawnData, ctx.collected, {
     onToggleCollected: onToggle,
     onItemClick: createItemClickHandler(ctx, handles),
   });
   updateStats(ctx);
-  applyFilter(ctx.filterText);
+  applyFilter(ctx.filterText, ctx.showQuest);
 
   bindPlaneControls(ctx, handles);
   bindSearch(ctx);
   restoreSidebarVisibility(ctx);
   bindCollectedControls(ctx);
+  bindQuestToggle(ctx, handles);
   bindImportExport(ctx);
 
   const applyViewFromUrl = (params: MapViewParams): void => {

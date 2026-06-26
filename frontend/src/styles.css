@@ -219,6 +219,77 @@ body {
   gap: 6px;
   align-items: center;
 }
+#quest-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text-dim);
+  user-select: none;
+}
+#quest-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.quest-switch-track {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-panel2);
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.quest-switch-thumb {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+#quest-switch input:checked + .quest-switch-track {
+  background: var(--gold-dim);
+  border-color: var(--gold-dim);
+}
+#quest-switch input:checked + .quest-switch-track .quest-switch-thumb {
+  transform: translateX(12px);
+  background: var(--gold);
+}
+#quest-switch input:focus-visible + .quest-switch-track {
+  outline: 1px solid var(--gold);
+  outline-offset: 1px;
+}
+.quest-switch-label {
+  font-family: "Crimson Text", serif;
+  font-size: 0.8rem;
+}
+#quest-switch:hover {
+  color: var(--gold);
+}
+.quest-badge {
+  margin-left: 6px;
+  padding: 0 5px;
+  font-size: 0.62rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold-dim);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
 #toggle-all-btn,
 #sidebar-hide-btn {
   font-family: "Crimson Text", serif;

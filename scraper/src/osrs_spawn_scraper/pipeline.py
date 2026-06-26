@@ -1,3 +1,4 @@
+import sys
 import time
 from pathlib import Path
 
@@ -35,13 +36,28 @@ def _normalize_entry(entry: dict) -> dict:
     return {**entry, "spawns": normalized}
 
 
+def _include_entry(entry: dict) -> bool:
+    return entry.get("quest") is not None and len(entry.get("spawns", [])) > 0
+
+
+def _is_stale_quest_entry(entry: dict) -> bool:
+    return (
+        entry.get("quest") not in (None, "No") and not entry.get("spawns") and entry.get("image_file") is None
+    )
+
+
+def _warn(message: str, warnings: list[str]) -> None:
+    warnings.append(message)
+    print(f"warning: {message}", file=sys.stderr)
+
+
 def _fetch_item(item: str, icons_dir: Path) -> dict:
     quest_status, image_file = get_item_info(item)
     print(f"{item}: quest={quest_status}, image={image_file}", end="")
     time.sleep(RATE_LIMIT_SLEEP)
 
-    if quest_status != "No":
-        print(f" - skipping (quest={quest_status})")
+    if quest_status is None:
+        print(" - skipping (no infobox / ambiguous quest)")
         return _cache_entry(item, quest_status, None, None, [])
 
     remote_image_url = None
@@ -69,7 +85,20 @@ def run(output_path: str, cache_path: str, icons_dir: str = "data/icons") -> Non
 
     spawn_items = get_spawn_items()
     results: list[dict] = []
-    skipped: list[str] = []
+    warnings: list[str] = []
+
+    def classify(entry: dict) -> None:
+        if _include_entry(entry):
+            results.append(entry)
+            return
+        item_name = entry.get("item")
+        quest = entry.get("quest")
+        if quest is None:
+            _warn(f"{item_name}: skipped (no infobox / ambiguous quest)", warnings)
+        elif quest == "No":
+            _warn(f"{item_name}: no spawns found, excluded (unexpected for a non-quest item)", warnings)
+        else:
+            _warn(f"{item_name}: quest item has no spawns, excluded", warnings)
 
     print(f"\nChecking {len(spawn_items)} items...")
     fetched_since_flush = 0
@@ -77,27 +106,20 @@ def run(output_path: str, cache_path: str, icons_dir: str = "data/icons") -> Non
         for i, item in enumerate(spawn_items):
             prefix = f"  [{i + 1}/{len(spawn_items)}]"
 
-            if item in cache:
+            if item in cache and not _is_stale_quest_entry(cache[item]):
                 entry = _normalize_entry(cache[item])
                 cache[item] = entry
                 quest = entry["quest"]
                 spawn_count = len(entry.get("spawns", []))
                 print(f"{prefix} {item}: (cached) quest={quest}, spawns={spawn_count}")
-                if quest == "No":
-                    results.append(entry)
-                elif quest is None:
-                    skipped.append(item)
+                classify(entry)
                 continue
 
             print(f"{prefix} ", end="")
             entry = _fetch_item(item, icons_path)
             cache[item] = entry
             fetched_since_flush += 1
-
-            if entry["quest"] == "No":
-                results.append(entry)
-            elif entry["quest"] is None:
-                skipped.append(item)
+            classify(entry)
 
             if fetched_since_flush >= CACHE_FLUSH_INTERVAL:
                 save_cache(cache, cache_path)
@@ -111,5 +133,6 @@ def run(output_path: str, cache_path: str, icons_dir: str = "data/icons") -> Non
 
     new_fetched = len(cache) - cached_count
     print(f"\nDone. {new_fetched} newly fetched, {cached_count} from cache.")
-    print(f"Saved {len(results)} non-quest items to {output_path}")
-    print(f"Skipped (no infobox / ambiguous): {skipped}")
+    print(f"Saved {len(results)} items to {output_path}")
+    if warnings:
+        print(f"warning: {len(warnings)} item(s) excluded!", file=sys.stderr)

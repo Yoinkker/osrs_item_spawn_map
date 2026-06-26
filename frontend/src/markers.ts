@@ -71,6 +71,10 @@ export function hasUndergroundSpawn(item: SpawnItem): boolean {
   return item.spawns.some(isUnderground);
 }
 
+export function isQuestItem(item: SpawnItem): boolean {
+  return item.quest !== null && item.quest !== "No";
+}
+
 function buildMarkerIconHtml(item: SpawnItem, done: boolean): string {
   const wrap = document.createElement("div");
   wrap.className = "spawn-marker";
@@ -114,6 +118,7 @@ export interface MarkerRef {
   plane: Plane;
   mapId: number;
   itemName: string;
+  isQuest: boolean;
 }
 
 export interface MarkerIndex {
@@ -261,7 +266,7 @@ export function buildMarkers(
         syncPopupBtn(btn, isCollected(item.item));
       });
       byItem[item.item]!.push(m);
-      all.push({ marker: m, plane, mapId, itemName: item.item });
+      all.push({ marker: m, plane, mapId, itemName: item.item, isQuest: isQuestItem(item) });
     }
   }
   return { all, byItem };
@@ -272,9 +277,10 @@ export function applyPlaneFilter(
   all: MarkerRef[],
   currentPlane: Plane,
   currentMapId: number,
+  showQuest: boolean,
 ): void {
-  for (const { marker, plane, mapId } of all) {
-    if (mapId !== currentMapId) {
+  for (const { marker, plane, mapId, isQuest } of all) {
+    if (mapId !== currentMapId || (isQuest && !showQuest)) {
       group.removeLayer(marker);
       setMarkerAdjacentPlane(marker, false);
       marker.setZIndexOffset(0);

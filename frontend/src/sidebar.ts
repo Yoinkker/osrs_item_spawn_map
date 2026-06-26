@@ -1,4 +1,4 @@
-import { countMapMarkers, hasOverworldSpawn, hasUndergroundSpawn } from "./markers.ts";
+import { countMapMarkers, hasOverworldSpawn, hasUndergroundSpawn, isQuestItem } from "./markers.ts";
 import type { CollectedMap } from "./state.ts";
 import type { SpawnItem } from "./types.ts";
 import { isBundledIconPath } from "./validate.ts";
@@ -21,9 +21,14 @@ export function buildSidebar(
   for (const item of spawnData) {
     const row = document.createElement("div");
     const hasMap = hasOverworldSpawn(item) || hasUndergroundSpawn(item);
+    const isQuest = isQuestItem(item);
     row.className =
-      "item-row" + (collected[item.item] ? " collected" : "") + (hasMap ? "" : " no-overworld");
+      "item-row" +
+      (collected[item.item] ? " collected" : "") +
+      (hasMap ? "" : " no-overworld") +
+      (isQuest ? " quest" : "");
     row.dataset.item = item.item;
+    if (isQuest) row.dataset.quest = "1";
     const markerCount = countMapMarkers(item);
     row.dataset.markerCount = String(markerCount);
     const titleSuffix = hasMap ? "" : " (instance - map not available)";
@@ -41,6 +46,14 @@ export function buildSidebar(
     nameEl.textContent = item.item;
     nameEl.title = `${item.item}${titleSuffix}`;
     row.append(nameEl);
+
+    if (isQuest) {
+      const badge = document.createElement("span");
+      badge.className = "quest-badge";
+      badge.textContent = "quest";
+      badge.title = "Used in a quest";
+      row.append(badge);
+    }
 
     const countSpan = document.createElement("span");
     countSpan.className = "item-count";
@@ -64,11 +77,12 @@ export function buildSidebar(
   }
 }
 
-export function applyFilter(filterText: string): void {
+export function applyFilter(filterText: string, showQuest: boolean): void {
   let n = 0;
   for (const r of document.querySelectorAll<HTMLElement>(".item-row")) {
     const name = (r.dataset.item ?? "").toLowerCase();
-    const show = name.includes(filterText);
+    const questHidden = r.dataset.quest === "1" && !showQuest;
+    const show = !questHidden && name.includes(filterText);
     r.style.display = show ? "" : "none";
     if (show) n++;
   }
