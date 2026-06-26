@@ -13,6 +13,7 @@ Tracks collected items (saved in `localStorage`). Export/Import support.
 | `scraper/`  | Python scraper → `data/spawn_items.json` + icons  |
 | `frontend/` | Vite + Leaflet SPA (Cloudflare Pages)             |
 | `worker/`   | Tile proxy + tile-version API (Cloudflare Worker) |
+| `shared/`   | Shared TS constants (fallback tile version)       |
 | `schemas/`  | Shared JSON Schema for spawn data                 |
 
 ## Architecture
@@ -21,7 +22,7 @@ Scraper: Python CLI that crawls the wiki item spawn list, resolves coordinates a
 
 Frontend: TypeScript SPA (Vite + Leaflet). Loads spawn data and bundled icons, renders markers by plane/map, and persists collected items in `localStorage`. In dev, Vite serves spawn JSON and icons from `data/` and proxies worker routes to `:8787`.
 
-Worker: Cloudflare Worker that proxies wiki map tiles (CORS + rate limiting) and exposes `/api/tile-version` so the frontend can pick the correct tile set. Tile versions are cached in KV.
+Worker: Cloudflare Worker that proxies wiki map tiles (CORS + rate limiting) and exposes `/api/tile-version` so the frontend can pick the correct tile set. Tile versions are cached in KV. The frontend and worker share a fallback tile version constant from `shared/tileVersion.ts`.
 
 In production, Cloudflare Pages hosts the static frontend (with spawn JSON and icons embedded in `dist/`) and the Worker runs at `VITE_WORKER_URL`.
 
@@ -30,7 +31,7 @@ In production, Cloudflare Pages hosts the static frontend (with spawn JSON and i
 ### Prerequisites
 
 - Node.js 22
-- pnpm 10
+- pnpm 11
 - uv (Python 3.11)
 
 ```bash
