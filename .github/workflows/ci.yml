@@ -9,16 +9,14 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
-      - uses: astral-sh/setup-uv@v3
+      - uses: astral-sh/setup-uv@v8.2.0
       - run: uv python install 3.11
       - run: pnpm install --frozen-lockfile
       - run: pnpm check

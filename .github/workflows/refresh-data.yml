@@ -18,8 +18,8 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v3
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v8.2.0
       - run: uv python install 3.11
       - run: uv sync
       - name: Run scraper
@@ -28,7 +28,7 @@ jobs:
             --output data/spawn_items.json \
             --cache data/cache.json
       - name: Open PR if data changed
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: 'chore(data): refresh spawn data'
           title: 'chore(data): refresh spawn data'
