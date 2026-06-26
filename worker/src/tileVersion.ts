@@ -1,3 +1,4 @@
+import { FALLBACK_TILE_VERSION } from "../../shared/tileVersion.ts";
 import {
   type Env,
   TILE_VERSION_KV_KEY,
@@ -26,8 +27,8 @@ async function probeTileVersion(): Promise<string> {
       console.warn("tileVersion: probe failed for", v, error);
     }
   }
-  console.error("tileVersion: all candidates failed, falling back to", candidates[0]);
-  return candidates[0]!;
+  console.error("tileVersion: all candidates failed, falling back to", FALLBACK_TILE_VERSION);
+  return FALLBACK_TILE_VERSION;
 }
 
 export async function getTileVersion(env: Env): Promise<string> {

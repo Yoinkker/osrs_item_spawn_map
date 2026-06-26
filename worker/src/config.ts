@@ -7,10 +7,10 @@ export const UPSTREAM_HEADERS: HeadersInit = {
   Accept: "image/png,image/*,*/*;q=0.8",
 };
 
-const VERSION_LOOKBACK_WEEKS = 16;
+const VERSION_LOOKBACK_WEEKS = 26;
 
 export function generateVersionCandidates(now: Date = new Date()): string[] {
-  const candidates = new Set<string>([FALLBACK_TILE_VERSION]);
+  const candidates = new Set<string>();
   const millisPerWeek = 7 * 24 * 60 * 60 * 1000;
   for (let week = 0; week < VERSION_LOOKBACK_WEEKS; week++) {
     const d = new Date(now.getTime() - week * millisPerWeek);
@@ -19,6 +19,7 @@ export function generateVersionCandidates(now: Date = new Date()): string[] {
     const day = String(d.getUTCDate()).padStart(2, "0");
     candidates.add(`${y}-${m}-${day}_a`);
   }
+  candidates.add(FALLBACK_TILE_VERSION);
   return [...candidates];
 }
 
