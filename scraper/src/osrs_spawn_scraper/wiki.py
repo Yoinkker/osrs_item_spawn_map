@@ -101,6 +101,16 @@ def _bucket_query(name: str) -> tuple[str | None, str | None]:
     return None, None
 
 
+def _parse_quest_wikitext(wikitext: str) -> str | None:
+    match = re.search(r"\|quest\s*=\s*([^\n]+)", wikitext, re.IGNORECASE)
+    if not match:
+        return None
+    val = match.group(1).strip()
+    if not val:
+        return None
+    return "No" if val.lower() == "no" else val
+
+
 def get_item_info(item_name: str) -> tuple[str | None, str | None]:
     quest, image_file = _bucket_query(item_name)
     if quest is not None or image_file is not None:
@@ -120,11 +130,7 @@ def get_item_info(item_name: str) -> tuple[str | None, str | None]:
         if quest is not None or image_file is not None:
             return quest, image_file
 
-    quest_match = re.search(r"\|quest\s*=\s*([^\n|]+)", wikitext, re.IGNORECASE)
-    quest = None
-    if quest_match:
-        val = quest_match.group(1).strip().lower()
-        quest = "No" if val == "no" else ("Yes" if val != "" else None)
+    quest = _parse_quest_wikitext(wikitext)
 
     image_match = re.search(r"\|image1?\s*=\s*\[\[File:([^\]|]+)", wikitext)
     image_file = image_match.group(1).strip() if image_match else None

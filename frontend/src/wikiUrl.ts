@@ -22,3 +22,23 @@ export function wikiItemLink(itemName: string, displayName?: string): HTMLAnchor
   link.textContent = displayName ?? itemName;
   return link;
 }
+
+export interface QuestLink {
+  /** Wiki page name to link to. */
+  page: string;
+  /** Display text for the link. */
+  display: string;
+}
+
+const QUEST_LINK_RE = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
+
+export function parseQuestLinks(quest: string | null): QuestLink[] {
+  if (!quest) return [];
+  const links: QuestLink[] = [];
+  for (const match of quest.matchAll(QUEST_LINK_RE)) {
+    const page = match[1]!.trim();
+    if (!page || page.toLowerCase() === "miniquest") continue;
+    links.push({ page, display: (match[2] ?? match[1])!.trim() });
+  }
+  return links;
+}

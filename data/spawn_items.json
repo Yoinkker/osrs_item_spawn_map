@@ -11734,7 +11734,7 @@
   },
   {
     "item": "Diary (Witch's House)",
-    "quest": "Yes",
+    "quest": "[[Witch's House]]",
     "image_file": "Diary (Witch's House).png",
     "image_url": "/icons/Diary_(Witch's_House).png",
     "spawns": [
@@ -11897,7 +11897,7 @@
   },
   {
     "item": "Door key (Witch's House)",
-    "quest": "Yes",
+    "quest": "[[Witch's House]]. [[Grim Tales]]",
     "image_file": "Door key (Witch's House).png",
     "image_url": "/icons/Door_key_(Witch's_House).png",
     "spawns": [
@@ -14396,7 +14396,7 @@
   },
   {
     "item": "Holy grail (item)",
-    "quest": "Yes",
+    "quest": "[[Holy Grail]], [[King's Ransom]]",
     "image_file": "Holy grail.png",
     "image_url": "/icons/Holy_grail.png",
     "spawns": [
@@ -14451,7 +14451,7 @@
   },
   {
     "item": "Hourglass (Recruitment Drive)",
-    "quest": "Yes",
+    "quest": "[[Recruitment Drive]]",
     "image_file": "Hourglass (Recruitment Drive).png",
     "image_url": "/icons/Hourglass_(Recruitment_Drive).png",
     "spawns": [
@@ -15945,7 +15945,7 @@
   },
   {
     "item": "Keg (The Great Brain Robbery)",
-    "quest": "Yes",
+    "quest": "[[The Great Brain Robbery]]",
     "image_file": "Keg (The Great Brain Robbery).png",
     "image_url": "/icons/Keg_(The_Great_Brain_Robbery).png",
     "spawns": [
@@ -15981,7 +15981,7 @@
   },
   {
     "item": "Keg (dummy item)",
-    "quest": "Yes",
+    "quest": "[[The Great Brain Robbery]]",
     "image_file": "Keg (dummy item).png",
     "image_url": "/icons/Keg_(dummy_item).png",
     "spawns": [
@@ -16017,7 +16017,7 @@
   },
   {
     "item": "Keg of beer (The Fremennik Trials)",
-    "quest": "Yes",
+    "quest": "[[The Fremennik Trials]]",
     "image_file": "Keg of beer (The Fremennik Trials).png",
     "image_url": "/icons/Keg_of_beer_(The_Fremennik_Trials).png",
     "spawns": [
@@ -16038,7 +16038,7 @@
   },
   {
     "item": "Key (Waterfall Dungeon)",
-    "quest": "Yes",
+    "quest": "[[Waterfall Quest]], [[Roving Elves]], [[Song of the Elves]]",
     "image_file": "Key (Waterfall Dungeon).png",
     "image_url": "/icons/Key_(Waterfall_Dungeon).png",
     "spawns": [
@@ -16977,7 +16977,7 @@
   },
   {
     "item": "Letter (The Golem)",
-    "quest": "Yes",
+    "quest": "[[The Golem]]",
     "image_file": "Letter (The Golem).png",
     "image_url": "/icons/Letter_(The_Golem).png",
     "spawns": [
@@ -16998,7 +16998,7 @@
   },
   {
     "item": "Lever (Temple of Ikov)",
-    "quest": "Yes",
+    "quest": "[[Temple of Ikov]]",
     "image_file": "Lever (Temple of Ikov).png",
     "image_url": "/icons/Lever_(Temple_of_Ikov).png",
     "spawns": [
@@ -19111,7 +19111,7 @@
   },
   {
     "item": "Poison (item)",
-    "quest": "Yes",
+    "quest": "[[Ernest the Chicken]], [[Hazeel Cult]]",
     "image_file": "Poison (item).png",
     "image_url": "/icons/Poison_(item).png",
     "spawns": [
@@ -23995,7 +23995,7 @@
   },
   {
     "item": "Stone tablet (The Curse of Arrav)",
-    "quest": "Yes",
+    "quest": "[[The Curse of Arrav]]",
     "image_file": "Stone tablet (The Curse of Arrav).png",
     "image_url": "/icons/Stone_tablet_(The_Curse_of_Arrav).png",
     "spawns": [

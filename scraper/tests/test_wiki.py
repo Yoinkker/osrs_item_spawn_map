@@ -1,8 +1,22 @@
 from osrs_spawn_scraper.wiki import (
     _escape_bucket_string,
+    _parse_quest_wikitext,
     filter_unobtainable,
     filter_unobtainable_duplicates,
 )
+
+
+def test_parse_quest_wikitext_preserves_quest_links():
+    wikitext = (
+        "{{Infobox Item\n|name = Holy grail\n|quest = [[Holy Grail]], [[King's Ransom]]\n|weight = 0\n}}"
+    )
+    assert _parse_quest_wikitext(wikitext) == "[[Holy Grail]], [[King's Ransom]]"
+
+
+def test_parse_quest_wikitext_normalizes_no_and_absent():
+    assert _parse_quest_wikitext("|quest = No\n") == "No"
+    assert _parse_quest_wikitext("|quest =   \n") is None
+    assert _parse_quest_wikitext("|weight = 1\n") is None
 
 
 def test_escape_bucket_string_handles_quotes_and_backslashes():

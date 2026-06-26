@@ -17,6 +17,7 @@
   },
   "rules": {
     "max-depth": "off",
+    "max-lines": ["error", 400],
     "max-lines-per-function": "off",
     "max-nested-callbacks": "off",
     "max-params": "off",

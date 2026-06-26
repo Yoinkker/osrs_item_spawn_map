@@ -1,12 +1,12 @@
 import L from "leaflet";
 
+import { toLL } from "./map.ts";
 import { effectiveMapId, isOverworld, isUnderground } from "./mapSpawn.ts";
 import { overlapKey, overlapPosition } from "./markerOverlap.ts";
-import { toLL } from "./map.ts";
 import type { CollectedMap } from "./state.ts";
 import type { Coord, Plane, Spawn, SpawnItem } from "./types.ts";
 import { isBundledIconPath } from "./validate.ts";
-import { wikiItemLink } from "./wikiUrl.ts";
+import { parseQuestLinks, wikiItemLink } from "./wikiUrl.ts";
 
 const MARKER_ICON_SIZE: [number, number] = [30, 36];
 const MARKER_ICON_ANCHOR: [number, number] = [15, 36];
@@ -73,6 +73,17 @@ export function hasUndergroundSpawn(item: SpawnItem): boolean {
 
 export function isQuestItem(item: SpawnItem): boolean {
   return item.quest !== null && item.quest !== "No";
+}
+
+export function warnUnnamedQuestItems(spawnData: SpawnItem[]): void {
+  const unnamed = spawnData
+    .filter((item) => isQuestItem(item) && parseQuestLinks(item.quest).length === 0)
+    .map((item) => item.item);
+  if (unnamed.length > 0) {
+    console.warn(
+      `[quest] ${unnamed.length} quest item(s) have no named quest on the wiki (fix the infobox 'quest' field): ${unnamed.join(", ")}`,
+    );
+  }
 }
 
 function buildMarkerIconHtml(item: SpawnItem, done: boolean): string {
@@ -197,6 +208,7 @@ export function buildMarkers(
 ): MarkerIndex {
   const all: MarkerRef[] = [];
   const byItem: { [key: string]: L.Marker[] } = {};
+  warnUnnamedQuestItems(spawnData);
   const groups = groupPendingMarkers(collectPendingMarkers(spawnData));
 
   for (const group of groups.values()) {
@@ -236,6 +248,18 @@ export function buildMarkers(
       locDiv.className = "popup-loc";
       locDiv.textContent = loc + (plane ? ` · Floor ${plane}` : "");
       container.append(locDiv);
+
+      const quests = parseQuestLinks(item.quest);
+      if (quests.length > 0) {
+        const questDiv = document.createElement("div");
+        questDiv.className = "popup-quest";
+        questDiv.append(quests.length > 1 ? "Quests: " : "Quest: ");
+        for (const [i, quest] of quests.entries()) {
+          if (i > 0) questDiv.append(", ");
+          questDiv.append(wikiItemLink(quest.page, quest.display));
+        }
+        container.append(questDiv);
+      }
 
       const btn = document.createElement("button");
       btn.type = "button";
