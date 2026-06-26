@@ -1,4 +1,8 @@
-from osrs_spawn_scraper.wiki import _escape_bucket_string, filter_unobtainable_duplicates
+from osrs_spawn_scraper.wiki import (
+    _escape_bucket_string,
+    filter_unobtainable,
+    filter_unobtainable_duplicates,
+)
 
 
 def test_escape_bucket_string_handles_quotes_and_backslashes():
@@ -20,3 +24,9 @@ def test_filter_unobtainable_duplicates_drops_redundant_pages():
         "Wine of zamorak",
         "Rotten barrel (unobtainable item)",
     ]
+
+
+def test_filter_unobtainable_drops_category_members():
+    items = ["Air rune", "Ahab's beer", "Rope (Olaf's Quest)", "Bread"]
+    unobtainable = {"Ahab's beer", "Rope (Olaf's Quest)", "Some other item"}
+    assert filter_unobtainable(items, unobtainable) == ["Air rune", "Bread"]

@@ -163,6 +163,7 @@ def get_image_url(filename: str) -> str | None:
 
 
 UNOBTAINABLE_SUFFIX = " (unobtainable item)"
+UNOBTAINABLE_CATEGORY = "Category:Unobtainable items"
 
 
 def filter_unobtainable_duplicates(items: list[str]) -> list[str]:
@@ -172,6 +173,39 @@ def filter_unobtainable_duplicates(items: list[str]) -> list[str]:
         for name in items
         if not (name.endswith(UNOBTAINABLE_SUFFIX) and name.removesuffix(UNOBTAINABLE_SUFFIX) in names)
     ]
+
+
+def get_unobtainable_items() -> set[str]:
+    print("Fetching unobtainable items category...")
+    names: set[str] = set()
+    cmcontinue: str | None = None
+    pages = 0
+    while True:
+        params = {
+            "action": "query",
+            "list": "categorymembers",
+            "cmtitle": UNOBTAINABLE_CATEGORY,
+            "cmtype": "page",
+            "cmlimit": "500",
+            "format": "json",
+        }
+        if cmcontinue:
+            params["cmcontinue"] = cmcontinue
+        data = _get_json(params)
+        members = data.get("query", {}).get("categorymembers", [])
+        names.update(m["title"] for m in members if m.get("ns") == 0)
+        pages += 1
+        print(f"  Page {pages}: {len(members)} items ({len(names)} items so far)")
+        cont = data.get("continue")
+        if not isinstance(cont, dict) or "cmcontinue" not in cont:
+            break
+        cmcontinue = cont["cmcontinue"]
+    print(f"  Fetched {len(names)} unobtainable items across {pages} page(s)")
+    return names
+
+
+def filter_unobtainable(items: list[str], unobtainable: set[str]) -> list[str]:
+    return [name for name in items if name not in unobtainable]
 
 
 def get_spawn_items() -> list[str]:
@@ -188,10 +222,20 @@ def get_spawn_items() -> list[str]:
     links = parse["links"]
     skip = {"Item", "Herblore", "Wilderness"}
     items = [link["*"] for link in links if link["ns"] == 0 and link["*"] not in skip]
-    filtered = filter_unobtainable_duplicates(items)
-    skipped = len(items) - len(filtered)
+    deduped = filter_unobtainable_duplicates(items)
+    dup_skipped = len(items) - len(deduped)
+
+    unobtainable = get_unobtainable_items()
+    filtered = filter_unobtainable(deduped, unobtainable)
+    unobt_skipped = len(deduped) - len(filtered)
+
     print(f"  Found {len(filtered)} items", end="")
-    if skipped:
-        print(f" ({skipped} unobtainable duplicates skipped)", end="")
+    notes = []
+    if dup_skipped:
+        notes.append(f"{dup_skipped} unobtainable duplicates")
+    if unobt_skipped:
+        notes.append(f"{unobt_skipped} unobtainable items")
+    if notes:
+        print(f" ({', '.join(notes)} skipped)", end="")
     print()
     return filtered

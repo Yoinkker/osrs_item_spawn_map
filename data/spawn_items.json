@@ -21,27 +21,6 @@
     ]
   },
   {
-    "item": "Ahab's beer",
-    "quest": "No",
-    "image_file": "Ahab's beer.png",
-    "image_url": "/icons/Ahab's_beer.png",
-    "spawns": [
-      {
-        "location": "Port Sarim - Rusty Anchor Inn",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3049,
-            "y": 3257,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
     "item": "Air rune",
     "quest": "No",
     "image_file": "Air rune.png",
@@ -1855,27 +1834,6 @@
           {
             "x": 1237,
             "y": 9488,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Blue hat (Legends' Quest)",
-    "quest": "Yes",
-    "image_file": "Blue hat (Legends' Quest).png",
-    "image_url": "/icons/Blue_hat_(Legends'_Quest).png",
-    "spawns": [
-      {
-        "location": "Viyeldi Caves",
-        "members": "Yes",
-        "map_id": 10173,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2379,
-            "y": 4712,
             "qty": 1
           }
         ]
@@ -11642,27 +11600,6 @@
     ]
   },
   {
-    "item": "Cup of tea (Zogre Flesh Eaters)",
-    "quest": "Yes",
-    "image_file": "Cup of tea (Zogre Flesh Eaters).png",
-    "image_url": "/icons/Cup_of_tea_(Zogre_Flesh_Eaters).png",
-    "spawns": [
-      {
-        "location": "Yanille - building north of the Wizards' Guild",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 2593,
-            "y": 3103,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
     "item": "Damaged armour",
     "quest": "No",
     "image_file": "Damaged armour.png",
@@ -16747,27 +16684,6 @@
     ]
   },
   {
-    "item": "Lamp (Spirits of the Elid)",
-    "quest": "Yes",
-    "image_file": "Lamp (Spirits of the Elid).png",
-    "image_url": "/icons/Lamp_(Spirits_of_the_Elid).png",
-    "spawns": [
-      {
-        "location": "Nardah - Genie Cave",
-        "members": "Yes",
-        "map_id": 10070,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3369,
-            "y": 9317,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
     "item": "Leather",
     "quest": "No",
     "image_file": "Leather.png",
@@ -20724,37 +20640,6 @@
           {
             "x": 2791,
             "y": 2501,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Rope (Olaf's Quest)",
-    "quest": "Yes",
-    "image_file": "Rope (Olaf's Quest).png",
-    "image_url": "/icons/Rope_(Olaf's_Quest).png",
-    "spawns": [
-      {
-        "location": "Brine Rat Cavern",
-        "members": "Yes",
-        "map_id": 10026,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2700,
-            "y": 10163,
-            "qty": 1
-          },
-          {
-            "x": 2703,
-            "y": 10155,
-            "qty": 1
-          },
-          {
-            "x": 2718,
-            "y": 10163,
             "qty": 1
           }
         ]
@@ -26194,27 +26079,6 @@
           {
             "x": 3009,
             "y": 3204,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "White apron (Gerrant's Fishy Business)",
-    "quest": "Yes",
-    "image_file": "White apron (hanging).png",
-    "image_url": "/icons/White_apron_(hanging).png",
-    "spawns": [
-      {
-        "location": "Port Sarim - Gerrant's Fishy Business",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3016,
-            "y": 3229,
             "qty": 1
           }
         ]
