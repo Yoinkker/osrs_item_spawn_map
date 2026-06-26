@@ -1,3 +1,4 @@
+import { buildSearchText } from "./itemSearch.ts";
 import { countMapMarkers, hasOverworldSpawn, hasUndergroundSpawn, isQuestItem } from "./markers.ts";
 import type { CollectedMap } from "./state.ts";
 import type { SpawnItem } from "./types.ts";
@@ -28,6 +29,7 @@ export function buildSidebar(
       (hasMap ? "" : " no-overworld") +
       (isQuest ? " quest" : "");
     row.dataset.item = item.item;
+    row.dataset.search = buildSearchText(item);
     if (isQuest) row.dataset.quest = "1";
     const markerCount = countMapMarkers(item);
     row.dataset.markerCount = String(markerCount);
@@ -80,9 +82,9 @@ export function buildSidebar(
 export function applyFilter(filterText: string, showQuest: boolean): void {
   let n = 0;
   for (const r of document.querySelectorAll<HTMLElement>(".item-row")) {
-    const name = (r.dataset.item ?? "").toLowerCase();
+    const haystack = r.dataset.search ?? (r.dataset.item ?? "").toLowerCase();
     const questHidden = r.dataset.quest === "1" && !showQuest;
-    const show = !questHidden && name.includes(filterText);
+    const show = !questHidden && haystack.includes(filterText);
     r.style.display = show ? "" : "none";
     if (show) n++;
   }
