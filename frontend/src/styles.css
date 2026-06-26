@@ -534,6 +534,7 @@ body {
 .popup-header img {
   width: 28px;
   height: 28px;
+  object-fit: contain;
   image-rendering: pixelated;
 }
 .popup-header h3 {
