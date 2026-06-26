@@ -222,12 +222,16 @@ body {
 #quest-switch {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
   text-transform: none;
   letter-spacing: normal;
   color: var(--text-dim);
   user-select: none;
+  padding: 2px 7px;
+  background: var(--bg-panel2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
 }
 #quest-switch input {
   position: absolute;
@@ -271,12 +275,15 @@ body {
   outline: 1px solid var(--gold);
   outline-offset: 1px;
 }
-.quest-switch-label {
-  font-family: "Crimson Text", serif;
-  font-size: 0.8rem;
+.quest-switch-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
 }
 #quest-switch:hover {
   color: var(--gold);
+  border-color: var(--gold-dim);
 }
 .quest-badge {
   margin-left: 6px;
