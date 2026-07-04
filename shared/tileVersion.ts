@@ -1,1 +1,1 @@
-export const FALLBACK_TILE_VERSION = "2026-03-04_a";
+export const FALLBACK_TILE_VERSION = "2026-06-30_a";
