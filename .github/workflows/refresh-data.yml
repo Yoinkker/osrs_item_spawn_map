@@ -40,3 +40,4 @@ jobs:
           branch: refresh-data
           add-paths: |
             data/spawn_items.json
+            data/icons
