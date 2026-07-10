@@ -9823,6 +9823,19 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "Sangvesti",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2600,
+            "y": 7829,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
