@@ -37,14 +37,14 @@ export function resolveUpstreamUrl(tilePath: string): string | null {
   return upstreamTileUrl(ver!, z, plane, tx, ty, mapId);
 }
 
-export async function handleTileProxy(_request: Request, tilePath: string): Promise<Response> {
+export async function handleTileProxy(request: Request, tilePath: string): Promise<Response> {
   const upstreamUrl = resolveUpstreamUrl(tilePath);
   if (!upstreamUrl) {
     return new Response("invalid tile path", { status: 400, headers: tileResponseHeaders() });
   }
 
   const cache = caches.default;
-  const cacheKey = new Request(upstreamUrl, { method: "GET" });
+  const cacheKey = new Request(new URL(request.url).toString(), { method: "GET" });
   const cached = await cache.match(cacheKey);
   if (cached) {
     return new Response(cached.body, {
