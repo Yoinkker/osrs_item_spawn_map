@@ -43,7 +43,7 @@ jobs:
             echo "::error::Set the WORKER_ALLOWED_ORIGINS repository variable (comma-separated origins)."
             exit 1
           fi
-          pnpm exec wrangler deploy --env production \
+          pnpm exec wrangler deploy \
             --var "ALLOWED_ORIGINS:${WORKER_ALLOWED_ORIGINS}"
         working-directory: worker
         env:

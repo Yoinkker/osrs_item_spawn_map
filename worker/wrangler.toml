@@ -1,6 +1,7 @@
 name = "osrs-spawn-map-worker"
 main = "src/index.ts"
 compatibility_date = "2025-07-18"
+workers_dev = false
 
 [observability]
 enabled = true
@@ -9,13 +10,5 @@ enabled = true
 ALLOWED_ORIGINS = ""
 
 [[kv_namespaces]]
-binding = "TILE_VERSION_KV"
-id = "fa7da62fd4904b2c9e2c95312c5acf71"
-
-[env.production]
-[env.production.vars]
-ALLOWED_ORIGINS = ""
-
-[[env.production.kv_namespaces]]
 binding = "TILE_VERSION_KV"
 id = "fa7da62fd4904b2c9e2c95312c5acf71"
