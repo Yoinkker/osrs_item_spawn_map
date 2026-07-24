@@ -9227,7 +9227,7 @@
     "image_url": "/icons/Chaos_rune.png",
     "spawns": [
       {
-        "location": "Wilderness - Between the Lava Maze and Lava Dragon Isle",
+        "location": "Wilderness - Wilderness Pond",
         "members": "No",
         "map_id": 0,
         "plane": 0,
@@ -14410,7 +14410,7 @@
     "image_url": "/icons/Holy_mould.png",
     "spawns": [
       {
-        "location": "Hosidius - Monk's camp",
+        "location": "Hosidius - Monk camp",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -19653,7 +19653,7 @@
         ]
       },
       {
-        "location": "Hosidius - chapel north of allotment patch (level 1)",
+        "location": "Hosidius - church north of allotment patch (level 1)",
         "members": "Yes",
         "map_id": 0,
         "plane": 1,
