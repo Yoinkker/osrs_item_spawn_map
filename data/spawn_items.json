@@ -2886,11 +2886,6 @@
             "qty": 1
           },
           {
-            "x": 2511,
-            "y": 3114,
-            "qty": 1
-          },
-          {
             "x": 2510,
             "y": 3080,
             "qty": 1
@@ -7778,6 +7773,19 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "Wyrmscraig",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2567,
+            "y": 2255,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -9029,6 +9037,24 @@
           {
             "x": 1680,
             "y": 3232,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Wyrmscraig",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2579,
+            "y": 2270,
+            "qty": 1
+          },
+          {
+            "x": 2567,
+            "y": 2245,
             "qty": 1
           }
         ]
@@ -15230,6 +15256,19 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "Wyrmscraig Cavern",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2613,
+            "y": 8600,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -15984,6 +16023,19 @@
           {
             "x": 3803,
             "y": 2876,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Harmony Island - level 2 of crashed ship",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 2,
+        "coords": [
+          {
+            "x": 3793,
+            "y": 2872,
             "qty": 1
           }
         ]
@@ -17962,6 +18014,19 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "Wyrmscraig",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2572,
+            "y": 2243,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -18406,6 +18471,19 @@
           {
             "x": 1452,
             "y": 3193,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Wyrmsgraig - Ardeaglais",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2539,
+            "y": 2217,
             "qty": 1
           }
         ]
@@ -23482,6 +23560,19 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "Wyrmscraig",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2592,
+            "y": 2291,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -24980,6 +25071,19 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "Wyrmscraig - Auchrie",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2575,
+            "y": 2243,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -25312,6 +25416,42 @@
           {
             "x": 3405,
             "y": 9937,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Corsair Cove",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2543,
+            "y": 2862,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Chambers of Xeric",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3280,
+            "y": 5347,
+            "qty": 1
+          },
+          {
+            "x": 3312,
+            "y": 5346,
+            "qty": 1
+          },
+          {
+            "x": 3340,
+            "y": 5347,
             "qty": 1
           }
         ]
