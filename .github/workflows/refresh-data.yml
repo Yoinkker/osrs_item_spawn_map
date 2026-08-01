@@ -27,6 +27,21 @@ jobs:
           uv run python -m osrs_spawn_scraper \
             --output data/spawn_items.json \
             --cache data/cache.json
+      - name: Refresh tile version constant
+        run: |
+          set -euo pipefail
+          live=$(curl -sf --max-time 30 https://api.osrs-item-spawn-map.app/api/tile-version \
+            | python3 -c 'import json,sys; print(json.load(sys.stdin)["version"])')
+          if ! [[ "$live" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z]$ ]]; then
+            echo "Refusing to write malformed version: $live" >&2; exit 1
+          fi
+          url="https://maps.runescape.wiki/osrs/versions/$live/tiles/rendered/0/1/0_24_26.png"
+          if [ "$(curl -so /dev/null -w '%{http_code}' --max-time 30 "$url")" != "200" ]; then
+            echo "Refusing to pin $live: its tiles do not resolve upstream" >&2; exit 1
+          fi
+          printf 'export const FALLBACK_TILE_VERSION = "%s";\n' "$live" > shared/tileVersion.ts
+          echo "Pinned fallback tile version to $live"
+
       - name: Open PR if data changed
         uses: peter-evans/create-pull-request@v8
         with:
@@ -35,9 +50,11 @@ jobs:
           body: |
             ${{ github.event_name == 'workflow_dispatch' && format('Manual refresh triggered by @{0}.', github.actor) || 'Scheduled Friday refresh (after Wednesday game updates).' }}
 
-            Updates `data/spawn_items.json`.
+            Updates `data/spawn_items.json`, and re-pins `FALLBACK_TILE_VERSION`
+            if the wiki has published a new map render.
             ${{ inputs.note && format('Note: {0}', inputs.note) || '' }}
           branch: refresh-data
           add-paths: |
             data/spawn_items.json
             data/icons
+            shared/tileVersion.ts

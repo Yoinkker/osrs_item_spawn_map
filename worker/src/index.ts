@@ -1,8 +1,8 @@
 import type { Env } from "./config.ts";
 import { corsHeaders, resolveAllowedOrigin } from "./cors.ts";
 import { rateLimitResponse } from "./rateLimit.ts";
-import { getTileVersion } from "./tileVersion.ts";
 import { handleTileProxy } from "./tileProxy.ts";
+import { getTileVersion, refreshTileVersion } from "./tileVersion.ts";
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
@@ -55,5 +55,12 @@ export default {
     }
 
     return new Response("not found", { status: 404, headers: headers() });
+  },
+
+  async scheduled(_event: ScheduledController, env: Env): Promise<void> {
+    const record = await refreshTileVersion(env);
+    if (!record.confirmed) {
+      console.error("tileVersion: scheduled refresh could not confirm any version");
+    }
   },
 } satisfies ExportedHandler<Env>;

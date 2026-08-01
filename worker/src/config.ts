@@ -1,5 +1,3 @@
-import { FALLBACK_TILE_VERSION } from "../../shared/tileVersion.ts";
-
 const REPO_URL = "https://github.com/Yoinkker/osrs_item_spawn_map";
 
 export const UPSTREAM_HEADERS: HeadersInit = {
@@ -7,20 +5,21 @@ export const UPSTREAM_HEADERS: HeadersInit = {
   Accept: "image/png,image/*,*/*;q=0.8",
 };
 
-const VERSION_LOOKBACK_DAYS = 120;
+export const MAX_PROBE_DAYS = 40;
 
-export function generateVersionCandidates(now: Date = new Date()): string[] {
-  const candidates = new Set<string>();
+export const PROBE_TILE = { z: 1, plane: 0, tx: 24, ty: 26, mapId: 0 } as const;
+
+export function generateProbeVersions(now: Date = new Date(), maxDays = MAX_PROBE_DAYS): string[] {
+  const versions: string[] = [];
   const millisPerDay = 24 * 60 * 60 * 1000;
-  for (let day = 0; day < VERSION_LOOKBACK_DAYS; day++) {
+  for (let day = 0; day < maxDays; day++) {
     const d = new Date(now.getTime() - day * millisPerDay);
     const y = d.getUTCFullYear();
     const m = String(d.getUTCMonth() + 1).padStart(2, "0");
     const dd = String(d.getUTCDate()).padStart(2, "0");
-    candidates.add(`${y}-${m}-${dd}_a`);
+    versions.push(`${y}-${m}-${dd}_a`);
   }
-  candidates.add(FALLBACK_TILE_VERSION);
-  return [...candidates];
+  return versions;
 }
 
 export const TILE_VERSION_RE = /^\d{4}-\d{2}-\d{2}_[a-z]$/;
@@ -51,6 +50,7 @@ export function upstreamTileUrl(
 
 export const TILE_VERSION_KV_KEY = "current";
 export const TILE_VERSION_TTL_SECONDS = 6 * 60 * 60;
+export const TILE_VERSION_UNCONFIRMED_TTL_SECONDS = 5 * 60;
 export const TILE_CACHE_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
 export const TILE_404_CACHE_MAX_AGE_SECONDS = 10 * 60;
 

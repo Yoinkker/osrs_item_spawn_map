@@ -6,6 +6,9 @@ workers_dev = false
 [observability]
 enabled = true
 
+[triggers]
+crons = ["17 * * * *"]
+
 [vars]
 ALLOWED_ORIGINS = ""
 
