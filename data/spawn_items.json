@@ -12000,7 +12000,7 @@
       {
         "location": "Nature Grotto",
         "members": "Yes",
-        "map_id": 14,
+        "map_id": -1,
         "plane": 1,
         "coords": [
           {
@@ -22415,6 +22415,34 @@
           {
             "x": 2958,
             "y": 2603,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Dognose Island",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3051,
+            "y": 2634,
+            "qty": 1
+          },
+          {
+            "x": 3058,
+            "y": 2636,
+            "qty": 1
+          },
+          {
+            "x": 3063,
+            "y": 2642,
+            "qty": 1
+          },
+          {
+            "x": 3061,
+            "y": 2646,
             "qty": 1
           }
         ]
