@@ -18476,7 +18476,7 @@
         ]
       },
       {
-        "location": "Wyrmsgraig - Ardeaglais",
+        "location": "Wyrmscraig - Ardeaglais",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -22896,6 +22896,32 @@
     "image_url": "/icons/Small_fishing_net.png",
     "spawns": [
       {
+        "location": "Sunset Coast",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1523,
+            "y": 2976,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Shipwreck Cove",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1572,
+            "y": 3319,
+            "qty": 1
+          }
+        ]
+      },
+      {
         "location": "Fishing Guild",
         "members": "Yes",
         "map_id": 0,
@@ -23000,32 +23026,6 @@
           {
             "x": 3167,
             "y": 2838,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Sunset Coast",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1523,
-            "y": 2976,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Shipwreck Cove",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1572,
-            "y": 3319,
             "qty": 1
           }
         ]
@@ -23660,10 +23660,10 @@
     ]
   },
   {
-    "item": "Staff of armadyl",
+    "item": "Staff of Armadyl",
     "quest": "[[Temple of Ikov]]",
-    "image_file": "Staff of armadyl.png",
-    "image_url": "/icons/Staff_of_armadyl.png",
+    "image_file": "Staff of Armadyl.png",
+    "image_url": "/icons/Staff_of_Armadyl.png",
     "spawns": [
       {
         "location": "Temple of Ikov",
@@ -25449,42 +25449,6 @@
         ]
       },
       {
-        "location": "Corsair Cove",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2543,
-            "y": 2862,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Chambers of Xeric",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3280,
-            "y": 5347,
-            "qty": 1
-          },
-          {
-            "x": 3312,
-            "y": 5346,
-            "qty": 1
-          },
-          {
-            "x": 3340,
-            "y": 5347,
-            "qty": 1
-          }
-        ]
-      },
-      {
         "location": "Underground Pass dwarf camp",
         "members": "Yes",
         "map_id": 10161,
@@ -25584,6 +25548,42 @@
           {
             "x": 1327,
             "y": 3319,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Corsair Cove",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2543,
+            "y": 2862,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Chambers of Xeric",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3280,
+            "y": 5347,
+            "qty": 1
+          },
+          {
+            "x": 3312,
+            "y": 5346,
+            "qty": 1
+          },
+          {
+            "x": 3340,
+            "y": 5347,
             "qty": 1
           }
         ]
@@ -26300,10 +26300,10 @@
     ]
   },
   {
-    "item": "Wine of zamorak",
+    "item": "Wine of Zamorak",
     "quest": "No",
-    "image_file": "Wine of zamorak.png",
-    "image_url": "/icons/Wine_of_zamorak.png",
+    "image_file": "Wine of Zamorak.png",
+    "image_url": "/icons/Wine_of_Zamorak.png",
     "spawns": [
       {
         "location": "Asgarnia - Chaos Temple",
