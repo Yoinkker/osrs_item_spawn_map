@@ -1,5 +1,1217 @@
 [
   {
+    "item": "Bird snare",
+    "quest": "No",
+    "image_file": "Bird snare.png",
+    "image_url": "/icons/Bird_snare.png",
+    "spawns": [
+      {
+        "location": "Necropolis camps - south-east of Sophanem",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3324,
+            "y": 2742,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Bucket",
+    "quest": "No",
+    "image_file": "Bucket.png",
+    "image_url": "/icons/Bucket.png",
+    "spawns": [
+      {
+        "location": "Beehives - south of Camelot",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2766,
+            "y": 3441,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Falador farm",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3026,
+            "y": 3289,
+            "qty": 1
+          },
+          {
+            "x": 3020,
+            "y": 3291,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Keldagrim - Blast Furnace",
+        "members": "Yes",
+        "map_id": 10022,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1943,
+            "y": 4956,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Citharede Abbey",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3408,
+            "y": 3176,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Darkmeyer",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3624,
+            "y": 3345,
+            "qty": 1
+          },
+          {
+            "x": 3617,
+            "y": 3377,
+            "qty": 1
+          },
+          {
+            "x": 3604,
+            "y": 3320,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Digsite Dungeon",
+        "members": "Yes",
+        "map_id": 10042,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3354,
+            "y": 9759,
+            "qty": 1
+          },
+          {
+            "x": 3355,
+            "y": 9754,
+            "qty": 1
+          },
+          {
+            "x": 3357,
+            "y": 9756,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Draynor Manor",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3121,
+            "y": 3359,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Al Kharid - tent east of the silk trader",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3307,
+            "y": 3195,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "East Ardougne - well south of the Ardougne Zoo",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2616,
+            "y": 3255,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Pollnivneach - camel shop",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3346,
+            "y": 2966,
+            "qty": 1
+          },
+          {
+            "x": 3351,
+            "y": 2966,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "East Ardougne - Edmond and Alrena's house",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2564,
+            "y": 3332,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Burgh de Rott - by the exit",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3478,
+            "y": 3234,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Meiyerditch - all around the city",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3624,
+            "y": 3211,
+            "qty": 1
+          },
+          {
+            "x": 3626,
+            "y": 3254,
+            "qty": 1
+          },
+          {
+            "x": 3626,
+            "y": 3259,
+            "qty": 1
+          },
+          {
+            "x": 3627,
+            "y": 3291,
+            "qty": 1
+          },
+          {
+            "x": 3628,
+            "y": 3275,
+            "qty": 1
+          },
+          {
+            "x": 3629,
+            "y": 3198,
+            "qty": 1
+          },
+          {
+            "x": 3635,
+            "y": 3276,
+            "qty": 1
+          },
+          {
+            "x": 3638,
+            "y": 3243,
+            "qty": 1
+          },
+          {
+            "x": 3593,
+            "y": 3219,
+            "qty": 1
+          },
+          {
+            "x": 3597,
+            "y": 3190,
+            "qty": 1
+          },
+          {
+            "x": 3597,
+            "y": 3301,
+            "qty": 1
+          },
+          {
+            "x": 3604,
+            "y": 3219,
+            "qty": 1
+          },
+          {
+            "x": 3606,
+            "y": 3267,
+            "qty": 1
+          },
+          {
+            "x": 3621,
+            "y": 3282,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Meiyerditch - upper floor of a building",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 3605,
+            "y": 3251,
+            "qty": 1
+          },
+          {
+            "x": 3611,
+            "y": 3246,
+            "qty": 1
+          },
+          {
+            "x": 3622,
+            "y": 3243,
+            "qty": 1
+          },
+          {
+            "x": 3624,
+            "y": 3236,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Goblin Village - general's house",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2958,
+            "y": 3510,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Lumbridge - farm house south of the hops patch",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3225,
+            "y": 3294,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Lumbridge Castle cellar",
+        "members": "No",
+        "map_id": 12,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3216,
+            "y": 9625,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Shayzien - Jennifer's General Supplies",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1521,
+            "y": 3587,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Shayzien - upstairs in Amelia's house",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 1541,
+            "y": 3542,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Slepe - Crombwick Manor",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3719,
+            "y": 3361,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Weiss - near the herb patch",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2853,
+            "y": 3930,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Death Plateau",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2858,
+            "y": 3586,
+            "qty": 1
+          },
+          {
+            "x": 2864,
+            "y": 3585,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Varrock Palace (level 1)",
+        "members": "No",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 3221,
+            "y": 3497,
+            "qty": 1
+          },
+          {
+            "x": 3222,
+            "y": 3491,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Weiss - Salt Mines",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2849,
+            "y": 10332,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Zanaris - east of the bank",
+        "members": "Yes",
+        "map_id": 28,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2397,
+            "y": 4461,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Corsair Cove Dungeon",
+        "members": "No",
+        "map_id": 31,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2041,
+            "y": 8985,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Hosidius - centre of the saltpetre deposits",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1705,
+            "y": 3530,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Hosidius - house east of Little Shop of Horace (level 1)",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 1784,
+            "y": 3590,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Farming Guild",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1251,
+            "y": 3736,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Temple of Ikov",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2633,
+            "y": 9908,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Colossal Wyrm Remains",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1644,
+            "y": 2926,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Stonecutter Outpost",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1737,
+            "y": 2966,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Civitas illa Fortis",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1667,
+            "y": 3124,
+            "qty": 1
+          },
+          {
+            "x": 1644,
+            "y": 3093,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Civitas illa Fortis - tunnel",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1621,
+            "y": 9566,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Blast mine - in the south building",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 1486,
+            "y": 3861,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Clan Wars - Free for all",
+        "members": "No",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3359,
+            "y": 4777,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Moonrise Brewery and Winery",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1354,
+            "y": 2914,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Stick Your Ore Inn",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1388,
+            "y": 2851,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Tal Teklan",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1239,
+            "y": 3133,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Tlati Rainforest",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1333,
+            "y": 3119,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Kastori",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1358,
+            "y": 3060,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Auburnvale",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1420,
+            "y": 3374,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "The Pandemonium - down ladder",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1502,
+            "y": 4647,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "The Summer Shore",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3150,
+            "y": 2395,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Elder Reggle's Farming Shop",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3248,
+            "y": 2468,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Vatrachos Island",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1881,
+            "y": 2981,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Small fishing net",
+    "quest": "No",
+    "image_file": "Small fishing net.png",
+    "image_url": "/icons/Small_fishing_net.png",
+    "spawns": [
+      {
+        "location": "Sunset Coast",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1523,
+            "y": 2976,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Shipwreck Cove",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1572,
+            "y": 3319,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Fishing Guild",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2608,
+            "y": 3398,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Lumbridge Swamp - by the Fishing tutor",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3244,
+            "y": 3159,
+            "qty": 1
+          },
+          {
+            "x": 3245,
+            "y": 3156,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Corsair Cove Dungeon",
+        "members": "No",
+        "map_id": 31,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2037,
+            "y": 8986,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Ruins of Camdozaal - near fishing spot",
+        "members": "No",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2935,
+            "y": 5779,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Wilderness - western Ruins",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3000,
+            "y": 3699,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Burgh de Rott - southernmost house",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3511,
+            "y": 3189,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Isle of Souls - near spinning wheel",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2169,
+            "y": 2983,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Ruins of Unkah - near Gita Prymes",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3167,
+            "y": 2838,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Tinderbox",
+    "quest": "No",
+    "image_file": "Tinderbox.png",
+    "image_url": "/icons/Tinderbox.png",
+    "spawns": [
+      {
+        "location": "Castle Wars - Saradominist's base",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2431,
+            "y": 3072,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Castle Wars - Saradominist's base (level 1)",
+        "members": "No",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 2423,
+            "y": 3080,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Castle Wars - Zamorakian's base",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2368,
+            "y": 3135,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Castle Wars - Zamorakian's base (level 1)",
+        "members": "No",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 2376,
+            "y": 3127,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Darkmeyer - lower tier",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3644,
+            "y": 3359,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Giants' Plateau",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3362,
+            "y": 3167,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Draynor Manor (level 2)",
+        "members": "No",
+        "map_id": 0,
+        "plane": 2,
+        "coords": [
+          {
+            "x": 3112,
+            "y": 3369,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Hosidius - behind the bank",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1742,
+            "y": 3604,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Kebos Lowlands - Mary and Gordon's farm",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1241,
+            "y": 3703,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Shayzien - Jennifer's General Supplies",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1521,
+            "y": 3591,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Slayer Tower basement",
+        "members": "Yes",
+        "map_id": 14,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3405,
+            "y": 9937,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Underground Pass dwarf camp",
+        "members": "Yes",
+        "map_id": 10161,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2324,
+            "y": 9800,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Civitas illa Fortis",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1737,
+            "y": 3169,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Cam Torum General Store - (level 1)",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 2,
+        "coords": [
+          {
+            "x": 1425,
+            "y": 9557,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Sunset Coast (level 1)",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 1520,
+            "y": 2982,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Salvager Overlook - General Store",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1625,
+            "y": 3287,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "East of Twilight Temple",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1715,
+            "y": 3268,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Kastori",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1359,
+            "y": 3036,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Custodia Pass",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1327,
+            "y": 3319,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Corsair Cove",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2543,
+            "y": 2862,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Chambers of Xeric",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3280,
+            "y": 5347,
+            "qty": 1
+          },
+          {
+            "x": 3312,
+            "y": 5346,
+            "qty": 1
+          },
+          {
+            "x": 3340,
+            "y": 5347,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Harmony Island - level 1 of crashed ship",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 3806,
+            "y": 2873,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "The Adventurous",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1815,
+            "y": 4825,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
     "item": "Address form",
     "quest": "[[King's Ransom]]",
     "image_file": "Address form.png",
@@ -233,8 +1445,8 @@
         "plane": 0,
         "coords": [
           {
-            "x": 1494,
-            "y": 3177,
+            "x": 1497,
+            "y": 3173,
             "qty": 1
           }
         ]
@@ -1296,27 +2508,6 @@
           {
             "x": 1565,
             "y": 3324,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Bird snare",
-    "quest": "No",
-    "image_file": "Bird snare.png",
-    "image_url": "/icons/Bird_snare.png",
-    "spawns": [
-      {
-        "location": "Necropolis camps - south-east of Sophanem",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3324,
-            "y": 2742,
             "qty": 1
           }
         ]
@@ -4376,7 +5567,7 @@
         ]
       },
       {
-        "location": "Colossal Wyrm (2 require telegrab)",
+        "location": "Colossal Wyrm Remains (2 require telegrab)",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -5757,6 +6948,24 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "Sangvesti",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2597,
+            "y": 7829,
+            "qty": 1
+          },
+          {
+            "x": 2601,
+            "y": 7830,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -6081,58 +7290,6 @@
         ]
       },
       {
-        "location": "Lumbridge - outside Fred the Farmer's house",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3185,
-            "y": 3277,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Lumbridge - outside Seth Groats's house",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3232,
-            "y": 3296,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Draynor Village - near Friendly Forester",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3097,
-            "y": 3239,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Seers' Village - near Friendly Forester",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2729,
-            "y": 3479,
-            "qty": 1
-          }
-        ]
-      },
-      {
         "location": "Rellekka - near the rock crabs",
         "members": "Yes",
         "map_id": 0,
@@ -6164,27 +7321,14 @@
         ]
       },
       {
-        "location": "Mountain Camp - in the cave",
+        "location": "Kendal's Lair",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
         "coords": [
           {
-            "x": 2805,
-            "y": 3703,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Avium Savannah - near Marcellus's house",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1683,
-            "y": 2975,
+            "x": 2778,
+            "y": 10079,
             "qty": 1
           }
         ]
@@ -6211,6 +7355,136 @@
           {
             "x": 1297,
             "y": 3133,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Avium Savannah - near Marcellus's house",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1683,
+            "y": 2975,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Seers' Village - near Friendly Forester",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2729,
+            "y": 3479,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Draynor Village - near Friendly Forester",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3097,
+            "y": 3239,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Lumbridge - outside Fred the Farmer's house",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3185,
+            "y": 3277,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Lumbridge - outside Seth Groats's house",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3232,
+            "y": 3296,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Feldip Hills - by the Hunting expert's hut",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2521,
+            "y": 2916,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Prifddinas",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3305,
+            "y": 6123,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Neitiznot",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2341,
+            "y": 3811,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Auburnvale",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1366,
+            "y": 3362,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "The Great Conch",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3127,
+            "y": 2414,
             "qty": 1
           }
         ]
@@ -6271,7 +7545,7 @@
     "image_url": "/icons/Bronze_bolts_1.png",
     "spawns": [
       {
-        "location": "Port Sarim - Grum's Gold Exchange (level 1)",
+        "location": "Port Sarim - (level 1)",
         "members": "No",
         "map_id": 0,
         "plane": 1,
@@ -7018,737 +8292,6 @@
           {
             "x": 2483,
             "y": 2929,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Bucket",
-    "quest": "No",
-    "image_file": "Bucket.png",
-    "image_url": "/icons/Bucket.png",
-    "spawns": [
-      {
-        "location": "Beehives - south of Camelot",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2766,
-            "y": 3441,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Falador farm",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3026,
-            "y": 3289,
-            "qty": 1
-          },
-          {
-            "x": 3020,
-            "y": 3291,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Keldagrim - Blast Furnace",
-        "members": "Yes",
-        "map_id": 10022,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1943,
-            "y": 4956,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Citharede Abbey",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3408,
-            "y": 3176,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Darkmeyer",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3624,
-            "y": 3345,
-            "qty": 1
-          },
-          {
-            "x": 3617,
-            "y": 3377,
-            "qty": 1
-          },
-          {
-            "x": 3604,
-            "y": 3320,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Digsite Dungeon",
-        "members": "Yes",
-        "map_id": 10042,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3354,
-            "y": 9759,
-            "qty": 1
-          },
-          {
-            "x": 3355,
-            "y": 9754,
-            "qty": 1
-          },
-          {
-            "x": 3357,
-            "y": 9756,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Draynor Manor",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3121,
-            "y": 3359,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Al Kharid - tent east of the silk trader",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3307,
-            "y": 3195,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "East Ardougne - well south of the Ardougne Zoo",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2616,
-            "y": 3255,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Pollnivneach - camel shop",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3346,
-            "y": 2966,
-            "qty": 1
-          },
-          {
-            "x": 3351,
-            "y": 2966,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "East Ardougne - Edmond and Alrena's house",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2564,
-            "y": 3332,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Burgh de Rott - by the exit",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3478,
-            "y": 3234,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Meiyerditch - all around the city",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3624,
-            "y": 3211,
-            "qty": 1
-          },
-          {
-            "x": 3626,
-            "y": 3254,
-            "qty": 1
-          },
-          {
-            "x": 3626,
-            "y": 3259,
-            "qty": 1
-          },
-          {
-            "x": 3627,
-            "y": 3291,
-            "qty": 1
-          },
-          {
-            "x": 3628,
-            "y": 3275,
-            "qty": 1
-          },
-          {
-            "x": 3629,
-            "y": 3198,
-            "qty": 1
-          },
-          {
-            "x": 3635,
-            "y": 3276,
-            "qty": 1
-          },
-          {
-            "x": 3638,
-            "y": 3243,
-            "qty": 1
-          },
-          {
-            "x": 3593,
-            "y": 3219,
-            "qty": 1
-          },
-          {
-            "x": 3597,
-            "y": 3190,
-            "qty": 1
-          },
-          {
-            "x": 3597,
-            "y": 3301,
-            "qty": 1
-          },
-          {
-            "x": 3604,
-            "y": 3219,
-            "qty": 1
-          },
-          {
-            "x": 3606,
-            "y": 3267,
-            "qty": 1
-          },
-          {
-            "x": 3621,
-            "y": 3282,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Meiyerditch - upper floor of a building",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 3605,
-            "y": 3251,
-            "qty": 1
-          },
-          {
-            "x": 3611,
-            "y": 3246,
-            "qty": 1
-          },
-          {
-            "x": 3622,
-            "y": 3243,
-            "qty": 1
-          },
-          {
-            "x": 3624,
-            "y": 3236,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Goblin Village - general's house",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2958,
-            "y": 3510,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Lumbridge - farm house south of the hops patch",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3225,
-            "y": 3294,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Lumbridge Castle cellar",
-        "members": "No",
-        "map_id": 12,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3216,
-            "y": 9625,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Shayzien - Jennifer's General Supplies",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1521,
-            "y": 3587,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Shayzien - upstairs in Amelia's house",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 1541,
-            "y": 3542,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Slepe - Crombwick Manor",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3719,
-            "y": 3361,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Weiss - near the herb patch",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2853,
-            "y": 3930,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Death Plateau",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2858,
-            "y": 3586,
-            "qty": 1
-          },
-          {
-            "x": 2864,
-            "y": 3585,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Varrock Palace (level 1)",
-        "members": "No",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 3221,
-            "y": 3497,
-            "qty": 1
-          },
-          {
-            "x": 3222,
-            "y": 3491,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Weiss - Salt Mines",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2849,
-            "y": 10332,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Zanaris - east of the bank",
-        "members": "Yes",
-        "map_id": 28,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2397,
-            "y": 4461,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Corsair Cove Dungeon",
-        "members": "No",
-        "map_id": 31,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2041,
-            "y": 8985,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Hosidius - centre of the saltpetre deposits",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1705,
-            "y": 3530,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Hosidius - house east of Little Shop of Horace (level 1)",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 1784,
-            "y": 3590,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Farming Guild",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1251,
-            "y": 3736,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Temple of Ikov",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2633,
-            "y": 9908,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Colossal Wyrm Remains",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1644,
-            "y": 2926,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Stonecutter Outpost",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1737,
-            "y": 2966,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Civitas illa Fortis",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1667,
-            "y": 3124,
-            "qty": 1
-          },
-          {
-            "x": 1644,
-            "y": 3093,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Civitas illa Fortis - tunnel",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1621,
-            "y": 9566,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Blast mine - in the south building",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 1486,
-            "y": 3861,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Clan Wars - Free for all",
-        "members": "No",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3359,
-            "y": 4777,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Moonrise Brewery and Winery",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1354,
-            "y": 2914,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Stick Your Ore Inn",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1388,
-            "y": 2851,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Tal Teklan",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1239,
-            "y": 3133,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Tlati Rainforest",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1333,
-            "y": 3119,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Kastori",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1358,
-            "y": 3060,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Auburnvale",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1420,
-            "y": 3374,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "The Pandemonium - down ladder",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1502,
-            "y": 4647,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "The Summer Shore",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3150,
-            "y": 2395,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Elder Reggle's Farming Shop",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3248,
-            "y": 2468,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Vatrachos Island",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1881,
-            "y": 2981,
             "qty": 1
           }
         ]
@@ -9580,19 +10123,6 @@
         ]
       },
       {
-        "location": "Guardians of the Rift",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2407,
-            "y": 5645,
-            "qty": 1
-          }
-        ]
-      },
-      {
         "location": "Isle of Souls - bench near anvil",
         "members": "Yes",
         "map_id": 0,
@@ -9666,6 +10196,19 @@
           {
             "x": 3154,
             "y": 2407,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Guardians of the Rift",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2407,
+            "y": 5645,
             "qty": 1
           }
         ]
@@ -12677,10 +13220,10 @@
     ]
   },
   {
-    "item": "Explosive discovery",
+    "item": "Explosive Discovery",
     "quest": "No",
-    "image_file": "Explosive discovery.png",
-    "image_url": "/icons/Explosive_discovery.png",
+    "image_file": "Explosive Discovery.png",
+    "image_url": "/icons/Explosive_Discovery.png",
     "spawns": [
       {
         "location": "Slepe - church (level 2)",
@@ -16283,6 +16826,19 @@
         ]
       },
       {
+        "location": "Feldip Hills - Hunting expert's house",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2523,
+            "y": 2914,
+            "qty": 1
+          }
+        ]
+      },
+      {
         "location": "Gu'Tanoth",
         "members": "Yes",
         "map_id": 0,
@@ -18281,7 +18837,7 @@
     "image_url": "/icons/Orange.png",
     "spawns": [
       {
-        "location": "Varlamore - Kastori",
+        "location": "Varlamore - On an island east of Kastori",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -20275,7 +20831,7 @@
     "image_url": "/icons/Rope.png",
     "spawns": [
       {
-        "location": "Brine Rat Cavern",
+        "location": "Brine Rat Cavern - special spawn",
         "members": "Yes",
         "map_id": 10026,
         "plane": 0,
@@ -20863,19 +21419,6 @@
           {
             "x": 3170,
             "y": 3885,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Trollweiss Mountain summit",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2775,
-            "y": 3850,
             "qty": 1
           }
         ]
@@ -22890,149 +23433,6 @@
     ]
   },
   {
-    "item": "Small fishing net",
-    "quest": "No",
-    "image_file": "Small fishing net.png",
-    "image_url": "/icons/Small_fishing_net.png",
-    "spawns": [
-      {
-        "location": "Sunset Coast",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1523,
-            "y": 2976,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Shipwreck Cove",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1572,
-            "y": 3319,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Fishing Guild",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2608,
-            "y": 3398,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Lumbridge Swamp - by the Fishing tutor",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3244,
-            "y": 3159,
-            "qty": 1
-          },
-          {
-            "x": 3245,
-            "y": 3156,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Corsair Cove Dungeon",
-        "members": "No",
-        "map_id": 31,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2037,
-            "y": 8986,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Ruins of Camdozaal - near fishing spot",
-        "members": "No",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2935,
-            "y": 5779,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Wilderness - western Ruins",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3000,
-            "y": 3699,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Burgh de Rott - southernmost house",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3511,
-            "y": 3189,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Isle of Souls - near spinning wheel",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2169,
-            "y": 2983,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Ruins of Unkah - near Gita Prymes",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3167,
-            "y": 2838,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
     "item": "Smashed glass",
     "quest": "No",
     "image_file": "Smashed glass.png",
@@ -23844,8 +24244,8 @@
         "plane": 0,
         "coords": [
           {
-            "x": 2805,
-            "y": 3703,
+            "x": 2771,
+            "y": 10081,
             "qty": 1
           }
         ]
@@ -24983,10 +25383,10 @@
     ]
   },
   {
-    "item": "The turncloak",
+    "item": "The Turncloak",
     "quest": "No",
-    "image_file": "The turncloak.png",
-    "image_url": "/icons/The_turncloak.png",
+    "image_file": "The Turncloak.png",
+    "image_url": "/icons/The_Turncloak.png",
     "spawns": [
       {
         "location": "Slepe - Crombwick Manor (level 1)",
@@ -25293,297 +25693,6 @@
           {
             "x": 3018,
             "y": 5086,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Tinderbox",
-    "quest": "No",
-    "image_file": "Tinderbox.png",
-    "image_url": "/icons/Tinderbox.png",
-    "spawns": [
-      {
-        "location": "Castle Wars - Saradominist's base",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2431,
-            "y": 3072,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Castle Wars - Saradominist's base (level 1)",
-        "members": "No",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 2423,
-            "y": 3080,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Castle Wars - Zamorakian's base",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2368,
-            "y": 3135,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Castle Wars - Zamorakian's base (level 1)",
-        "members": "No",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 2376,
-            "y": 3127,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Darkmeyer - lower tier",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3644,
-            "y": 3359,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Giants' Plateau",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3362,
-            "y": 3167,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Draynor Manor (level 2)",
-        "members": "No",
-        "map_id": 0,
-        "plane": 2,
-        "coords": [
-          {
-            "x": 3112,
-            "y": 3369,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Hosidius - behind the bank",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1742,
-            "y": 3604,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Kebos Lowlands - Mary and Gordon's farm",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1241,
-            "y": 3703,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Shayzien - Jennifer's General Supplies",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1521,
-            "y": 3591,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Slayer Tower basement",
-        "members": "Yes",
-        "map_id": 14,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3405,
-            "y": 9937,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Underground Pass dwarf camp",
-        "members": "Yes",
-        "map_id": 10161,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2324,
-            "y": 9800,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Civitas illa Fortis",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1737,
-            "y": 3169,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Cam Torum General Store - (level 1)",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 2,
-        "coords": [
-          {
-            "x": 1425,
-            "y": 9557,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Sunset Coast (level 1)",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 1,
-        "coords": [
-          {
-            "x": 1520,
-            "y": 2982,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Salvager Overlook - General Store",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1625,
-            "y": 3287,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "East of Twilight Temple",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1715,
-            "y": 3268,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Kastori",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1359,
-            "y": 3036,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Custodia Pass",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1327,
-            "y": 3319,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Corsair Cove",
-        "members": "No",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2543,
-            "y": 2862,
-            "qty": 1
-          }
-        ]
-      },
-      {
-        "location": "Chambers of Xeric",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 3280,
-            "y": 5347,
-            "qty": 1
-          },
-          {
-            "x": 3312,
-            "y": 5346,
-            "qty": 1
-          },
-          {
-            "x": 3340,
-            "y": 5347,
             "qty": 1
           }
         ]
@@ -26353,27 +26462,6 @@
           {
             "x": 3018,
             "y": 10353,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Wizard blizzard",
-    "quest": "No",
-    "image_file": "Wizard blizzard.png",
-    "image_url": "/icons/Wizard_blizzard.png",
-    "spawns": [
-      {
-        "location": "Sangvesti - central house",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2601,
-            "y": 7829,
             "qty": 1
           }
         ]
