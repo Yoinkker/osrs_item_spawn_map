@@ -526,7 +526,7 @@
       {
         "location": "Temple of Ikov",
         "members": "Yes",
-        "map_id": 0,
+        "map_id": -1,
         "plane": 0,
         "coords": [
           {
@@ -11802,7 +11802,7 @@
     "image_url": "/icons/Cooked_chicken.png",
     "spawns": [
       {
-        "location": "Falador - Cassie's Shield Shop (level 1)",
+        "location": "Falador - Cassie's Shield Shop. (level 1)",
         "members": "No",
         "map_id": 0,
         "plane": 1,
@@ -18271,6 +18271,27 @@
             "x": 1388,
             "y": 3110,
             "qty": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Mirror",
+    "quest": "[[Nature Spirit]]",
+    "image_file": "Mirror.png",
+    "image_url": "/icons/Mirror.png",
+    "spawns": [
+      {
+        "location": "Nature Grotto",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3437,
+            "y": 3337,
+            "qty": 1
           }
         ]
       }
