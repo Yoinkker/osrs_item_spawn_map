@@ -397,6 +397,32 @@
         ]
       },
       {
+        "location": "Braindeath Island",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 1,
+        "coords": [
+          {
+            "x": 2146,
+            "y": 5107,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Braindeath Island - near the cupboard",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2160,
+            "y": 5091,
+            "qty": 1
+          }
+        ]
+      },
+      {
         "location": "Weiss - near the herb patch",
         "members": "Yes",
         "map_id": 0,
@@ -680,6 +706,19 @@
           {
             "x": 1358,
             "y": 3060,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Kastori - Citlalli's basement",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1383,
+            "y": 9455,
             "qty": 1
           }
         ]
@@ -6478,6 +6517,16 @@
             "x": 3818,
             "y": 2998,
             "qty": 1
+          },
+          {
+            "x": 3817,
+            "y": 2953,
+            "qty": 1
+          },
+          {
+            "x": 3811,
+            "y": 2953,
+            "qty": 1
           }
         ]
       }
@@ -7459,6 +7508,19 @@
           {
             "x": 2341,
             "y": 3811,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Bryophyta's lair",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3228,
+            "y": 9932,
             "qty": 1
           }
         ]
@@ -12633,8 +12695,8 @@
         "plane": 0,
         "coords": [
           {
-            "x": 1938,
-            "y": 2758,
+            "x": 1940,
+            "y": 2757,
             "qty": 1
           }
         ]
@@ -17226,7 +17288,7 @@
         ]
       },
       {
-        "location": "Citlalli's basement",
+        "location": "Kastori - Citlalli's basement",
         "members": "Yes",
         "map_id": -1,
         "plane": 0,
