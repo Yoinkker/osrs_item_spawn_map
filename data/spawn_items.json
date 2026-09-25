@@ -12304,6 +12304,27 @@
     ]
   },
   {
+    "item": "Dead sea slug",
+    "quest": "[[The Slug Menace]]",
+    "image_file": "Dead sea slug.png",
+    "image_url": "/icons/Dead_sea_slug.png",
+    "spawns": [
+      {
+        "location": "Witchhaven dungeon - during The Slug Menace",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2352,
+            "y": 5095,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
     "item": "Death rune",
     "quest": "No",
     "image_file": "Death rune.png",
