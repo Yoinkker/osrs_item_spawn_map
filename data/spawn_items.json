@@ -16559,6 +16559,19 @@
             "qty": 1
           }
         ]
+      },
+      {
+        "location": "The Fractured Archive lobby",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 4119,
+            "y": 5546,
+            "qty": 1
+          }
+        ]
       }
     ]
   },
@@ -18395,6 +18408,27 @@
           {
             "x": 2681,
             "y": 3426,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Mithril pickaxe",
+    "quest": "No",
+    "image_file": "Mithril pickaxe.png",
+    "image_url": "/icons/Mithril_pickaxe.png",
+    "spawns": [
+      {
+        "location": "The Fractured Archive lobby",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 4114,
+            "y": 5535,
             "qty": 1
           }
         ]
