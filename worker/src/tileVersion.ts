@@ -47,8 +47,9 @@ export function anchorVersion(raw: string | null): string {
 
 async function versionExists(version: string): Promise<boolean> {
   const { z, plane, tx, ty, mapId } = PROBE_TILE;
+  const url = `${upstreamTileUrl(version, z, plane, tx, ty, mapId)}?probe=${Date.now()}`;
   try {
-    const resp = await fetch(upstreamTileUrl(version, z, plane, tx, ty, mapId), {
+    const resp = await fetch(url, {
       headers: UPSTREAM_HEADERS,
       signal: AbortSignal.timeout(PROBE_FETCH_TIMEOUT_MS),
     });

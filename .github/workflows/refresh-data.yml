@@ -35,7 +35,7 @@ jobs:
           if ! [[ "$live" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z]$ ]]; then
             echo "Refusing to write malformed version: $live" >&2; exit 1
           fi
-          url="https://maps.runescape.wiki/osrs/versions/$live/tiles/rendered/0/1/0_24_26.png"
+          url="https://maps.runescape.wiki/osrs/versions/$live/tiles/rendered/0/1/0_24_26.png?probe=$(date +%s)"
           if [ "$(curl -so /dev/null -w '%{http_code}' --max-time 30 "$url")" != "200" ]; then
             echo "Refusing to pin $live: its tiles do not resolve upstream" >&2; exit 1
           fi
