@@ -37,14 +37,21 @@ export function resolveUpstreamUrl(tilePath: string): string | null {
   return upstreamTileUrl(ver!, z, plane, tx, ty, mapId);
 }
 
-export async function handleTileProxy(request: Request, tilePath: string): Promise<Response> {
+export async function handleTileProxy(
+  request: Request,
+  tilePath: string,
+  currentVersion: () => Promise<string>,
+  cache: Cache = caches.default,
+): Promise<Response> {
   const upstreamUrl = resolveUpstreamUrl(tilePath);
   if (!upstreamUrl) {
     return new Response("invalid tile path", { status: 400, headers: tileResponseHeaders() });
   }
 
-  const cache = caches.default;
-  const cacheKey = new Request(new URL(request.url).toString(), { method: "GET" });
+  // Ignore the query string so ?x=1, ?x=2, ... can't each force an upstream fetch.
+  const keyUrl = new URL(request.url);
+  keyUrl.search = "";
+  const cacheKey = new Request(keyUrl.toString(), { method: "GET" });
   const cached = await cache.match(cacheKey);
   if (cached) {
     return new Response(cached.body, {
@@ -52,6 +59,13 @@ export async function handleTileProxy(request: Request, tilePath: string): Promi
       headers: tileResponseHeaders({
         "Content-Type": cached.headers.get("Content-Type") ?? "image/png",
       }),
+    });
+  }
+
+  if (TILE_PATH_RE.exec(tilePath)![2] !== (await currentVersion())) {
+    return new Response("unknown tile version", {
+      status: 404,
+      headers: tileResponseHeaders({ "Cache-Control": "no-store" }),
     });
   }
 

@@ -1,6 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { TILE_PATH_RE, resolveUpstreamUrl } from "./tileProxy.ts";
+import { TILE_PATH_RE, handleTileProxy, resolveUpstreamUrl } from "./tileProxy.ts";
 
 describe("resolveUpstreamUrl", () => {
   it("translates a valid tile path to the CDN URL", () => {
@@ -58,5 +58,73 @@ describe("TILE_PATH_RE", () => {
   it("requires the tiles/ prefix and .png suffix", () => {
     expect(TILE_PATH_RE.test("tiles/0_2026-05-01_a/1/0_24_26.png")).toBe(true);
     expect(TILE_PATH_RE.test("0_2026-05-01_a/1/0_24_26.png")).toBe(false);
+  });
+});
+
+const LIVE = "2026-10-07_a";
+const tilePath = (version: string): string => `tiles/0_${version}/3/0_103_98.png`;
+const tileRequest = (version: string, query = ""): Request =>
+  new Request(`https://worker.example/tile-proxy/${tilePath(version)}${query}`);
+
+function mockCache(): Cache {
+  const store = new Map<string, Response>();
+  return {
+    match: (key: Request) => {
+      const hit = store.get(key.url);
+      return Promise.resolve(hit ? hit.clone() : undefined);
+    },
+    put: (key: Request, response: Response) => {
+      store.set(key.url, response.clone());
+      return Promise.resolve();
+    },
+  } as Cache;
+}
+
+function live(): Promise<string> {
+  return Promise.resolve(LIVE);
+}
+
+function mockUpstreamOk(): void {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(() => {
+      return Promise.resolve(new Response(new ArrayBuffer(8), { status: 200 }));
+    }),
+  );
+}
+
+describe("handleTileProxy", () => {
+  afterEach(() => vi.unstubAllGlobals());
+
+  it("never fetches tiles for a version other than the live one", async () => {
+    vi.stubGlobal("fetch", vi.fn());
+    const resp = await handleTileProxy(
+      tileRequest("2026-07-29_a"),
+      tilePath("2026-07-29_a"),
+      live,
+      mockCache(),
+    );
+    expect(resp.status).toBe(404);
+    expect(resp.headers.get("Cache-Control")).toBe("no-store");
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("serves query-string variants of a tile from one cache entry", async () => {
+    mockUpstreamOk();
+    const cache = mockCache();
+    for (const query of ["", "?x=1", "?x=2"]) {
+      const resp = await handleTileProxy(tileRequest(LIVE, query), tilePath(LIVE), live, cache);
+      expect(resp.status).toBe(200);
+    }
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it("answers cache hits without looking up the live version", async () => {
+    mockUpstreamOk();
+    const cache = mockCache();
+    const version = vi.fn(live);
+    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, cache);
+    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, cache);
+    expect(version).toHaveBeenCalledTimes(1);
   });
 });

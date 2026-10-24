@@ -46,7 +46,7 @@ export default {
 
     if (isTileProxy) {
       const tilePath = url.pathname.slice(tileProxyPrefix.length);
-      const response = await handleTileProxy(request, tilePath);
+      const response = await handleTileProxy(request, tilePath, () => getTileVersion(env));
       const merged = new Headers(response.headers);
       for (const [k, v] of Object.entries(headers() as { [key: string]: string })) {
         merged.set(k, v);
