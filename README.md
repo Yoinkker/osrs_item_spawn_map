@@ -1,5 +1,8 @@
 # OSRS Item Spawn Map
 
+![Wiki API calls, automated (30 days)](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.osrs-item-spawn-map.app%2Fapi%2Fwiki-calls%2Fautomated)
+![Wiki API calls, site (30 days)](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.osrs-item-spawn-map.app%2Fapi%2Fwiki-calls%2Fsite)
+
 Interactive map of OSRS (Old School RuneScape) item spawns, generated from the [OSRS Wiki / Item_spawn](https://oldschool.runescape.wiki/w/Item_spawn).
 
 - https://osrs-item-spawn-map.app

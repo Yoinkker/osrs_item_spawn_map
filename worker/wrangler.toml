@@ -15,3 +15,11 @@ ALLOWED_ORIGINS = ""
 [[kv_namespaces]]
 binding = "TILE_VERSION_KV"
 id = "fa7da62fd4904b2c9e2c95312c5acf71"
+
+[[durable_objects.bindings]]
+name = "WIKI_CALLS"
+class_name = "WikiCallCounter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["WikiCallCounter"]

@@ -98,33 +98,44 @@ describe("handleTileProxy", () => {
 
   it("never fetches tiles for a version other than the live one", async () => {
     vi.stubGlobal("fetch", vi.fn());
+    const counted = vi.fn();
     const resp = await handleTileProxy(
       tileRequest("2026-07-29_a"),
       tilePath("2026-07-29_a"),
       live,
+      counted,
       mockCache(),
     );
     expect(resp.status).toBe(404);
     expect(resp.headers.get("Cache-Control")).toBe("no-store");
     expect(fetch).not.toHaveBeenCalled();
+    expect(counted).not.toHaveBeenCalled();
   });
 
   it("serves query-string variants of a tile from one cache entry", async () => {
     mockUpstreamOk();
     const cache = mockCache();
+    const counted = vi.fn();
     for (const query of ["", "?x=1", "?x=2"]) {
-      const resp = await handleTileProxy(tileRequest(LIVE, query), tilePath(LIVE), live, cache);
+      const resp = await handleTileProxy(
+        tileRequest(LIVE, query),
+        tilePath(LIVE),
+        live,
+        counted,
+        cache,
+      );
       expect(resp.status).toBe(200);
     }
     expect(fetch).toHaveBeenCalledTimes(1);
+    expect(counted).toHaveBeenCalledTimes(1);
   });
 
   it("answers cache hits without looking up the live version", async () => {
     mockUpstreamOk();
     const cache = mockCache();
     const version = vi.fn(live);
-    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, cache);
-    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, cache);
+    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, vi.fn(), cache);
+    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, vi.fn(), cache);
     expect(version).toHaveBeenCalledTimes(1);
   });
 });

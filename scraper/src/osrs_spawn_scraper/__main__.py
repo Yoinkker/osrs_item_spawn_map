@@ -6,6 +6,7 @@ from .cache import atomic_write_json
 from .icons import bundle_spawn_icons
 from .pipeline import run
 from .schema import validate_spawn_items
+from .wiki import WIKI_CALLS
 
 
 def main():
@@ -18,7 +19,17 @@ def main():
         action="store_true",
         help="Download bundled icons for an existing spawn_items.json and rewrite image_url paths",
     )
+    p.add_argument("--calls-file", help="Write the number of wiki requests made to this file")
     args = p.parse_args()
+    try:
+        _run(args)
+    finally:
+        if args.calls_file:
+            Path(args.calls_file).write_text(f"{WIKI_CALLS.count}\n", encoding="utf-8")
+        print(f"Wiki requests made: {WIKI_CALLS.count}")
+
+
+def _run(args: argparse.Namespace) -> None:
     if args.bundle_icons_only:
         path = Path(args.output)
         icons_path = Path(args.icons_dir)

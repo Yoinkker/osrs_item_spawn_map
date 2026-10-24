@@ -1,5 +1,6 @@
 import re
 import time
+from dataclasses import dataclass
 
 import requests
 
@@ -11,6 +12,20 @@ BASE = "https://oldschool.runescape.wiki/api.php"
 TIMEOUT = 10
 REVISION_BATCH_SIZE = 50
 RATE_LIMIT_SLEEP = 0.3
+
+
+@dataclass
+class CallCounter:
+    count: int = 0
+
+
+WIKI_CALLS = CallCounter()
+
+
+def wiki_get(url: str, params: dict | None = None) -> requests.Response:
+    WIKI_CALLS.count += 1
+    return requests.get(url, params=params, headers=HEADERS, timeout=TIMEOUT)
+
 
 _ASCII_SPACE = 0x20
 _ASCII_DEL = 0x7F
@@ -43,7 +58,7 @@ def _escape_bucket_string(value: str) -> str:
 
 
 def _get_json(params: dict) -> dict:
-    r = requests.get(BASE, params=params, headers=HEADERS, timeout=TIMEOUT)
+    r = wiki_get(BASE, params=params)
     try:
         r.raise_for_status()
     except requests.HTTPError as exc:

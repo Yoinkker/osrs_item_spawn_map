@@ -71,3 +71,13 @@ def test_get_revision_ids_batches_and_maps_normalized_titles(monkeypatch: pytest
     assert revids["Item_0"] == 0
     assert revids["Item_119"] == 19
     assert "Gone" not in revids
+
+
+def test_wiki_get_counts_every_request(monkeypatch: pytest.MonkeyPatch):
+    monkeypatch.setattr(wiki.requests, "get", lambda *_args, **_kwargs: None)
+    monkeypatch.setattr(wiki, "WIKI_CALLS", wiki.CallCounter())
+
+    wiki.wiki_get("https://oldschool.runescape.wiki/api.php")
+    wiki.wiki_get("https://oldschool.runescape.wiki/images/Air_rune.png")
+
+    assert wiki.WIKI_CALLS.count == 2

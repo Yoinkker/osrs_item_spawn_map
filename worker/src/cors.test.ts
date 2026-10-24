@@ -4,7 +4,11 @@ import type { Env } from "./config.ts";
 import { corsHeaders, resolveAllowedOrigin } from "./cors.ts";
 
 function makeEnv(allowed: string): Env {
-  return { TILE_VERSION_KV: {} as KVNamespace, ALLOWED_ORIGINS: allowed };
+  return {
+    TILE_VERSION_KV: {} as KVNamespace,
+    WIKI_CALLS: {} as Env["WIKI_CALLS"],
+    ALLOWED_ORIGINS: allowed,
+  };
 }
 
 function makeRequest(origin?: string): Request {

@@ -41,6 +41,7 @@ export async function handleTileProxy(
   request: Request,
   tilePath: string,
   currentVersion: () => Promise<string>,
+  onUpstreamFetch: () => void,
   cache: Cache = caches.default,
 ): Promise<Response> {
   const upstreamUrl = resolveUpstreamUrl(tilePath);
@@ -69,6 +70,7 @@ export async function handleTileProxy(
     });
   }
 
+  onUpstreamFetch();
   let upstream: Response;
   try {
     upstream = await fetch(upstreamUrl, {

@@ -1,3 +1,4 @@
+import type { WikiCallCounter } from "./wikiCallCounter.ts";
 const REPO_URL = "https://github.com/Yoinkker/osrs_item_spawn_map";
 
 export const UPSTREAM_HEADERS: HeadersInit = {
@@ -55,5 +56,7 @@ export const TILE_404_CACHE_MAX_AGE_SECONDS = 10 * 60;
 
 export interface Env {
   TILE_VERSION_KV: KVNamespace;
+  WIKI_CALLS: DurableObjectNamespace<WikiCallCounter>;
+  WIKI_CALLS_TOKEN?: string;
   ALLOWED_ORIGINS?: string;
 }

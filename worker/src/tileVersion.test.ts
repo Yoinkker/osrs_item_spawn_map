@@ -134,6 +134,13 @@ describe("resolveTileVersion", () => {
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
+  it("reports every upstream probe so the cron can count them", async () => {
+    mockUpstream("2026-07-30_a");
+    const onProbe = vi.fn();
+    await resolveTileVersion(confirmed("2026-07-29_a"), now, onProbe);
+    expect(onProbe).toHaveBeenCalledTimes(vi.mocked(fetch).mock.calls.length);
+  });
+
   it("stays under the Workers subrequest limit when scanning", async () => {
     mockUpstream(null);
     await resolveTileVersion(confirmed("2026-07-29_a"), now);

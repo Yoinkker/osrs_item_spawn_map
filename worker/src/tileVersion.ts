@@ -60,9 +60,14 @@ async function versionExists(version: string): Promise<boolean> {
 export async function resolveTileVersion(
   previous: TileVersionRecord | null,
   now: Date = new Date(),
+  onProbe?: () => void,
 ): Promise<TileVersionRecord> {
+  const exists = (version: string): Promise<boolean> => {
+    onProbe?.();
+    return versionExists(version);
+  };
   const anchor = previous?.version ?? FALLBACK_TILE_VERSION;
-  if (await versionExists(anchor)) {
+  if (await exists(anchor)) {
     return { version: anchor, verifiedAt: now.getTime(), confirmed: true };
   }
   if (scanBackedOff(previous, now.getTime())) {
@@ -73,7 +78,7 @@ export async function resolveTileVersion(
 
   for (const candidate of generateProbeVersions(now)) {
     if (candidate === anchor) continue; // just checked it
-    if (await versionExists(candidate)) {
+    if (await exists(candidate)) {
       console.log("tileVersion: adopted", candidate);
       return { version: candidate, verifiedAt: now.getTime(), confirmed: true };
     }
@@ -89,9 +94,12 @@ export async function getTileVersion(env: Env): Promise<string> {
   return anchorVersion(await env.TILE_VERSION_KV.get(TILE_VERSION_KV_KEY));
 }
 
-export async function refreshTileVersion(env: Env): Promise<TileVersionRecord> {
+export async function refreshTileVersion(
+  env: Env,
+  onProbe?: () => void,
+): Promise<TileVersionRecord> {
   const previous = parseRecord(await env.TILE_VERSION_KV.get(TILE_VERSION_KV_KEY));
-  const record = await resolveTileVersion(previous);
+  const record = await resolveTileVersion(previous, undefined, onProbe);
   if (record !== previous) {
     await env.TILE_VERSION_KV.put(TILE_VERSION_KV_KEY, JSON.stringify(record));
   }

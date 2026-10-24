@@ -26,7 +26,8 @@ jobs:
         run: |
           uv run python -m osrs_spawn_scraper \
             --output data/spawn_items.json \
-            --cache data/cache.json
+            --cache data/cache.json \
+            --calls-file "$RUNNER_TEMP/wiki_calls"
       - name: Refresh tile version constant
         run: |
           set -euo pipefail
@@ -36,6 +37,8 @@ jobs:
             echo "Refusing to write malformed version: $live" >&2; exit 1
           fi
           url="https://maps.runescape.wiki/osrs/versions/$live/tiles/rendered/0/1/0_24_26.png?probe=$(date +%s)"
+          calls_file="$RUNNER_TEMP/wiki_calls"
+          echo $(( $(cat "$calls_file" 2>/dev/null || echo 0) + 1 )) > "$calls_file"
           if [ "$(curl -so /dev/null -w '%{http_code}' --max-time 30 "$url")" != "200" ]; then
             echo "Refusing to pin $live: its tiles do not resolve upstream" >&2; exit 1
           fi
@@ -59,3 +62,21 @@ jobs:
             data/cache.json
             data/icons
             shared/tileVersion.ts
+
+      # Last, and never fatal: failed runs still made calls worth counting.
+      - name: Report wiki API calls
+        if: always()
+        continue-on-error: true
+        env:
+          WIKI_CALLS_TOKEN: ${{ secrets.WIKI_CALLS_TOKEN }}
+        run: |
+          set -euo pipefail
+          count=$(cat "$RUNNER_TEMP/wiki_calls" 2>/dev/null || echo 0)
+          echo "Wiki API calls this run: $count" >> "$GITHUB_STEP_SUMMARY"
+          if [ -z "$WIKI_CALLS_TOKEN" ]; then
+            echo "::notice::WIKI_CALLS_TOKEN not set; skipping usage report"; exit 0
+          fi
+          curl -sf --max-time 30 -X POST https://api.osrs-item-spawn-map.app/api/wiki-calls \
+            -H "Authorization: Bearer $WIKI_CALLS_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"count\": $count}"

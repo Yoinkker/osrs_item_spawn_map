@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 
 import requests
 
-from .wiki import HEADERS, TIMEOUT, get_image_url
+from .wiki import get_image_url, wiki_get
 
 RATE_LIMIT_SLEEP = 0.3
 WIKI_IMAGE_HOST = "oldschool.runescape.wiki"
@@ -43,7 +43,7 @@ def is_wiki_image_url(url: str) -> bool:
 
 def _download_bytes(url: str) -> bytes | None:
     try:
-        response = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+        response = wiki_get(url)
         response.raise_for_status()
     except requests.RequestException:
         return None
