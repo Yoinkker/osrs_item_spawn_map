@@ -9,6 +9,8 @@ HEADERS = {
 BASE = "https://oldschool.runescape.wiki/api.php"
 
 TIMEOUT = 10
+REVISION_BATCH_SIZE = 50
+RATE_LIMIT_SLEEP = 0.3
 
 _ASCII_SPACE = 0x20
 _ASCII_DEL = 0x7F
@@ -111,12 +113,11 @@ def _parse_quest_wikitext(wikitext: str) -> str | None:
     return "No" if val.lower() == "no" else val
 
 
-def get_item_info(item_name: str) -> tuple[str | None, str | None]:
+def get_item_info(item_name: str, wikitext: str | None) -> tuple[str | None, str | None]:
     quest, image_file = _bucket_query(item_name)
     if quest is not None or image_file is not None:
         return quest, image_file
 
-    wikitext = get_wikitext(item_name)
     if not wikitext:
         return None, None
 
@@ -125,7 +126,7 @@ def get_item_info(item_name: str) -> tuple[str | None, str | None]:
     candidate = version1 or name1
     if candidate:
         variant_name = candidate.group(1).strip()
-        time.sleep(0.3)
+        time.sleep(RATE_LIMIT_SLEEP)
         quest, image_file = _bucket_query(variant_name)
         if quest is not None or image_file is not None:
             return quest, image_file
@@ -166,6 +167,30 @@ def get_image_url(filename: str) -> str | None:
             if isinstance(url, str):
                 return url
     return None
+
+
+def get_revision_ids(titles: list[str]) -> dict[str, int]:
+    """Map each existing page title to its latest revision id, 50 titles per request."""
+    revids: dict[str, int] = {}
+    for start in range(0, len(titles), REVISION_BATCH_SIZE):
+        if start:
+            time.sleep(RATE_LIMIT_SLEEP)
+        data = _get_json(
+            {
+                "action": "query",
+                "prop": "info",
+                "titles": "|".join(titles[start : start + REVISION_BATCH_SIZE]),
+                "format": "json",
+                "formatversion": "2",
+            },
+        )
+        query = data.get("query", {})
+        renamed = {n["to"]: n["from"] for n in query.get("normalized", [])}
+        for page in query.get("pages", []):
+            revid = page.get("lastrevid")
+            if isinstance(revid, int):
+                revids[renamed.get(page["title"], page["title"])] = revid
+    return revids
 
 
 UNOBTAINABLE_SUFFIX = " (unobtainable item)"

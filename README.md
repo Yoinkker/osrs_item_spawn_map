@@ -18,7 +18,7 @@ Tracks collected items (saved in `localStorage`). Export/Import support.
 
 ## Architecture
 
-Scraper: Python CLI that crawls the wiki item spawn list, resolves coordinates and item metadata, downloads item icons into `data/icons/`, and writes `data/spawn_items.json`. A local request cache at `data/cache.json` speeds up re-runs.
+Scraper: Python CLI that crawls the wiki item spawn list, resolves coordinates and item metadata, downloads item icons into `data/icons/`, and writes `data/spawn_items.json`. `data/cache.json` (committed) records each item page's revision, so a refresh only re-fetches pages edited since the last run. Bump `CACHE_VERSION` in `scraper/src/osrs_spawn_scraper/cache.py` after changing how pages are parsed.
 
 Frontend: TypeScript SPA (Vite + Leaflet). Loads spawn data and bundled icons, renders markers by plane/map, and persists collected items in `localStorage`. In dev, Vite serves spawn JSON and icons from `data/` and proxies worker routes to `:8787`.
 

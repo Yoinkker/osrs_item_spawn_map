@@ -13,9 +13,6 @@ node_modules/
 **/dist/
 .wrangler/
 
-# Scraper cache (local only - speeds up re-runs, not shipped to the app)
-data/cache.json
-
 # Editors / OS
 .DS_Store
 **/.DS_Store

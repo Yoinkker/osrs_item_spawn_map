@@ -56,5 +56,6 @@ jobs:
           branch: refresh-data
           add-paths: |
             data/spawn_items.json
+            data/cache.json
             data/icons
             shared/tileVersion.ts

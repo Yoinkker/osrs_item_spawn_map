@@ -1,13 +1,14 @@
-from osrs_spawn_scraper.pipeline import _include_entry, _is_stale_quest_entry
+from osrs_spawn_scraper.pipeline import _include_entry, _is_reusable, _output_entry
 
 
-def _entry(quest: object, spawns: list, image_file: str | None = None) -> dict:
+def _entry(quest: object, spawns: list, image_file: str | None = None, revid: int | None = None) -> dict:
     return {
         "item": "X",
         "quest": quest,
         "image_file": image_file,
         "image_url": None,
         "spawns": spawns,
+        "revid": revid,
     }
 
 
@@ -31,20 +32,27 @@ class TestIncludeEntry:
         assert _include_entry(_entry(None, [SPAWN])) is False
 
 
-class TestStaleQuestEntry:
-    def test_old_sentinel_is_stale(self):
-        # Pre-migration skip: concrete quest, no spawns, no image.
-        assert _is_stale_quest_entry(_entry("[[Plague City]]", [], image_file=None)) is True
+class TestIsReusable:
+    def test_unedited_page_is_reused(self):
+        assert _is_reusable(_entry("No", [SPAWN], revid=7), 7) is True
 
-    def test_freshly_fetched_empty_quest_item_not_stale(self):
-        # After the change, a genuinely spawnless quest item still has an image fetched.
-        assert _is_stale_quest_entry(_entry("Yes", [], image_file="Charcoal.png")) is False
+    def test_edited_page_is_refetched(self):
+        assert _is_reusable(_entry("No", [SPAWN], revid=7), 8) is False
 
-    def test_quest_item_with_spawns_not_stale(self):
-        assert _is_stale_quest_entry(_entry("Yes", [SPAWN])) is False
+    def test_entry_without_revid_is_refetched(self):
+        assert _is_reusable(_entry("No", [SPAWN]), 7) is False
 
-    def test_non_quest_entry_not_stale(self):
-        assert _is_stale_quest_entry(_entry("No", [])) is False
+    def test_unknown_current_revid_is_refetched(self):
+        assert _is_reusable(_entry("No", [SPAWN], revid=7), None) is False
 
-    def test_null_quest_not_stale(self):
-        assert _is_stale_quest_entry(_entry(None, [])) is False
+    def test_missing_entry_is_fetched(self):
+        assert _is_reusable(None, 7) is False
+
+    def test_excluded_entry_is_always_refetched(self):
+        # A transient wiki error looks like "no infobox"; never pin it to a revision.
+        assert _is_reusable(_entry(None, [], revid=7), 7) is False
+        assert _is_reusable(_entry("Yes", [], revid=7), 7) is False
+
+
+def test_output_entry_drops_cache_only_fields():
+    assert "revid" not in _output_entry(_entry("No", [SPAWN], revid=7))

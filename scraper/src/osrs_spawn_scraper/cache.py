@@ -3,17 +3,24 @@ import os
 import tempfile
 from pathlib import Path
 
+# Bump when parsing changes so the committed cache can't serve entries built by old logic.
+CACHE_VERSION = 2
+
 
 def load_cache(path: str) -> dict:
     p = Path(path)
-    if p.exists():
-        with p.open() as f:
-            return json.load(f)
-    return {}
+    if not p.exists():
+        return {}
+    with p.open() as f:
+        data = json.load(f)
+    if not isinstance(data, dict) or data.get("version") != CACHE_VERSION:
+        return {}
+    items = data.get("items")
+    return items if isinstance(items, dict) else {}
 
 
 def save_cache(cache: dict, path: str) -> None:
-    atomic_write_json(path, cache)
+    atomic_write_json(path, {"version": CACHE_VERSION, "items": cache})
 
 
 def atomic_write_json(path: str, data: object) -> None:

@@ -1,7 +1,5 @@
 import re
 
-from .wiki import get_wikitext
-
 MIN_COORD_PARTS = 2
 
 
@@ -115,10 +113,3 @@ def parse_spawn_lines(wikitext: str, item_name: str | None = None) -> list[dict]
             },
         )
     return spawns
-
-
-def get_spawn_coords(item_name: str) -> list[dict]:
-    wikitext = get_wikitext(item_name)
-    if not wikitext:
-        return []
-    return parse_spawn_lines(wikitext, item_name)
