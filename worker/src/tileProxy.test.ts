@@ -47,6 +47,19 @@ describe("resolveUpstreamUrl", () => {
     expect(resolveUpstreamUrl("tiles/-2_2026-05-01_a/1/0_24_26.png")).toBeNull();
   });
 
+  it("rejects negative tile coordinates, which the site never requests", () => {
+    expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/1/0_-1_26.png")).toBeNull();
+    expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/1/0_24_-1.png")).toBeNull();
+  });
+
+  it("caps coordinates per zoom while allowing the farthest real tiles", () => {
+    expect(resolveUpstreamUrl("tiles/12_2026-05-01_a/3/0_195_618.png")).not.toBeNull();
+    expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/3/0_1024_1024.png")).not.toBeNull();
+    expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/3/0_1025_0.png")).toBeNull();
+    expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/0/0_128_0.png")).not.toBeNull();
+    expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/0/0_129_0.png")).toBeNull();
+  });
+
   it("rejects zoom, plane, and coords outside bounds", () => {
     expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/9/0_24_26.png")).toBeNull();
     expect(resolveUpstreamUrl("tiles/0_2026-05-01_a/1/9_24_26.png")).toBeNull();
@@ -84,11 +97,15 @@ function live(): Promise<string> {
   return Promise.resolve(LIVE);
 }
 
-function mockUpstreamOk(): void {
+function allow(): Promise<boolean> {
+  return Promise.resolve(true);
+}
+
+function mockUpstream(status = 200): void {
   vi.stubGlobal(
     "fetch",
     vi.fn(() => {
-      return Promise.resolve(new Response(new ArrayBuffer(8), { status: 200 }));
+      return Promise.resolve(new Response(status === 200 ? new ArrayBuffer(8) : null, { status }));
     }),
   );
 }
@@ -98,44 +115,81 @@ describe("handleTileProxy", () => {
 
   it("never fetches tiles for a version other than the live one", async () => {
     vi.stubGlobal("fetch", vi.fn());
-    const counted = vi.fn();
+    const reserve = vi.fn(allow);
     const resp = await handleTileProxy(
       tileRequest("2026-07-29_a"),
       tilePath("2026-07-29_a"),
       live,
-      counted,
+      reserve,
       mockCache(),
     );
     expect(resp.status).toBe(404);
     expect(resp.headers.get("Cache-Control")).toBe("no-store");
     expect(fetch).not.toHaveBeenCalled();
-    expect(counted).not.toHaveBeenCalled();
+    expect(reserve).not.toHaveBeenCalled();
   });
 
   it("serves query-string variants of a tile from one cache entry", async () => {
-    mockUpstreamOk();
+    mockUpstream();
     const cache = mockCache();
-    const counted = vi.fn();
+    const reserve = vi.fn(allow);
     for (const query of ["", "?x=1", "?x=2"]) {
       const resp = await handleTileProxy(
         tileRequest(LIVE, query),
         tilePath(LIVE),
         live,
-        counted,
+        reserve,
         cache,
       );
       expect(resp.status).toBe(200);
     }
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(counted).toHaveBeenCalledTimes(1);
+    expect(reserve).toHaveBeenCalledTimes(1);
   });
 
   it("answers cache hits without looking up the live version", async () => {
-    mockUpstreamOk();
+    mockUpstream();
     const cache = mockCache();
     const version = vi.fn(live);
-    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, vi.fn(), cache);
-    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, vi.fn(), cache);
+    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, allow, cache);
+    await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), version, allow, cache);
     expect(version).toHaveBeenCalledTimes(1);
+  });
+
+  it("refuses to fetch once the daily budget is spent", async () => {
+    vi.stubGlobal("fetch", vi.fn());
+    const denied = vi.fn(allow).mockResolvedValue(false);
+    const resp = await handleTileProxy(
+      tileRequest(LIVE),
+      tilePath(LIVE),
+      live,
+      denied,
+      mockCache(),
+    );
+    expect(resp.status).toBe(503);
+    expect(resp.headers.get("Cache-Control")).toBe("no-store");
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("caches a real 404 as long as a tile, including on replay", async () => {
+    mockUpstream(404);
+    const cache = mockCache();
+    const first = await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), live, allow, cache);
+    const replay = await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), live, allow, cache);
+    expect(first.status).toBe(404);
+    expect(replay.status).toBe(404);
+    expect(replay.headers.get("Cache-Control")).toBe("public, max-age=604800");
+    expect(fetch).toHaveBeenCalledTimes(1);
+  });
+
+  it("caches upstream errors briefly, without a week-long replay", async () => {
+    mockUpstream(429);
+    const cache = mockCache();
+    const first = await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), live, allow, cache);
+    const replay = await handleTileProxy(tileRequest(LIVE), tilePath(LIVE), live, allow, cache);
+    expect(first.status).toBe(502);
+    expect(replay.status).toBe(502);
+    expect(replay.headers.get("Cache-Control")).toBe("public, max-age=60");
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 });

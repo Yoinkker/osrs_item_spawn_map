@@ -34,6 +34,23 @@ export class WikiCallCounter extends DurableObject<Env> {
     this.ctx.storage.sql.exec("DELETE FROM calls WHERE day < ?", windowStartDay(now));
   }
 
+  tryAdd(source: WikiCallSource, n: number, dailyLimit: number): boolean {
+    const [row] = this.ctx.storage.sql
+      .exec<{ n: number }>(
+        "SELECT n FROM calls WHERE day = ? AND source = ?",
+        utcDay(new Date()),
+        source,
+      )
+      .toArray();
+    const used = row?.n ?? 0;
+    if (used + n > dailyLimit) return false;
+    this.add(source, n);
+    if (used + n === dailyLimit) {
+      console.error("wikiCalls: daily budget reached for", source, dailyLimit);
+    }
+    return true;
+  }
+
   totals(): WikiCallTotals {
     const totals = Object.fromEntries(WIKI_CALL_SOURCES.map((s) => [s, 0])) as WikiCallTotals;
     const rows = this.ctx.storage.sql.exec<{ source: string; n: number }>(

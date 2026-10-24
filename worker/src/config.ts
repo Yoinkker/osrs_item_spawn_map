@@ -52,11 +52,12 @@ export function upstreamTileUrl(
 export const TILE_VERSION_KV_KEY = "current";
 export const TILE_VERSION_SCAN_BACKOFF_SECONDS = 6 * 60 * 60;
 export const TILE_CACHE_MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
-export const TILE_404_CACHE_MAX_AGE_SECONDS = 10 * 60;
+export const TILE_UPSTREAM_ERROR_CACHE_SECONDS = 60;
 
 export interface Env {
   TILE_VERSION_KV: KVNamespace;
   WIKI_CALLS: DurableObjectNamespace<WikiCallCounter>;
   WIKI_CALLS_TOKEN?: string;
+  TILE_FETCH_DAILY_BUDGET?: string;
   ALLOWED_ORIGINS?: string;
 }

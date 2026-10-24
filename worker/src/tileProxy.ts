@@ -1,6 +1,6 @@
 import {
-  TILE_404_CACHE_MAX_AGE_SECONDS,
   TILE_CACHE_MAX_AGE_SECONDS,
+  TILE_UPSTREAM_ERROR_CACHE_SECONDS,
   UPSTREAM_HEADERS,
   isValidTileMapId,
   isValidTileVersion,
@@ -11,7 +11,11 @@ export const TILE_PATH_RE = /^tiles\/(-?\d+)_([0-9a-z_-]+)\/(\d+)\/(\d+)_(-?\d+)
 const UPSTREAM_FETCH_TIMEOUT_MS = 10_000;
 const MAX_TILE_ZOOM = 3;
 const MAX_TILE_PLANE = 3;
-const MAX_TILE_COORD = 4096;
+const MAX_TILE_COORD_AT_MAX_ZOOM = 1024;
+
+function maxTileCoord(z: number): number {
+  return MAX_TILE_COORD_AT_MAX_ZOOM / 2 ** (MAX_TILE_ZOOM - z);
+}
 
 function tileResponseHeaders(extra: HeadersInit = {}): HeadersInit {
   return {
@@ -33,7 +37,7 @@ export function resolveUpstreamUrl(tilePath: string): string | null {
   if (!isValidTileVersion(ver!)) return null;
   if (z < 0 || z > MAX_TILE_ZOOM) return null;
   if (plane < 0 || plane > MAX_TILE_PLANE) return null;
-  if (Math.abs(tx) > MAX_TILE_COORD || Math.abs(ty) > MAX_TILE_COORD) return null;
+  if (tx < 0 || ty < 0 || tx > maxTileCoord(z) || ty > maxTileCoord(z)) return null;
   return upstreamTileUrl(ver!, z, plane, tx, ty, mapId);
 }
 
@@ -41,7 +45,7 @@ export async function handleTileProxy(
   request: Request,
   tilePath: string,
   currentVersion: () => Promise<string>,
-  onUpstreamFetch: () => void,
+  reserveUpstreamFetch: () => Promise<boolean>,
   cache: Cache = caches.default,
 ): Promise<Response> {
   const upstreamUrl = resolveUpstreamUrl(tilePath);
@@ -59,6 +63,8 @@ export async function handleTileProxy(
       status: cached.status,
       headers: tileResponseHeaders({
         "Content-Type": cached.headers.get("Content-Type") ?? "image/png",
+        "Cache-Control":
+          cached.headers.get("Cache-Control") ?? `public, max-age=${TILE_CACHE_MAX_AGE_SECONDS}`,
       }),
     });
   }
@@ -70,7 +76,27 @@ export async function handleTileProxy(
     });
   }
 
-  onUpstreamFetch();
+  if (!(await reserveUpstreamFetch())) {
+    return new Response("daily wiki fetch budget reached", {
+      status: 503,
+      headers: tileResponseHeaders({ "Cache-Control": "no-store" }),
+    });
+  }
+
+  const cacheAndReturn = async (response: Response): Promise<Response> => {
+    await cache.put(cacheKey, response.clone());
+    return response;
+  };
+  const upstreamError = (): Promise<Response> =>
+    cacheAndReturn(
+      new Response("upstream error", {
+        status: 502,
+        headers: tileResponseHeaders({
+          "Cache-Control": `public, max-age=${TILE_UPSTREAM_ERROR_CACHE_SECONDS}`,
+        }),
+      }),
+    );
+
   let upstream: Response;
   try {
     upstream = await fetch(upstreamUrl, {
@@ -79,25 +105,24 @@ export async function handleTileProxy(
     });
   } catch (error) {
     console.error("tileProxy: upstream fetch failed", upstreamUrl, error);
-    return new Response("upstream error", { status: 502, headers: tileResponseHeaders() });
+    return upstreamError();
   }
 
+  if (upstream.status === 404) {
+    return cacheAndReturn(
+      new Response("not found", { status: 404, headers: tileResponseHeaders() }),
+    );
+  }
   if (!upstream.ok) {
-    const notFound = new Response("not found", {
-      status: 404,
-      headers: tileResponseHeaders({
-        "Cache-Control": `public, max-age=${TILE_404_CACHE_MAX_AGE_SECONDS}`,
-      }),
-    });
-    await cache.put(cacheKey, notFound.clone());
-    return notFound;
+    console.warn("tileProxy: upstream answered", upstream.status, upstreamUrl);
+    return upstreamError();
   }
 
   const body = await upstream.arrayBuffer();
-  const response = new Response(body, {
-    status: 200,
-    headers: tileResponseHeaders({ "Content-Type": "image/png" }),
-  });
-  await cache.put(cacheKey, response.clone());
-  return response;
+  return cacheAndReturn(
+    new Response(body, {
+      status: 200,
+      headers: tileResponseHeaders({ "Content-Type": "image/png" }),
+    }),
+  );
 }

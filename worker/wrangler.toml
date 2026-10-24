@@ -11,6 +11,7 @@ crons = ["17 * * * *"]
 
 [vars]
 ALLOWED_ORIGINS = ""
+TILE_FETCH_DAILY_BUDGET = "20000"
 
 [[kv_namespaces]]
 binding = "TILE_VERSION_KV"

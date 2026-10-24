@@ -1,14 +1,16 @@
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  DEFAULT_TILE_FETCH_DAILY_BUDGET,
   MAX_REPORTED_CALLS,
-  type WikiCallStore,
-  type WikiCallTotals,
   badgeJson,
   handleWikiCalls,
   parseReportedCount,
+  tileFetchBudget,
   tokenMatches,
   windowStartDay,
+  type WikiCallStore,
+  type WikiCallTotals,
 } from "./wikiCalls.ts";
 
 const TOKEN = "s3cret";
@@ -49,6 +51,18 @@ describe("badgeJson", () => {
 
   it("shows only tile fetches on the site badge", () => {
     expect(badgeJson("site", TOTALS)).toMatchObject({ message: "1,234" });
+  });
+});
+
+describe("tileFetchBudget", () => {
+  it("reads a positive integer from the var", () => {
+    expect(tileFetchBudget("5000")).toBe(5000);
+  });
+
+  it("falls back to the default when unset or invalid", () => {
+    for (const raw of [undefined, "", "0", "-5", "lots", "1.5"]) {
+      expect(tileFetchBudget(raw)).toBe(DEFAULT_TILE_FETCH_DAILY_BUDGET);
+    }
   });
 });
 

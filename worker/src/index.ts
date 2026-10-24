@@ -4,7 +4,7 @@ import { rateLimitResponse } from "./rateLimit.ts";
 import { handleTileProxy } from "./tileProxy.ts";
 import { getTileVersion, refreshTileVersion } from "./tileVersion.ts";
 import { wikiCallStore } from "./wikiCallCounter.ts";
-import { type WikiCallSource, handleWikiCalls } from "./wikiCalls.ts";
+import { type WikiCallSource, handleWikiCalls, tileFetchBudget } from "./wikiCalls.ts";
 
 export { WikiCallCounter } from "./wikiCallCounter.ts";
 
@@ -16,8 +16,21 @@ function countWikiCalls(env: Env, source: WikiCallSource, n: number): Promise<vo
     .catch((error: unknown) => console.warn("wikiCalls: failed to record", source, n, error));
 }
 
+async function reserveTileFetch(env: Env): Promise<boolean> {
+  try {
+    return await wikiCallStore(env).tryAdd(
+      "tiles",
+      1,
+      tileFetchBudget(env.TILE_FETCH_DAILY_BUDGET),
+    );
+  } catch (error) {
+    console.warn("wikiCalls: budget check failed, allowing fetch", error);
+    return true;
+  }
+}
+
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     const allowedOrigin = resolveAllowedOrigin(request, env);
     const headers = (extra?: HeadersInit): HeadersInit => corsHeaders(allowedOrigin, extra);
     const withCors = (response: Response): Response => {
@@ -81,7 +94,7 @@ export default {
           request,
           tilePath,
           () => getTileVersion(env),
-          () => ctx.waitUntil(countWikiCalls(env, "tiles", 1)),
+          () => reserveTileFetch(env),
         ),
       );
     }

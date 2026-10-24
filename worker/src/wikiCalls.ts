@@ -3,6 +3,7 @@ export type WikiCallSource = (typeof WIKI_CALL_SOURCES)[number];
 export type WikiCallTotals = { [S in WikiCallSource]: number };
 
 export const WIKI_CALLS_WINDOW_DAYS = 30;
+export const DEFAULT_TILE_FETCH_DAILY_BUDGET = 20_000;
 export const MAX_REPORTED_CALLS = 100_000;
 
 export const WIKI_CALL_BADGES = {
@@ -30,6 +31,11 @@ export function utcDay(now: Date): string {
 
 export function windowStartDay(now: Date, days = WIKI_CALLS_WINDOW_DAYS): string {
   return utcDay(new Date(now.getTime() - (days - 1) * MILLIS_PER_DAY));
+}
+
+export function tileFetchBudget(raw: string | undefined): number {
+  const budget = Number(raw);
+  return Number.isInteger(budget) && budget > 0 ? budget : DEFAULT_TILE_FETCH_DAILY_BUDGET;
 }
 
 export function isWikiCallBadge(name: string): name is WikiCallBadge {
