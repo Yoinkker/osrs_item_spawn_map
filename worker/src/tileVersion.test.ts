@@ -5,9 +5,9 @@ import { MAX_PROBE_DAYS } from "./config.ts";
 import {
   type TileVersionRecord,
   anchorVersion,
-  isFresh,
   parseRecord,
   resolveTileVersion,
+  scanBackedOff,
 } from "./tileVersion.ts";
 
 const NOW = Date.parse("2026-08-01T00:00:00Z");
@@ -40,19 +40,18 @@ describe("parseRecord", () => {
   });
 });
 
-describe("isFresh", () => {
+describe("scanBackedOff", () => {
   const base = { version: "2026-07-29_a", verifiedAt: NOW };
 
-  it("keeps a confirmed version for six hours", () => {
-    const r = { ...base, confirmed: true };
-    expect(isFresh(r, NOW + 5 * 3600_000)).toBe(true);
-    expect(isFresh(r, NOW + 7 * 3600_000)).toBe(false);
+  it("never backs off a confirmed version or a cold namespace", () => {
+    expect(scanBackedOff({ ...base, confirmed: true }, NOW + 60_000)).toBe(false);
+    expect(scanBackedOff(null, NOW)).toBe(false);
   });
 
-  it("expires an unconfirmed fallback within minutes", () => {
+  it("waits six hours between failed scans", () => {
     const r = { ...base, confirmed: false };
-    expect(isFresh(r, NOW + 60_000)).toBe(true);
-    expect(isFresh(r, NOW + 10 * 60_000)).toBe(false);
+    expect(scanBackedOff(r, NOW + 5 * 3600_000)).toBe(true);
+    expect(scanBackedOff(r, NOW + 7 * 3600_000)).toBe(false);
   });
 });
 
@@ -69,6 +68,11 @@ describe("anchorVersion", () => {
 
 describe("resolveTileVersion", () => {
   const now = new Date(NOW);
+  const confirmed = (version: string): TileVersionRecord => ({
+    version,
+    verifiedAt: NOW - 3600_000,
+    confirmed: true,
+  });
   const mockUpstream = (live: string | null): void => {
     vi.stubGlobal(
       "fetch",
@@ -85,38 +89,54 @@ describe("resolveTileVersion", () => {
 
   it("costs a single request while the anchor is alive", async () => {
     mockUpstream("2026-07-29_a");
-    const result = await resolveTileVersion("2026-07-29_a", now);
+    const result = await resolveTileVersion(confirmed("2026-07-29_a"), now);
     expect(result).toEqual({ version: "2026-07-29_a", verifiedAt: NOW, confirmed: true });
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
+  it("probes with a unique URL so a stale CDN hit can't confirm a purged render", async () => {
+    mockUpstream("2026-07-29_a");
+    await resolveTileVersion(confirmed("2026-07-29_a"), now);
+    expect(String(vi.mocked(fetch).mock.calls[0]![0])).toMatch(/\.png\?probe=\d+$/);
+  });
+
+  it("seeds from the baked fallback on a cold namespace", async () => {
+    mockUpstream(FALLBACK_TILE_VERSION);
+    const result = await resolveTileVersion(null, now);
+    expect(result.version).toBe(FALLBACK_TILE_VERSION);
+    expect(result.confirmed).toBe(true);
+  });
+
   it("adopts the new render once the anchor is purged", async () => {
     mockUpstream("2026-07-30_a");
-    const result = await resolveTileVersion("2026-07-29_a", now);
+    const result = await resolveTileVersion(confirmed("2026-07-29_a"), now);
     expect(result.version).toBe("2026-07-30_a");
     expect(result.confirmed).toBe(true);
   });
 
   it("rides out a long-lived render because the anchor carries it", async () => {
     mockUpstream("2026-03-04_a");
-    const result = await resolveTileVersion("2026-03-04_a", now);
+    const result = await resolveTileVersion(confirmed("2026-03-04_a"), now);
     expect(result.version).toBe("2026-03-04_a");
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
-  it("reports unconfirmed instead of pretending, when nothing is live", async () => {
+  it("keeps the anchor but marks it unconfirmed when nothing is live", async () => {
     mockUpstream(null);
-    const result = await resolveTileVersion("2026-07-29_a", now);
-    expect(result).toEqual({
-      version: FALLBACK_TILE_VERSION,
-      verifiedAt: NOW,
-      confirmed: false,
-    });
+    const result = await resolveTileVersion(confirmed("2026-07-29_a"), now);
+    expect(result).toEqual({ version: "2026-07-29_a", verifiedAt: NOW, confirmed: false });
+  });
+
+  it("only re-checks the anchor while a failed scan is backed off", async () => {
+    mockUpstream(null);
+    const failed = { version: "2026-07-29_a", verifiedAt: NOW - 3600_000, confirmed: false };
+    expect(await resolveTileVersion(failed, now)).toBe(failed);
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   it("stays under the Workers subrequest limit when scanning", async () => {
     mockUpstream(null);
-    await resolveTileVersion("2026-07-29_a", now);
+    await resolveTileVersion(confirmed("2026-07-29_a"), now);
     expect(vi.mocked(fetch).mock.calls.length).toBeLessThanOrEqual(MAX_PROBE_DAYS + 1);
     expect(MAX_PROBE_DAYS + 1).toBeLessThan(50);
   });

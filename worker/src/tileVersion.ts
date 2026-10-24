@@ -3,8 +3,7 @@ import {
   type Env,
   PROBE_TILE,
   TILE_VERSION_KV_KEY,
-  TILE_VERSION_TTL_SECONDS,
-  TILE_VERSION_UNCONFIRMED_TTL_SECONDS,
+  TILE_VERSION_SCAN_BACKOFF_SECONDS,
   UPSTREAM_HEADERS,
   generateProbeVersions,
   isValidTileVersion,
@@ -17,10 +16,6 @@ export interface TileVersionRecord {
   version: string;
   verifiedAt: number;
   confirmed: boolean;
-}
-
-function ttlSeconds(record: TileVersionRecord): number {
-  return record.confirmed ? TILE_VERSION_TTL_SECONDS : TILE_VERSION_UNCONFIRMED_TTL_SECONDS;
 }
 
 export function parseRecord(raw: string | null): TileVersionRecord | null {
@@ -37,8 +32,9 @@ export function parseRecord(raw: string | null): TileVersionRecord | null {
   return { version, verifiedAt, confirmed: confirmed === true };
 }
 
-export function isFresh(record: TileVersionRecord, now = Date.now()): boolean {
-  return now < record.verifiedAt + ttlSeconds(record) * 1000;
+export function scanBackedOff(record: TileVersionRecord | null, now = Date.now()): boolean {
+  if (!record || record.confirmed) return false;
+  return now < record.verifiedAt + TILE_VERSION_SCAN_BACKOFF_SECONDS * 1000;
 }
 
 export function anchorVersion(raw: string | null): string {
@@ -62,11 +58,16 @@ async function versionExists(version: string): Promise<boolean> {
 }
 
 export async function resolveTileVersion(
-  anchor: string,
+  previous: TileVersionRecord | null,
   now: Date = new Date(),
 ): Promise<TileVersionRecord> {
+  const anchor = previous?.version ?? FALLBACK_TILE_VERSION;
   if (await versionExists(anchor)) {
     return { version: anchor, verifiedAt: now.getTime(), confirmed: true };
+  }
+  if (scanBackedOff(previous, now.getTime())) {
+    console.warn("tileVersion: anchor", anchor, "still gone, scan backed off");
+    return previous!;
   }
   console.warn("tileVersion: anchor", anchor, "is gone, scanning for a newer render");
 
@@ -78,29 +79,21 @@ export async function resolveTileVersion(
     }
   }
 
-  console.error("tileVersion: no live render found, serving unconfirmed", FALLBACK_TILE_VERSION);
-  return { version: FALLBACK_TILE_VERSION, verifiedAt: now.getTime(), confirmed: false };
+  console.error("tileVersion: no live render found, keeping unconfirmed", anchor);
+  return { version: anchor, verifiedAt: now.getTime(), confirmed: false };
 }
 
-async function store(env: Env, record: TileVersionRecord): Promise<void> {
-  await env.TILE_VERSION_KV.put(TILE_VERSION_KV_KEY, JSON.stringify(record), {
-    expirationTtl: ttlSeconds(record),
-  });
-}
-
+// Requests only read KV; the hourly cron is the sole caller that probes upstream,
+// so a stale or missing record can never fan out into per-request probe storms.
 export async function getTileVersion(env: Env): Promise<string> {
-  const raw = await env.TILE_VERSION_KV.get(TILE_VERSION_KV_KEY);
-  const cached = parseRecord(raw);
-  if (cached && isFresh(cached)) return cached.version;
-
-  const record = await resolveTileVersion(anchorVersion(raw));
-  await store(env, record);
-  return record.version;
+  return anchorVersion(await env.TILE_VERSION_KV.get(TILE_VERSION_KV_KEY));
 }
 
 export async function refreshTileVersion(env: Env): Promise<TileVersionRecord> {
-  const raw = await env.TILE_VERSION_KV.get(TILE_VERSION_KV_KEY);
-  const record = await resolveTileVersion(anchorVersion(raw));
-  await store(env, record);
+  const previous = parseRecord(await env.TILE_VERSION_KV.get(TILE_VERSION_KV_KEY));
+  const record = await resolveTileVersion(previous);
+  if (record !== previous) {
+    await env.TILE_VERSION_KV.put(TILE_VERSION_KV_KEY, JSON.stringify(record));
+  }
   return record;
 }
