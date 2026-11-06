@@ -358,6 +358,19 @@
         ]
       },
       {
+        "location": "Paterdomus Temple - top floor",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 2,
+        "coords": [
+          {
+            "x": 3414,
+            "y": 3493,
+            "qty": 1
+          }
+        ]
+      },
+      {
         "location": "Shayzien - Jennifer's General Supplies",
         "members": "Yes",
         "map_id": 0,
@@ -797,19 +810,6 @@
     "image_url": "/icons/Small_fishing_net.png",
     "spawns": [
       {
-        "location": "Sunset Coast",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1523,
-            "y": 2976,
-            "qty": 1
-          }
-        ]
-      },
-      {
         "location": "Shipwreck Cove",
         "members": "Yes",
         "map_id": 0,
@@ -927,6 +927,19 @@
           {
             "x": 3167,
             "y": 2838,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Sunset Coast",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1523,
+            "y": 2976,
             "qty": 1
           }
         ]
@@ -2388,7 +2401,7 @@
         ]
       },
       {
-        "location": "Here be minotaurs",
+        "location": "Minotaurs' Rest Cave",
         "members": "Yes",
         "map_id": -1,
         "plane": 0,
@@ -8298,6 +8311,27 @@
     ]
   },
   {
+    "item": "Bronze shortsword",
+    "quest": "No",
+    "image_file": "Bronze shortsword.png",
+    "image_url": "/icons/Bronze_shortsword.png",
+    "spawns": [
+      {
+        "location": "Feldip Hills - western coast",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2483,
+            "y": 2929,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
     "item": "Bronze spear",
     "quest": "No",
     "image_file": "Bronze spear.png",
@@ -8333,27 +8367,6 @@
           {
             "x": 3294,
             "y": 3935,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Bronze sword",
-    "quest": "No",
-    "image_file": "Bronze sword.png",
-    "image_url": "/icons/Bronze_sword.png",
-    "spawns": [
-      {
-        "location": "Feldip Hills - western coast",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2483,
-            "y": 2929,
             "qty": 1
           }
         ]
@@ -16006,31 +16019,10 @@
     ]
   },
   {
-    "item": "Iron spit",
+    "item": "Iron shortsword",
     "quest": "No",
-    "image_file": "Iron spit.png",
-    "image_url": "/icons/Iron_spit.png",
-    "spawns": [
-      {
-        "location": "Weiss",
-        "members": "Yes",
-        "map_id": 0,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 2875,
-            "y": 3920,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Iron sword",
-    "quest": "No",
-    "image_file": "Iron sword.png",
-    "image_url": "/icons/Iron_sword.png",
+    "image_file": "Iron shortsword.png",
+    "image_url": "/icons/Iron_shortsword.png",
     "spawns": [
       {
         "location": "Bandits' camp north-east of Ralos' Rise",
@@ -16085,6 +16077,27 @@
           {
             "x": 2497,
             "y": 5987,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Iron spit",
+    "quest": "No",
+    "image_file": "Iron spit.png",
+    "image_url": "/icons/Iron_spit.png",
+    "spawns": [
+      {
+        "location": "Weiss",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2875,
+            "y": 3920,
             "qty": 1
           }
         ]
@@ -24535,31 +24548,10 @@
     ]
   },
   {
-    "item": "Steel spear",
+    "item": "Steel shortsword",
     "quest": "No",
-    "image_file": "Steel spear.png",
-    "image_url": "/icons/Steel_spear.png",
-    "spawns": [
-      {
-        "location": "Neypotzli",
-        "members": "Yes",
-        "map_id": -1,
-        "plane": 0,
-        "coords": [
-          {
-            "x": 1349,
-            "y": 9565,
-            "qty": 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "item": "Steel sword",
-    "quest": "No",
-    "image_file": "Steel sword.png",
-    "image_url": "/icons/Steel_sword.png",
+    "image_file": "Steel shortsword.png",
+    "image_url": "/icons/Steel_shortsword.png",
     "spawns": [
       {
         "location": "Wilderness - north-east of the Chaos Temple",
@@ -24583,6 +24575,27 @@
           {
             "x": 1741,
             "y": 3189,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Steel spear",
+    "quest": "No",
+    "image_file": "Steel spear.png",
+    "image_url": "/icons/Steel_spear.png",
+    "spawns": [
+      {
+        "location": "Neypotzli",
+        "members": "Yes",
+        "map_id": -1,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1349,
+            "y": 9565,
             "qty": 1
           }
         ]
