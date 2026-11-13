@@ -21,7 +21,7 @@
           ]
         }
       ],
-      "revid": 15368303
+      "revid": 15400269
     },
     "Bucket": {
       "item": "Bucket",
@@ -949,7 +949,7 @@
           ]
         }
       ],
-      "revid": 15392193
+      "revid": 15397475
     },
     "Tinderbox": {
       "item": "Tinderbox",
@@ -1530,7 +1530,7 @@
           ]
         }
       ],
-      "revid": 15317530
+      "revid": 15396625
     },
     "Astronomy book": {
       "item": "Astronomy book",
@@ -1653,7 +1653,7 @@
           ]
         }
       ],
-      "revid": 15365390
+      "revid": 15399320
     },
     "Barrel": {
       "item": "Barrel",
@@ -2238,7 +2238,7 @@
           ]
         }
       ],
-      "revid": 15355509
+      "revid": 15397411
     },
     "Beer tankard": {
       "item": "Beer tankard",
@@ -7338,7 +7338,7 @@
           ]
         }
       ],
-      "revid": 15182782
+      "revid": 15397319
     },
     "Bronze arrowtips": {
       "item": "Bronze arrowtips",
@@ -7434,6 +7434,19 @@
             {
               "x": 2826,
               "y": 3083,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "location": "Haunted Woods - during A Shell of a Friend",
+          "members": "Yes",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3585,
+              "y": 3496,
               "qty": 1
             }
           ]
@@ -7621,7 +7634,7 @@
           ]
         }
       ],
-      "revid": 15347397
+      "revid": 15400133
     },
     "Bronze bar": {
       "item": "Bronze bar",
@@ -7759,7 +7772,7 @@
           ]
         }
       ],
-      "revid": 15301699
+      "revid": 15399621
     },
     "Bronze chainbody": {
       "item": "Bronze chainbody",
@@ -7947,7 +7960,7 @@
           ]
         }
       ],
-      "revid": 15301674
+      "revid": 15399492
     },
     "Bronze mace": {
       "item": "Bronze mace",
@@ -8397,7 +8410,7 @@
           ]
         }
       ],
-      "revid": 15394638
+      "revid": 15397754
     },
     "Bronze spear": {
       "item": "Bronze spear",
@@ -8498,7 +8511,7 @@
           ]
         }
       ],
-      "revid": 15376567
+      "revid": 15395480
     },
     "Bucket of water": {
       "item": "Bucket of water",
@@ -8533,7 +8546,7 @@
           ]
         },
         {
-          "location": "Catherby - house north of Hickton's Archery Emporium",
+          "location": "Catherby - Councillor Catherine's office",
           "members": "Yes",
           "map_id": 0,
           "plane": 0,
@@ -8670,6 +8683,19 @@
             {
               "x": 3639,
               "y": 3258,
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "location": "Southwest of the Digsite",
+          "members": "Yes",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3307,
+              "y": 3391,
               "qty": 1
             }
           ]
@@ -8823,7 +8849,7 @@
           ]
         }
       ],
-      "revid": 15355807
+      "revid": 15399991
     },
     "Bug lantern": {
       "item": "Bug lantern",
@@ -9531,7 +9557,7 @@
           ]
         }
       ],
-      "revid": 15188224
+      "revid": 15396943
     },
     "Cabbage": {
       "item": "Cabbage",
@@ -9592,7 +9618,7 @@
           ]
         }
       ],
-      "revid": 15255126
+      "revid": 15399218
     },
     "Cabbages": {
       "item": "Cabbages",
@@ -10385,7 +10411,7 @@
           ]
         }
       ],
-      "revid": 15341754
+      "revid": 15397795
     },
     "Chocolate bar": {
       "item": "Chocolate bar",
@@ -12500,6 +12526,48 @@
       ],
       "revid": 15188853
     },
+    "Dew-covered branch": {
+      "item": "Dew-covered branch",
+      "quest": "[[A Shell of a Friend]]",
+      "image_file": "Dew-covered branch.png",
+      "image_url": "/icons/Dew-covered_branch.png",
+      "spawns": [
+        {
+          "location": "Haunted Woods",
+          "members": "Yes",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3573,
+              "y": 3485,
+              "qty": 1
+            },
+            {
+              "x": 3574,
+              "y": 3486,
+              "qty": 1
+            },
+            {
+              "x": 3575,
+              "y": 3483,
+              "qty": 1
+            },
+            {
+              "x": 3576,
+              "y": 3482,
+              "qty": 1
+            },
+            {
+              "x": 3573,
+              "y": 3478,
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "revid": 15400315
+    },
     "Diary (Witch's House)": {
       "item": "Diary (Witch's House)",
       "quest": "[[Witch's House]]",
@@ -13583,7 +13651,7 @@
           ]
         }
       ],
-      "revid": 15301700
+      "revid": 15399536
     },
     "Feathered journal": {
       "item": "Feathered journal",
@@ -13989,6 +14057,48 @@
         }
       ],
       "revid": 15302941
+    },
+    "Fresh leaves": {
+      "item": "Fresh leaves",
+      "quest": "[[A Shell of a Friend]]",
+      "image_file": "Fresh leaves.png",
+      "image_url": "/icons/Fresh_leaves.png",
+      "spawns": [
+        {
+          "location": "Haunted Woods",
+          "members": "Yes",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3573,
+              "y": 3502,
+              "qty": 1
+            },
+            {
+              "x": 3571,
+              "y": 3506,
+              "qty": 1
+            },
+            {
+              "x": 3575,
+              "y": 3508,
+              "qty": 1
+            },
+            {
+              "x": 3579,
+              "y": 3511,
+              "qty": 1
+            },
+            {
+              "x": 3573,
+              "y": 3513,
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "revid": 15400314
     },
     "Garlic": {
       "item": "Garlic",
@@ -14923,6 +15033,19 @@
           ]
         },
         {
+          "location": "Lumbridge",
+          "members": "No",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3223,
+              "y": 3252,
+              "qty": 1
+            }
+          ]
+        },
+        {
           "location": "Mistrock",
           "members": "Yes",
           "map_id": -1,
@@ -15113,9 +15236,22 @@
               "qty": 1
             }
           ]
+        },
+        {
+          "location": "Varrock \u2013 Anvil building",
+          "members": "No",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3186,
+              "y": 3422,
+              "qty": 1
+            }
+          ]
         }
       ],
-      "revid": 15358372
+      "revid": 15398500
     },
     "Harpoon": {
       "item": "Harpoon",
@@ -15195,7 +15331,7 @@
           ]
         }
       ],
-      "revid": 15332151
+      "revid": 15399603
     },
     "Herring": {
       "item": "Herring",
@@ -15318,7 +15454,7 @@
           ]
         }
       ],
-      "revid": 15242886
+      "revid": 15400021
     },
     "Iron arrow": {
       "item": "Iron arrow",
@@ -15380,7 +15516,7 @@
           ]
         }
       ],
-      "revid": 15318131
+      "revid": 15397320
     },
     "Iron axe": {
       "item": "Iron axe",
@@ -15724,7 +15860,7 @@
           ]
         }
       ],
-      "revid": 15301682
+      "revid": 15400672
     },
     "Iron full helm": {
       "item": "Iron full helm",
@@ -16274,7 +16410,7 @@
           ]
         }
       ],
-      "revid": 15394639
+      "revid": 15397755
     },
     "Iron spit": {
       "item": "Iron spit",
@@ -16774,7 +16910,7 @@
         {
           "location": "The Fractured Archive lobby",
           "members": "Yes",
-          "map_id": 0,
+          "map_id": -1,
           "plane": 0,
           "coords": [
             {
@@ -16785,7 +16921,7 @@
           ]
         }
       ],
-      "revid": 15376912
+      "revid": 15395989
     },
     "Kebab": {
       "item": "Kebab",
@@ -17579,7 +17715,7 @@
           ]
         }
       ],
-      "revid": 15350068
+      "revid": 15397793
     },
     "Leather": {
       "item": "Leather",
@@ -18402,7 +18538,7 @@
           ]
         }
       ],
-      "revid": 15322883
+      "revid": 15396816
     },
     "Longbow": {
       "item": "Longbow",
@@ -18650,7 +18786,7 @@
           ]
         }
       ],
-      "revid": 15182814
+      "revid": 15397324
     },
     "Mithril pickaxe": {
       "item": "Mithril pickaxe",
@@ -18661,7 +18797,7 @@
         {
           "location": "The Fractured Archive lobby",
           "members": "Yes",
-          "map_id": 0,
+          "map_id": -1,
           "plane": 0,
           "coords": [
             {
@@ -18672,7 +18808,7 @@
           ]
         }
       ],
-      "revid": 15376919
+      "revid": 15395990
     },
     "Monk's robe": {
       "item": "Monk's robe",
@@ -19223,7 +19359,7 @@
           ]
         }
       ],
-      "revid": 15217876
+      "revid": 15399232
     },
     "Orange": {
       "item": "Orange",
@@ -19443,7 +19579,7 @@
           ]
         }
       ],
-      "revid": 15355604
+      "revid": 15396499
     },
     "Pat of butter": {
       "item": "Pat of butter",
@@ -19549,7 +19685,7 @@
           ]
         }
       ],
-      "revid": 15301710
+      "revid": 15396812
     },
     "Pickled brain": {
       "item": "Pickled brain",
@@ -20552,7 +20688,7 @@
           ]
         }
       ],
-      "revid": 15183484
+      "revid": 15399226
     },
     "Potato cactus": {
       "item": "Potato cactus",
@@ -20916,7 +21052,7 @@
           ]
         }
       ],
-      "revid": 15359168
+      "revid": 15397335
     },
     "Red cog": {
       "item": "Red cog",
@@ -23888,6 +24024,58 @@
       ],
       "revid": 15185169
     },
+    "Small fishing net (Evil Bob)": {
+      "item": "Small fishing net (Evil Bob)",
+      "quest": "No",
+      "image_file": "Small fishing net (Evil Bob).png",
+      "image_url": "/icons/Small_fishing_net_(Evil_Bob).png",
+      "spawns": [
+        {
+          "location": "ScapeRune",
+          "members": "No",
+          "map_id": 10057,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 2518,
+              "y": 4768,
+              "qty": 1
+            },
+            {
+              "x": 2533,
+              "y": 4769,
+              "qty": 1
+            },
+            {
+              "x": 2535,
+              "y": 4772,
+              "qty": 1
+            },
+            {
+              "x": 2536,
+              "y": 4783,
+              "qty": 1
+            },
+            {
+              "x": 2533,
+              "y": 4784,
+              "qty": 1
+            },
+            {
+              "x": 2516,
+              "y": 4784,
+              "qty": 1
+            },
+            {
+              "x": 2520,
+              "y": 4786,
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "revid": 15401596
+    },
     "Smashed glass": {
       "item": "Smashed glass",
       "quest": "No",
@@ -24424,6 +24612,19 @@
           ]
         },
         {
+          "location": "Southwest of the Digsite",
+          "members": "Yes",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3316,
+              "y": 3385,
+              "qty": 1
+            }
+          ]
+        },
+        {
           "location": "Varrock General Store (level 1)",
           "members": "No",
           "map_id": 0,
@@ -24463,7 +24664,7 @@
           ]
         }
       ],
-      "revid": 15387831
+      "revid": 15399239
     },
     "Spirit angler headband (tortugan)": {
       "item": "Spirit angler headband (tortugan)",
@@ -24615,7 +24816,7 @@
           ]
         }
       ],
-      "revid": 15182875
+      "revid": 15397322
     },
     "Steel arrowtips": {
       "item": "Steel arrowtips",
@@ -24905,7 +25106,7 @@
           ]
         }
       ],
-      "revid": 15394640
+      "revid": 15397756
     },
     "Steel spear": {
       "item": "Steel spear",
@@ -25058,6 +25259,48 @@
         }
       ],
       "revid": 15285885
+    },
+    "Strong sticks": {
+      "item": "Strong sticks",
+      "quest": "[[A Shell of a Friend]]",
+      "image_file": "Strong sticks.png",
+      "image_url": "/icons/Strong_sticks.png",
+      "spawns": [
+        {
+          "location": "Haunted Woods",
+          "members": "Yes",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 3581,
+              "y": 3479,
+              "qty": 1
+            },
+            {
+              "x": 3581,
+              "y": 3483,
+              "qty": 1
+            },
+            {
+              "x": 3583,
+              "y": 3486,
+              "qty": 1
+            },
+            {
+              "x": 3580,
+              "y": 3488,
+              "qty": 1
+            },
+            {
+              "x": 3582,
+              "y": 3497,
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "revid": 15400316
     },
     "Sun-shine": {
       "item": "Sun-shine",
@@ -26017,7 +26260,7 @@
           ]
         }
       ],
-      "revid": 15318423
+      "revid": 15398523
     },
     "Tiara mould": {
       "item": "Tiara mould",
@@ -27135,6 +27378,14 @@
       ],
       "revid": 15395149
     },
+    "Scenery": {
+      "item": "Scenery",
+      "quest": null,
+      "image_file": null,
+      "image_url": null,
+      "spawns": [],
+      "revid": 15013567
+    },
     "Bird snare (spawn)": {
       "item": "Bird snare (spawn)",
       "quest": "No",
@@ -27151,22 +27402,6 @@
       "spawns": [],
       "revid": 15205533
     },
-    "Ironman Mode": {
-      "item": "Ironman Mode",
-      "quest": null,
-      "image_file": null,
-      "image_url": null,
-      "spawns": [],
-      "revid": 15389053
-    },
-    "Scenery": {
-      "item": "Scenery",
-      "quest": null,
-      "image_file": null,
-      "image_url": null,
-      "spawns": [],
-      "revid": 15013567
-    },
     "Small fishing net (scenery)": {
       "item": "Small fishing net (scenery)",
       "quest": "No",
@@ -27182,6 +27417,14 @@
       "image_url": "/icons/Tinderbox_(scenery).png",
       "spawns": [],
       "revid": 15330031
+    },
+    "Ironman Mode": {
+      "item": "Ironman Mode",
+      "quest": null,
+      "image_file": null,
+      "image_url": null,
+      "spawns": [],
+      "revid": 15389053
     }
   }
 }
