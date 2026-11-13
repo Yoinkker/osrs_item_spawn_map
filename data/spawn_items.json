@@ -7383,6 +7383,19 @@
         ]
       },
       {
+        "location": "Haunted Woods - during A Shell of a Friend",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3585,
+            "y": 3496,
+            "qty": 1
+          }
+        ]
+      },
+      {
         "location": "Kendal's Lair",
         "members": "Yes",
         "map_id": 0,
@@ -8461,7 +8474,7 @@
         ]
       },
       {
-        "location": "Catherby - house north of Hickton's Archery Emporium",
+        "location": "Catherby - Councillor Catherine's office",
         "members": "Yes",
         "map_id": 0,
         "plane": 0,
@@ -8598,6 +8611,19 @@
           {
             "x": 3639,
             "y": 3258,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Southwest of the Digsite",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3307,
+            "y": 3391,
             "qty": 1
           }
         ]
@@ -12380,6 +12406,47 @@
     ]
   },
   {
+    "item": "Dew-covered branch",
+    "quest": "[[A Shell of a Friend]]",
+    "image_file": "Dew-covered branch.png",
+    "image_url": "/icons/Dew-covered_branch.png",
+    "spawns": [
+      {
+        "location": "Haunted Woods",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3573,
+            "y": 3485,
+            "qty": 1
+          },
+          {
+            "x": 3574,
+            "y": 3486,
+            "qty": 1
+          },
+          {
+            "x": 3575,
+            "y": 3483,
+            "qty": 1
+          },
+          {
+            "x": 3576,
+            "y": 3482,
+            "qty": 1
+          },
+          {
+            "x": 3573,
+            "y": 3478,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
     "item": "Diary (Witch's House)",
     "quest": "[[Witch's House]]",
     "image_file": "Diary (Witch's House).png",
@@ -13838,6 +13905,47 @@
     ]
   },
   {
+    "item": "Fresh leaves",
+    "quest": "[[A Shell of a Friend]]",
+    "image_file": "Fresh leaves.png",
+    "image_url": "/icons/Fresh_leaves.png",
+    "spawns": [
+      {
+        "location": "Haunted Woods",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3573,
+            "y": 3502,
+            "qty": 1
+          },
+          {
+            "x": 3571,
+            "y": 3506,
+            "qty": 1
+          },
+          {
+            "x": 3575,
+            "y": 3508,
+            "qty": 1
+          },
+          {
+            "x": 3579,
+            "y": 3511,
+            "qty": 1
+          },
+          {
+            "x": 3573,
+            "y": 3513,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
     "item": "Garlic",
     "quest": "No",
     "image_file": "Garlic.png",
@@ -14755,6 +14863,19 @@
         ]
       },
       {
+        "location": "Lumbridge",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3223,
+            "y": 3252,
+            "qty": 1
+          }
+        ]
+      },
+      {
         "location": "Mistrock",
         "members": "Yes",
         "map_id": -1,
@@ -14942,6 +15063,19 @@
           {
             "x": 3176,
             "y": 2426,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Varrock \u2013 Anvil building",
+        "members": "No",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3186,
+            "y": 3422,
             "qty": 1
           }
         ]
@@ -16576,7 +16710,7 @@
       {
         "location": "The Fractured Archive lobby",
         "members": "Yes",
-        "map_id": 0,
+        "map_id": -1,
         "plane": 0,
         "coords": [
           {
@@ -18436,7 +18570,7 @@
       {
         "location": "The Fractured Archive lobby",
         "members": "Yes",
-        "map_id": 0,
+        "map_id": -1,
         "plane": 0,
         "coords": [
           {
@@ -23584,6 +23718,57 @@
     ]
   },
   {
+    "item": "Small fishing net (Evil Bob)",
+    "quest": "No",
+    "image_file": "Small fishing net (Evil Bob).png",
+    "image_url": "/icons/Small_fishing_net_(Evil_Bob).png",
+    "spawns": [
+      {
+        "location": "ScapeRune",
+        "members": "No",
+        "map_id": 10057,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 2518,
+            "y": 4768,
+            "qty": 1
+          },
+          {
+            "x": 2533,
+            "y": 4769,
+            "qty": 1
+          },
+          {
+            "x": 2535,
+            "y": 4772,
+            "qty": 1
+          },
+          {
+            "x": 2536,
+            "y": 4783,
+            "qty": 1
+          },
+          {
+            "x": 2533,
+            "y": 4784,
+            "qty": 1
+          },
+          {
+            "x": 2516,
+            "y": 4784,
+            "qty": 1
+          },
+          {
+            "x": 2520,
+            "y": 4786,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
     "item": "Smashed glass",
     "quest": "No",
     "image_file": "Smashed glass.png",
@@ -24110,6 +24295,19 @@
           {
             "x": 3426,
             "y": 9958,
+            "qty": 1
+          }
+        ]
+      },
+      {
+        "location": "Southwest of the Digsite",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3316,
+            "y": 3385,
             "qty": 1
           }
         ]
@@ -24721,6 +24919,47 @@
           {
             "x": 1376,
             "y": 3503,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "item": "Strong sticks",
+    "quest": "[[A Shell of a Friend]]",
+    "image_file": "Strong sticks.png",
+    "image_url": "/icons/Strong_sticks.png",
+    "spawns": [
+      {
+        "location": "Haunted Woods",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 3581,
+            "y": 3479,
+            "qty": 1
+          },
+          {
+            "x": 3581,
+            "y": 3483,
+            "qty": 1
+          },
+          {
+            "x": 3583,
+            "y": 3486,
+            "qty": 1
+          },
+          {
+            "x": 3580,
+            "y": 3488,
+            "qty": 1
+          },
+          {
+            "x": 3582,
+            "y": 3497,
             "qty": 1
           }
         ]
