@@ -1267,7 +1267,7 @@
           ]
         }
       ],
-      "revid": 15318995
+      "revid": 15408287
     },
     "Address form": {
       "item": "Address form",
@@ -7772,7 +7772,7 @@
           ]
         }
       ],
-      "revid": 15399621
+      "revid": 15402958
     },
     "Bronze chainbody": {
       "item": "Bronze chainbody",
@@ -12364,7 +12364,7 @@
           ]
         }
       ],
-      "revid": 15183318
+      "revid": 15403521
     },
     "Damaged armour": {
       "item": "Damaged armour",
@@ -12566,7 +12566,7 @@
           ]
         }
       ],
-      "revid": 15400315
+      "revid": 15407116
     },
     "Diary (Witch's House)": {
       "item": "Diary (Witch's House)",
@@ -13401,7 +13401,7 @@
           ]
         }
       ],
-      "revid": 15203418
+      "revid": 15408299
     },
     "Embalming manual": {
       "item": "Embalming manual",
@@ -13651,7 +13651,7 @@
           ]
         }
       ],
-      "revid": 15399536
+      "revid": 15408288
     },
     "Feathered journal": {
       "item": "Feathered journal",
@@ -14098,7 +14098,7 @@
           ]
         }
       ],
-      "revid": 15400314
+      "revid": 15407118
     },
     "Garlic": {
       "item": "Garlic",
@@ -14717,7 +14717,7 @@
           ]
         }
       ],
-      "revid": 15301587
+      "revid": 15408312
     },
     "Grimy guam leaf": {
       "item": "Grimy guam leaf",
@@ -15251,7 +15251,7 @@
           ]
         }
       ],
-      "revid": 15398500
+      "revid": 15408280
     },
     "Harpoon": {
       "item": "Harpoon",
@@ -15299,7 +15299,7 @@
           ]
         }
       ],
-      "revid": 15360843
+      "revid": 15403792
     },
     "Headless arrow": {
       "item": "Headless arrow",
@@ -18874,7 +18874,7 @@
           ]
         }
       ],
-      "revid": 15383320
+      "revid": 15403318
     },
     "Muddy rock": {
       "item": "Muddy rock",
@@ -19104,7 +19104,7 @@
           ]
         }
       ],
-      "revid": 15281488
+      "revid": 15408292
     },
     "Noose wand": {
       "item": "Noose wand",
@@ -20605,7 +20605,7 @@
           ]
         }
       ],
-      "revid": 15384837
+      "revid": 15408290
     },
     "Pot of flour": {
       "item": "Pot of flour",
@@ -20627,7 +20627,7 @@
           ]
         }
       ],
-      "revid": 15367119
+      "revid": 15408293
     },
     "Potato": {
       "item": "Potato",
@@ -20754,6 +20754,28 @@
         }
       ],
       "revid": 15298144
+    },
+    "Potatoes": {
+      "item": "Potatoes",
+      "quest": "No",
+      "image_file": "Potatoes(1).png",
+      "image_url": "/icons/Potatoes(1).png",
+      "spawns": [
+        {
+          "location": "Civitas illa Fortis - House south of Civitas illa Fortis' west bank during The Final Dawn",
+          "members": "Yes",
+          "map_id": 0,
+          "plane": 0,
+          "coords": [
+            {
+              "x": 1645,
+              "y": 3091,
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "revid": 15403886
     },
     "Premade blurb' sp.": {
       "item": "Premade blurb' sp.",
@@ -22145,7 +22167,7 @@
           ]
         }
       ],
-      "revid": 15214288
+      "revid": 15408282
     },
     "Sea shell": {
       "item": "Sea shell",
@@ -24664,7 +24686,7 @@
           ]
         }
       ],
-      "revid": 15399239
+      "revid": 15406383
     },
     "Spirit angler headband (tortugan)": {
       "item": "Spirit angler headband (tortugan)",
@@ -26260,7 +26282,7 @@
           ]
         }
       ],
-      "revid": 15398523
+      "revid": 15408291
     },
     "Tiara mould": {
       "item": "Tiara mould",
@@ -26282,7 +26304,7 @@
           ]
         }
       ],
-      "revid": 15183368
+      "revid": 15406885
     },
     "Tile": {
       "item": "Tile",
@@ -27233,7 +27255,7 @@
           ]
         }
       ],
-      "revid": 15372013
+      "revid": 15409878
     },
     "Wizard hat": {
       "item": "Wizard hat",
@@ -27378,14 +27400,6 @@
       ],
       "revid": 15395149
     },
-    "Scenery": {
-      "item": "Scenery",
-      "quest": null,
-      "image_file": null,
-      "image_url": null,
-      "spawns": [],
-      "revid": 15013567
-    },
     "Bird snare (spawn)": {
       "item": "Bird snare (spawn)",
       "quest": "No",
@@ -27402,6 +27416,22 @@
       "spawns": [],
       "revid": 15205533
     },
+    "Ironman Mode": {
+      "item": "Ironman Mode",
+      "quest": null,
+      "image_file": null,
+      "image_url": null,
+      "spawns": [],
+      "revid": 15389053
+    },
+    "Scenery": {
+      "item": "Scenery",
+      "quest": null,
+      "image_file": null,
+      "image_url": null,
+      "spawns": [],
+      "revid": 15013567
+    },
     "Small fishing net (scenery)": {
       "item": "Small fishing net (scenery)",
       "quest": "No",
@@ -27417,14 +27447,6 @@
       "image_url": "/icons/Tinderbox_(scenery).png",
       "spawns": [],
       "revid": 15330031
-    },
-    "Ironman Mode": {
-      "item": "Ironman Mode",
-      "quest": null,
-      "image_file": null,
-      "image_url": null,
-      "spawns": [],
-      "revid": 15389053
     }
   }
 }

@@ -20490,6 +20490,27 @@
     ]
   },
   {
+    "item": "Potatoes",
+    "quest": "No",
+    "image_file": "Potatoes(1).png",
+    "image_url": "/icons/Potatoes(1).png",
+    "spawns": [
+      {
+        "location": "Civitas illa Fortis - House south of Civitas illa Fortis' west bank during The Final Dawn",
+        "members": "Yes",
+        "map_id": 0,
+        "plane": 0,
+        "coords": [
+          {
+            "x": 1645,
+            "y": 3091,
+            "qty": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
     "item": "Premade blurb' sp.",
     "quest": "No",
     "image_file": "Premade blurb' sp..png",
