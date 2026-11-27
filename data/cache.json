@@ -21,7 +21,7 @@
           ]
         }
       ],
-      "revid": 15400269
+      "revid": 15414080
     },
     "Bucket": {
       "item": "Bucket",
@@ -7807,7 +7807,7 @@
           ]
         }
       ],
-      "revid": 15320183
+      "revid": 15414473
     },
     "Bronze dagger": {
       "item": "Bronze dagger",
@@ -8454,7 +8454,7 @@
           ]
         }
       ],
-      "revid": 15320133
+      "revid": 15414462
     },
     "Bucket of milk": {
       "item": "Bucket of milk",
@@ -8688,7 +8688,7 @@
           ]
         },
         {
-          "location": "Southwest of the Digsite",
+          "location": "South-west of the Digsite",
           "members": "Yes",
           "map_id": 0,
           "plane": 0,
@@ -8849,7 +8849,7 @@
           ]
         }
       ],
-      "revid": 15399991
+      "revid": 15414075
     },
     "Bug lantern": {
       "item": "Bug lantern",
@@ -9618,7 +9618,7 @@
           ]
         }
       ],
-      "revid": 15399218
+      "revid": 15414076
     },
     "Cabbages": {
       "item": "Cabbages",
@@ -12502,7 +12502,7 @@
           ]
         }
       ],
-      "revid": 15327928
+      "revid": 15414431
     },
     "Deed": {
       "item": "Deed",
@@ -18161,7 +18161,7 @@
           ]
         }
       ],
-      "revid": 15382640
+      "revid": 15417357
     },
     "Logs": {
       "item": "Logs",
@@ -18560,7 +18560,7 @@
           ]
         }
       ],
-      "revid": 15343873
+      "revid": 15414429
     },
     "Magic staff": {
       "item": "Magic staff",
@@ -19359,7 +19359,7 @@
           ]
         }
       ],
-      "revid": 15399232
+      "revid": 15414078
     },
     "Orange": {
       "item": "Orange",
@@ -20688,7 +20688,7 @@
           ]
         }
       ],
-      "revid": 15399226
+      "revid": 15414077
     },
     "Potato cactus": {
       "item": "Potato cactus",
@@ -23823,7 +23823,7 @@
           ]
         }
       ],
-      "revid": 15336512
+      "revid": 15414428
     },
     "Silk": {
       "item": "Silk",
@@ -24634,7 +24634,7 @@
           ]
         },
         {
-          "location": "Southwest of the Digsite",
+          "location": "South-west of the Digsite",
           "members": "Yes",
           "map_id": 0,
           "plane": 0,
@@ -24686,7 +24686,7 @@
           ]
         }
       ],
-      "revid": 15406383
+      "revid": 15414074
     },
     "Spirit angler headband (tortugan)": {
       "item": "Spirit angler headband (tortugan)",
@@ -25172,7 +25172,7 @@
           ]
         }
       ],
-      "revid": 15350032
+      "revid": 15414487
     },
     "Stone ball": {
       "item": "Stone ball",
@@ -25322,7 +25322,7 @@
           ]
         }
       ],
-      "revid": 15400316
+      "revid": 15415976
     },
     "Sun-shine": {
       "item": "Sun-shine",
